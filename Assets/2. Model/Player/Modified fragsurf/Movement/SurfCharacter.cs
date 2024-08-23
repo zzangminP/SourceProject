@@ -68,7 +68,7 @@ namespace Fragsurf.Movement {
 
         private bool underwater = false;
 
-        private Animator player_ani;
+        //private Animator player_ani;
 
         private bool isMove;
 
@@ -218,7 +218,7 @@ namespace Fragsurf.Movement {
             _moveData.useStepOffset = useStepOffset;
             _moveData.stepOffset = stepOffset;
 
-            player_ani = GetComponent<Animator>();
+            //player_ani = GetComponent<Animator>();
 
         }
 
@@ -335,9 +335,9 @@ namespace Fragsurf.Movement {
 
 
 
-            player_ani.SetBool("Move", isMove);
-            player_ani.SetFloat("DirX", direction.x);
-            player_ani.SetFloat("DirZ", direction.z);
+            //player_ani.SetBool("Move", isMove);
+            //player_ani.SetFloat("DirX", direction.x);
+            //player_ani.SetFloat("DirZ", direction.z);
         }
 
         private void DisableInput () {
