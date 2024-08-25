@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Animator player_ani;
+    //private Animator player_ani;
 
     [SerializeField] private float moveSpeed;
     private bool isMove;
@@ -12,10 +12,15 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-        player_ani = GetComponent<Animator>();
+        //player_ani = GetComponent<Animator>();
     }
 
     private void Update()
+    {
+        PlayerInput();
+    }
+
+    private void PlayerInput()
     {
         float _dirX = Input.GetAxis("Horizontal");
         float _dirZ = Input.GetAxis("Vertical");
@@ -29,12 +34,14 @@ public class PlayerControl : MonoBehaviour
         {
             isMove = true;
             this.transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
-          
+
 
         }
 
-        player_ani.SetBool("Move", isMove);
-        player_ani.SetFloat("DirX", direction.x);
-        player_ani.SetFloat("DirZ", direction.z);
+        //player_ani.SetBool("Move", isMove);
+        //player_ani.SetFloat("DirX", direction.x);
+        //player_ani.SetFloat("DirZ", direction.z);
+
+
     }
 }
