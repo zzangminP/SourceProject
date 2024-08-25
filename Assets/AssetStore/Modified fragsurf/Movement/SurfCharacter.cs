@@ -163,32 +163,32 @@ namespace Fragsurf.Movement {
 
 
             switch (collisionType) {
-
+            
                 // Box collider
                 case ColliderType.Box:
-
+            
                 _collider = _colliderObject.AddComponent<BoxCollider> ();
-
+            
                 var boxc = (BoxCollider)_collider;
                 boxc.size = colliderSize;
-
+            
                 defaultHeight = boxc.size.y;
-
+            
                 break;
-
+            
                 // Capsule collider
                 case ColliderType.Capsule:
-
+            
                 _collider = _colliderObject.AddComponent<CapsuleCollider> ();
-
+            
                 var capc = (CapsuleCollider)_collider;
                 capc.height = colliderSize.y;
                 capc.radius = colliderSize.x / 2f;
-
+            
                 defaultHeight = capc.height;
-
+            
                 break;
-
+            
             }
 
             _moveData.slopeLimit = movementConfig.slopeLimit;
@@ -218,7 +218,7 @@ namespace Fragsurf.Movement {
 
         private void Update () {
 
-            _colliderObject.transform.rotation = Quaternion.identity;
+            //_colliderObject.transform.rotation = Quaternion.identity;
 
 
             //UpdateTestBinds ();
@@ -259,7 +259,7 @@ namespace Fragsurf.Movement {
             transform.position = moveData.origin;
             prevPosition = transform.position;
 
-            _colliderObject.transform.rotation = Quaternion.identity;
+            //_colliderObject.transform.rotation = Quaternion.identity;
 
         }
         
