@@ -13,6 +13,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Transform viewModel_tr;
     [SerializeField] private Rigidbody player_rg;
 
+    [SerializeField] private Rigidbody[] skeleton_rg;
+    [SerializeField] private Collider[] skeleton_cl;
+    [SerializeField] private MeshCollider hitBoxCollider;
+    //[SerializeField] private Transform[] child;
 
     [Header("Physics Value")]
     [SerializeField] private float moveSpeed = 5f;
@@ -41,15 +45,65 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+        
+        InitPlayer();
+    }
+
+    /// <summary>
+    ///
+    /// Set up Player
+    /// 
+    /// </summary>
+    /// 
+
+
+    private void InitPlayer()
+    {
         //player_ani = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
+
+        setRagdoll(true);
+        transform.GetComponent<Rigidbody>().isKinematic = false;
+        setCollider(true);
+        transform.GetComponent<BoxCollider>().enabled = true;
+        hitBoxCollider.enabled = true;
     }
 
     private void Update()
     {
         PlayerInput();
     }
+
+
+
+
+
+
+    private void setRagdoll(bool state)
+    {
+        skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
+    
+        foreach (Rigidbody rb in skeleton_rg)
+        {
+            rb.isKinematic = state;
+            Debug.Log(rb.name);
+        }
+        //transform.GetComponent<Rigidbody>().isKinematic = !state;
+    }
+    private void setCollider(bool state)
+    {
+        skeleton_cl = transform.GetComponentsInChildren<Collider>();
+
+        foreach (Collider cl in skeleton_cl)
+        {
+            cl.enabled = !state;
+            Debug.Log(cl.name);
+        }
+        //transform.GetComponent<Rigidbody>().isKinematic = !state;
+    }
+
+
 
     private void PlayerInput()
     {
@@ -85,6 +139,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
+            player_rg.velocity = Vector3.zero;
             player_rg.AddForce(Vector3.up * JumpForce);
         
         }
