@@ -9,6 +9,15 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
 
+
+    /// <summary>
+    /// 
+    /// 
+    ///  TODO : Audio, sync,
+    /// 
+    /// 
+    /// </summary>
+
     //private const int maxWeaponCount = 34;
 
     public enum Type
@@ -29,14 +38,22 @@ public class WeaponData : ScriptableObject
     
     public string name;
     public GameObject prefab;
-    
-    //public List<AudioClip> audioClips;
+    public int maxAmmo;
+    public int maxMag;
+
+    // to buy weapon
+    public int cost;
+
+    // relate with player movement
+    public int mass;
+
+    // public List<AudioClip> audioClips;
     
 
     
     
     
     
-    //public string name[]
+    // public string name[]
 
 }
