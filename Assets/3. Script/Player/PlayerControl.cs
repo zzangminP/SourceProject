@@ -13,8 +13,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Transform viewModel_tr;
     [SerializeField] private Rigidbody player_rg;
 
-    [SerializeField] private Rigidbody[] skeleton_rg;
-    [SerializeField] private Collider[] skeleton_cl;
+
     [SerializeField] private MeshCollider hitBoxCollider;
     //[SerializeField] private Transform[] child;
 
@@ -23,8 +22,24 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float JumpForce = 5f;
 
-    
-    
+    [Header("Childern Components")]
+    [SerializeField] private Rigidbody[] skeleton_rg;
+    [SerializeField] private Collider[] skeleton_cl;
+
+    [Header("Animator")]
+    [SerializeField] private Animator v_model_ani;
+    [SerializeField] private Animator w_model_ani;
+
+
+    [Header("Weapon")]
+    [SerializeField] private Weapon pri_weapon;
+    [SerializeField] private Weapon sec_weapon;
+    [SerializeField] private Weapon[] gn;
+    [SerializeField] private Weapon[] miscellaneous;
+
+
+
+    private int holdingWeaponIndex = 0;
     /// <summary>
     /// 
     /// 1. [X                 ]
@@ -68,6 +83,10 @@ public class PlayerControl : MonoBehaviour
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
         hitBoxCollider.enabled = true;
+
+
+        v_model_ani = GameObject.Find("PriHolseter").GetComponentInChildren<Animator>();
+
     }
 
     private void Update()
@@ -108,6 +127,18 @@ public class PlayerControl : MonoBehaviour
     private void PlayerInput()
     {
 
+        PlayerMovement();
+
+        WeaponControl();
+        //player_ani.SetBool("Move", isMove);
+        //player_ani.SetFloat("DirX", direction.x);
+        //player_ani.SetFloat("DirZ", direction.z);
+
+
+    }
+
+    private void PlayerMovement()
+    {
         // WASD
         float _dirX = Input.GetAxis("Horizontal");
         float _dirZ = Input.GetAxis("Vertical");
@@ -124,7 +155,7 @@ public class PlayerControl : MonoBehaviour
 
         // mouse rotation
         xRotation -= _mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);        
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         player_tr.Rotate(Vector3.up * _mouseX);
         viewModel_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
@@ -141,13 +172,22 @@ public class PlayerControl : MonoBehaviour
         {
             player_rg.velocity = Vector3.zero;
             player_rg.AddForce(Vector3.up * JumpForce);
-        
+
         }
+    }
 
-        //player_ani.SetBool("Move", isMove);
-        //player_ani.SetFloat("DirX", direction.x);
-        //player_ani.SetFloat("DirZ", direction.z);
 
+    private void WeaponControl()
+    {
+        
+        if(Input.GetKey(KeyCode.R))
+        {
+
+        }
+    }
+
+    private void ViewModelAnimator()
+    {
 
     }
 }
