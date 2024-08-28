@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.OpenVR;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public enum PlayerState { 
@@ -27,18 +29,22 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Rigidbody player_rg;
 
 
+
     [SerializeField] private MeshCollider hitBoxCollider;
     //[SerializeField] private Transform[] child;
+
 
     [Header("Physics Value")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float JumpForce = 5f;
 
+    
     [Header("Childern Components")]
     [SerializeField] private Rigidbody[] skeleton_rg;
     [SerializeField] private Collider[] skeleton_cl;
 
+    
     [Header("Animator")]
     [SerializeField] private Animator v_model_ani;
     [SerializeField] private Animator w_model_ani;
@@ -140,7 +146,9 @@ public class PlayerControl : MonoBehaviour
     private void PlayerInput()
     {
 
-        PlayerMovement();
+        //PlayerMovement();
+
+        
 
         WeaponControl();
         //player_ani.SetBool("Move", isMove);
@@ -150,16 +158,65 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void PlayerMovement()
+    private void HandleInput()
     {
         // WASD
-        float _dirX = Input.GetAxis("Horizontal");
-        float _dirZ = Input.GetAxis("Vertical");
 
+        float dirX = Input.GetAxis("Horizontal");
+        float dirZ = Input.GetAxis("Vertical");
+
+        // Mouse
+
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        
+        PlayerMovement(dirX, dirZ, mouseX, mouseY);
+
+
+
+
+        
+
+
+        // Jump
+               
+        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            PlayerJump();   
+            
+        
+        }
+
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            // input reload method here
+        
+        }
+
+
+
+
+    }
+
+    
+    private void PlayerMovement(float dirX, float dirZ, float mouseX, float mouseY)
+    {
+        // WASD
+        //float _dirX = Input.GetAxis("Horizontal");
+        //float _dirZ = Input.GetAxis("Vertical");
+
+        float _dirX = dirX;
+        float _dirZ = dirZ;
 
         // mouse
-        float _mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
-        float _mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
+        //float _mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
+        //float _mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
+        float _mouseX = mouseX * Time.deltaTime * mouseSensitivity;
+        float _mouseY = mouseY * Time.deltaTime * mouseSensitivity;
+
 
         Vector3 direction = new Vector3(_dirX, 0, _dirZ);
 
@@ -181,27 +238,27 @@ public class PlayerControl : MonoBehaviour
 
         }
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            player_rg.velocity = Vector3.zero;
-            player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+    }
 
-        }
+    private void PlayerJump()
+    {
+        player_rg.velocity = Vector3.zero;
+        player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
     }
 
 
     private void WeaponControl()
     {
 
-     if (Input.GetKey(KeyCode.R))
-        {
-            //if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
-            //{ 
-            //
-            //}
-            //v_model_ani.SetBool("Reload", false);
-            //Debug.Log("Reloaded");
-        }
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    //if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+        //    //{ 
+        //    //
+        //    //}
+        //    //v_model_ani.SetBool("Reload", false);
+        //    //Debug.Log("Reloaded");
+        //}
         
         //if(Input.GetKey(KeyCode.Mouse0))
         //{
@@ -209,8 +266,18 @@ public class PlayerControl : MonoBehaviour
         //}
     }
 
-    private void VModelPlayAnimation()
-    {
 
+
+
+    protected void VModelPlayAnimation(string animationClip)
+    {
+        AnimatorStateInfo v_stateinfo = v_model_ani.GetCurrentAnimatorStateInfo(0);
+        //AnimatorStateInfo w_stateinfo = w_model_ani.GetCurrentAnimatorStateInfo(0);
+        if (!v_stateinfo.IsName(animationClip))//&& w_stateinfo.IsName(animationClip))
+        {
+            v_model_ani.CrossFadeInFixedTime(animationClip, 0f);
+            //w_model_ani.CrossFadeInFixedTime(animationClip, 0f);
+        }
     }
+
 }

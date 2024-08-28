@@ -39,7 +39,6 @@ public class WeaponData : ScriptableObject
 
     
     public string name;
-    public GameObject prefab;
     public int maxAmmo;
     public int maxMag;
 
@@ -49,6 +48,14 @@ public class WeaponData : ScriptableObject
     // relate with player movement
     public int mass;
 
+
+    // 
+    public GameObject prefab;
+
+    // for animator
+    // GameObject ViewModel, WorldModel
+    public GameObject _v_model;
+    //public GameObject _w_model;
     // public List<AudioClip> audioClips;
     
 
