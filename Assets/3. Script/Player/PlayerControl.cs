@@ -85,7 +85,7 @@ public class PlayerControl : MonoBehaviour
         hitBoxCollider.enabled = true;
 
 
-        v_model_ani = GameObject.Find("PriHolseter").GetComponentInChildren<Animator>();
+        v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
 
     }
 
@@ -179,11 +179,23 @@ public class PlayerControl : MonoBehaviour
 
     private void WeaponControl()
     {
-        
-        if(Input.GetKey(KeyCode.R))
-        {
 
+
+        v_model_ani.SetBool("Reload", false);
+        if (Input.GetKey(KeyCode.R))
+        {
+            if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+            { 
+                v_model_ani.SetBool("Reload", true);
+                Debug.Log("Reloading");
+            }
+            //v_model_ani.SetBool("Reload", false);
+            //Debug.Log("Reloaded");
         }
+        //if(Input.GetKey(KeyCode.Mouse0))
+        //{
+        //    v_model_ani.SetBool("Fire", true);
+        //}
     }
 
     private void ViewModelAnimator()
