@@ -31,7 +31,9 @@ public class WeaponData : ScriptableObject
         SR,
         DMR,
         GN,
-        Miscellaneous,
+        Kevlar,
+        KevlarAndHelmet,
+        Kit,
         C4
     }
 

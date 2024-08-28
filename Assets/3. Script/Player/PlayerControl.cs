@@ -2,10 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum PlayerState { 
+    S_Idle = 0, 
+    S_Walk, 
+    S_Run, 
+    S_Shoot, 
+    C_Idle, 
+    C_Move, 
+    C_Shoot
+}
+
 public class PlayerControl : MonoBehaviour
 {
-    //private Animator player_ani;
 
+    //private Animator player_ani;
+    
+    private PlayerState state;
 
 
     [Header("Components")]
@@ -171,7 +184,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             player_rg.velocity = Vector3.zero;
-            player_rg.AddForce(Vector3.up * JumpForce);
+            player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
 
         }
     }
@@ -180,25 +193,23 @@ public class PlayerControl : MonoBehaviour
     private void WeaponControl()
     {
 
-
-        v_model_ani.SetBool("Reload", false);
-        if (Input.GetKey(KeyCode.R))
+     if (Input.GetKey(KeyCode.R))
         {
-            if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
-            { 
-                v_model_ani.SetBool("Reload", true);
-                Debug.Log("Reloading");
-            }
+            //if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+            //{ 
+            //
+            //}
             //v_model_ani.SetBool("Reload", false);
             //Debug.Log("Reloaded");
         }
+        
         //if(Input.GetKey(KeyCode.Mouse0))
         //{
         //    v_model_ani.SetBool("Fire", true);
         //}
     }
 
-    private void ViewModelAnimator()
+    private void VModelPlayAnimation()
     {
 
     }
