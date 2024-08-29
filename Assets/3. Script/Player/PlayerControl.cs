@@ -110,7 +110,11 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        PlayerInput();
+        //PlayerInput();
+
+
+        HandleInput();
+        WeaponControl();
     }
 
 
@@ -125,7 +129,7 @@ public class PlayerControl : MonoBehaviour
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
-            Debug.Log(rb.name);
+            //Debug.Log(rb.name);
         }
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
@@ -136,7 +140,7 @@ public class PlayerControl : MonoBehaviour
         foreach (Collider cl in skeleton_cl)
         {
             cl.enabled = !state;
-            Debug.Log(cl.name);
+            //Debug.Log(cl.name);
         }
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
