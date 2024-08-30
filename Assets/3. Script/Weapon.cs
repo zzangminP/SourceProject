@@ -2,9 +2,28 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Animator animator; // Animator 컴포넌트를 참조
+    //public enum EWeaponState
+    //{
+    //    Draw = 0,
+    //    Idle,
+    //    Fire,
+    //    Reload
+    //
+    //}
+
+    /// <summary>
+    /// 
+    /// 
+    /// view model 하고 world model하고 어떻게 관리할껀지 생각해봐야함..
+    /// 
+    /// 
+    /// </summary>
+    
+    public Animator animator;
 
     private IWeaponState currentState;
+    //private EWeaponState eCurrentState;
+
 
     void Start()
     {
@@ -19,20 +38,21 @@ public class Weapon : MonoBehaviour
         {
             currentState.UpdateState(this);
         }
+        Debug.Log(currentState);
     }
 
     public void SetState(IWeaponState newState)
     {
-        // 현재 상태에서 나갈 때 ExitState 호출
+         
         if (currentState != null)
         {
             currentState.ExitState(this);
         }
 
-        // 새로운 상태로 전환
+        
         currentState = newState;
 
-        // 새로운 상태에 들어갈 때 EnterState 호출
+        
         if (currentState != null)
         {
             currentState.EnterState(this);
