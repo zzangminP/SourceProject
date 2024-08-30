@@ -55,10 +55,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Weapon sec_weapon;
     [SerializeField] private Weapon[] gn;
     [SerializeField] private Weapon[] miscellaneous;
+    [SerializeField] private Weapon current_weapon;
+    [SerializeField] private Weapon privious_weapon = null;
 
 
 
-    private int holdingWeaponIndex = 0;
+    //private int holdingWeaponIndex = 0;
     /// <summary>
     /// 
     /// 1. [X                 ]
@@ -70,7 +72,7 @@ public class PlayerControl : MonoBehaviour
 
 
 
-    private GameObject[,] weaponSlot = new GameObject[5,5];
+    //private GameObject[,] weaponSlot = new GameObject[5,5];
 
 
     private bool isMove;
@@ -114,7 +116,7 @@ public class PlayerControl : MonoBehaviour
 
 
         HandleInput();
-        WeaponControl();
+        //WeaponControl();
     }
 
 
@@ -147,20 +149,20 @@ public class PlayerControl : MonoBehaviour
 
 
 
-    private void PlayerInput()
-    {
-
-        //PlayerMovement();
-
-        
-
-        WeaponControl();
-        //player_ani.SetBool("Move", isMove);
-        //player_ani.SetFloat("DirX", direction.x);
-        //player_ani.SetFloat("DirZ", direction.z);
-
-
-    }
+    //private void PlayerInput()
+    //{
+    //
+    //    //PlayerMovement();
+    //
+    //    
+    //
+    //    WeaponControl();
+    //    //player_ani.SetBool("Move", isMove);
+    //    //player_ani.SetFloat("DirX", direction.x);
+    //    //player_ani.SetFloat("DirZ", direction.z);
+    //
+    //
+    //}
 
     private void HandleInput()
     {
@@ -197,9 +199,21 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             // input reload method here
+            
         
         }
 
+
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    weapon.SetState(new FiringState());
+        //}
+        //
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    weapon.SetState(new ReloadingState());
+        //
+        //}
 
 
 
@@ -251,8 +265,10 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    private void WeaponControl()
-    {
+    private void WeaponSet()
+    {   
+        GameObject.Find("PlayerKeyOne").TryGetComponent<Weapon>(out pri_weapon);
+        GameObject.Find("PlayerKeyTwo").TryGetComponent<Weapon>(out sec_weapon);
 
         //if (Input.GetKey(KeyCode.R))
         //{

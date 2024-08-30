@@ -14,6 +14,8 @@ public class DrawState : IWeaponState
     public void EnterState(Weapon weapon)
     {
         weapon.PlayAnimation("Draw");
+        
+
         Debug.Log("Weapon is drawing");
     }
 
@@ -40,16 +42,16 @@ public class IdleState : IWeaponState
     }
     public void UpdateState(Weapon weapon)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            weapon.SetState(new FiringState());
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            weapon.SetState(new ReloadingState());
-
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    weapon.SetState(new FiringState());
+        //}
+        //
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    weapon.SetState(new ReloadingState());
+        //
+        //}
     }
 
     public void ExitState(Weapon weapon)
