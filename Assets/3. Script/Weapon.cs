@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -24,8 +25,9 @@ public class Weapon : MonoBehaviour
     private IWeaponState currentState;
     //private EWeaponState eCurrentState;
 
-    public float damage = 10f;
+    public int damage = 25;
     public float range = 100f;
+    public float impactForce = 50f;
     public Camera fpsCam;
 
     void Start()
@@ -70,8 +72,33 @@ public class Weapon : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
+
+            //PlayerControl hitPlayer = hit.transform.GetComponent<PlayerControl>();
+            Dummy hitPlayer = hit.transform.GetComponent<Dummy>();
+            if (hitPlayer != null)
+            {
+                //hitPlayer.hp -= damage;
+                hitPlayer.TakeDamage(damage);
+                
+                
+                
+                
+            }
+            
+
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
+
+            }
+
+
+
+
         }
 
+
+        
 
     }
     public void SetState(IWeaponState newState)

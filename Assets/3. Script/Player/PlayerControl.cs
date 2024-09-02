@@ -27,9 +27,9 @@ public class PlayerControl : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Transform player_tr;
     [SerializeField] private Transform viewModel_tr;
-    [SerializeField] private Transform viewModelCam_tr;
-
-    [SerializeField] private Transform viewModelTest_tr;
+    //[SerializeField] private Transform viewModelCam_tr;
+    //
+    //[SerializeField] private Transform viewModelTest_tr;
 
     [SerializeField] private Rigidbody player_rg;
 
@@ -38,8 +38,12 @@ public class PlayerControl : MonoBehaviour
     //[SerializeField] private MeshCollider hitBoxCollider;
     //[SerializeField] private Transform[] child;
 
+    [Header("Basic Values")]
+    [SerializeField] public int hp = 100;
+    [SerializeField] public int armor = 100;
 
-    [Header("Physics Value")]
+
+    [Header("Physics Values")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float JumpForce = 5f;
@@ -105,10 +109,9 @@ public class PlayerControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
 
-        setRagdoll(true);
-        transform.GetComponent<Rigidbody>().isKinematic = false;
-        setCollider(true);
-        transform.GetComponent<BoxCollider>().enabled = true;
+        setRagdoll(true);   
+        //setCollider(true);
+        
         //hitBoxCollider.enabled = true;
 
 
@@ -135,7 +138,7 @@ public class PlayerControl : MonoBehaviour
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-
+        transform.GetComponent<Rigidbody>().isKinematic = !state;
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
@@ -146,7 +149,7 @@ public class PlayerControl : MonoBehaviour
     private void setCollider(bool state)
     {
         skeleton_cl = transform.GetComponentsInChildren<Collider>();
-
+        transform.GetComponent<BoxCollider>().enabled = state;
         foreach (Collider cl in skeleton_cl)
         {
             cl.enabled = !state;
@@ -256,9 +259,10 @@ public class PlayerControl : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         player_tr.Rotate(Vector3.up * _mouseX);
        
-        viewModelCam_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        //viewModelCam_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
         //viewModelTest_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        
+
+        //viewModel_tr.localRotation = Quaternion.Euler(, 0, 0);
         viewModel_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
 
@@ -303,6 +307,22 @@ public class PlayerControl : MonoBehaviour
         //{
         //    v_model_ani.SetBool("Fire", true);
         //}
+    }
+
+    private void TakeDamage(int amount)
+    {
+        hp -= amount;
+        if(hp <= 0)
+        {
+            Die();
+        }
+
+    }
+
+    private void Die()
+    {
+        setRagdoll(false);
+        setCollider(false);
     }
 
 
