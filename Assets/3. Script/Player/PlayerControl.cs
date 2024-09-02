@@ -5,32 +5,37 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public enum PlayerState { 
-    S_Idle = 0, 
-    S_Walk, 
-    S_Run, 
-    S_Shoot, 
-    C_Idle, 
-    C_Move, 
+public enum PlayerState
+{
+    S_Idle = 0,
+    S_Walk,
+    S_Run,
+    S_Shoot,
+    C_Idle,
+    C_Move,
     C_Shoot
 }
 
 public class PlayerControl : MonoBehaviour
 {
 
-    //private Animator player_ani;
-    
+    [SerializeField] private Animator player_movement_ani;
+
     private PlayerState state;
 
 
     [Header("Components")]
     [SerializeField] private Transform player_tr;
     [SerializeField] private Transform viewModel_tr;
+    [SerializeField] private Transform viewModelCam_tr;
+
+    [SerializeField] private Transform viewModelTest_tr;
+
     [SerializeField] private Rigidbody player_rg;
 
 
 
-    [SerializeField] private MeshCollider hitBoxCollider;
+    //[SerializeField] private MeshCollider hitBoxCollider;
     //[SerializeField] private Transform[] child;
 
 
@@ -39,12 +44,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float JumpForce = 5f;
 
-    
+
     [Header("Childern Components")]
     [SerializeField] private Rigidbody[] skeleton_rg;
     [SerializeField] private Collider[] skeleton_cl;
 
-    
+
     [Header("Animator")]
     [SerializeField] private Animator v_model_ani;
     [SerializeField] private Animator w_model_ani;
@@ -53,6 +58,7 @@ public class PlayerControl : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] private Weapon pri_weapon;
     [SerializeField] private Weapon sec_weapon;
+    //[SerializeField] private Weapon weapon;
     [SerializeField] private Weapon[] gn;
     [SerializeField] private Weapon[] miscellaneous;
     [SerializeField] private Weapon current_weapon;
@@ -81,7 +87,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-        
+
         InitPlayer();
     }
 
@@ -95,7 +101,7 @@ public class PlayerControl : MonoBehaviour
 
     private void InitPlayer()
     {
-        //player_ani = GetComponent<Animator>();
+        player_movement_ani = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
 
@@ -103,10 +109,12 @@ public class PlayerControl : MonoBehaviour
         transform.GetComponent<Rigidbody>().isKinematic = false;
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
-        hitBoxCollider.enabled = true;
+        //hitBoxCollider.enabled = true;
 
 
-        v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
+        //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
+        WeaponSet();
+        current_weapon = pri_weapon;
 
     }
 
@@ -127,7 +135,7 @@ public class PlayerControl : MonoBehaviour
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-    
+
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
@@ -176,50 +184,50 @@ public class PlayerControl : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        
+
         PlayerMovement(dirX, dirZ, mouseX, mouseY);
 
 
 
 
-        
+
 
 
         // Jump
-               
-        
+
+
         if (Input.GetKey(KeyCode.Space))
         {
-            PlayerJump();   
-            
-        
+            PlayerJump();
+
+
         }
 
 
-        if (Input.GetKey(KeyCode.R))
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    // input reload method here
+        //    
+        //
+        //}
+
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // input reload method here
-            
-        
+            pri_weapon.SetState(new FiringState());
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            pri_weapon.SetState(new ReloadingState());
 
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    weapon.SetState(new FiringState());
-        //}
-        //
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    weapon.SetState(new ReloadingState());
-        //
-        //}
+        }
 
 
 
     }
 
-    
+
     private void PlayerMovement(float dirX, float dirZ, float mouseX, float mouseY)
     {
         // WASD
@@ -237,6 +245,8 @@ public class PlayerControl : MonoBehaviour
 
 
         Vector3 direction = new Vector3(_dirX, 0, _dirZ);
+        float gravity = -9.81f;
+
 
         isMove = false;
 
@@ -245,16 +255,24 @@ public class PlayerControl : MonoBehaviour
         xRotation -= _mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         player_tr.Rotate(Vector3.up * _mouseX);
+       
+        viewModelCam_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        //viewModelTest_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        
         viewModel_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
+
+        //viewModel_tr.rotation (viewModelCam_tr.position, xRotation);
 
         if (direction != Vector3.zero)
         {
             isMove = true;
             this.transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
-
-
+            player_movement_ani.SetBool("Move", isMove);
+            player_movement_ani.SetFloat("DirX", direction.x);
+            player_movement_ani.SetFloat("DirZ", direction.z);
         }
+        player_movement_ani.SetBool("Move", isMove);
 
     }
 
@@ -266,9 +284,10 @@ public class PlayerControl : MonoBehaviour
 
 
     private void WeaponSet()
-    {   
-        GameObject.Find("PlayerKeyOne").TryGetComponent<Weapon>(out pri_weapon);
-        GameObject.Find("PlayerKeyTwo").TryGetComponent<Weapon>(out sec_weapon);
+    {
+        pri_weapon = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
+
+        sec_weapon = GameObject.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
 
         //if (Input.GetKey(KeyCode.R))
         //{
@@ -279,7 +298,7 @@ public class PlayerControl : MonoBehaviour
         //    //v_model_ani.SetBool("Reload", false);
         //    //Debug.Log("Reloaded");
         //}
-        
+
         //if(Input.GetKey(KeyCode.Mouse0))
         //{
         //    v_model_ani.SetBool("Fire", true);

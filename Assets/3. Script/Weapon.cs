@@ -24,6 +24,9 @@ public class Weapon : MonoBehaviour
     private IWeaponState currentState;
     //private EWeaponState eCurrentState;
 
+    public float damage = 10f;
+    public float range = 100f;
+    public Camera fpsCam;
 
     void Start()
     {
@@ -38,9 +41,39 @@ public class Weapon : MonoBehaviour
         {
             currentState.UpdateState(this);
         }
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
+
+
+
+        ///
+        /// Actually fire guns
+        ///
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Shoot();
+        }
+
+
+        Ray ray = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * range, Color.red);
+
+
     }
 
+    void Shoot()
+    {
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+
+        }
+
+
+    }
     public void SetState(IWeaponState newState)
     {
          

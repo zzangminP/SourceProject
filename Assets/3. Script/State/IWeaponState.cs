@@ -16,7 +16,7 @@ public class DrawState : IWeaponState
         weapon.PlayAnimation("Draw");
         
 
-        Debug.Log("Weapon is drawing");
+        //Debug.Log("Weapon is drawing");
     }
 
     public void ExitState(Weapon weapon)
@@ -38,7 +38,7 @@ public class IdleState : IWeaponState
 {
     public void EnterState(Weapon weapon)
     {
-        Debug.Log("Weapon is Idle");
+        //Debug.Log("Weapon is Idle");
     }
     public void UpdateState(Weapon weapon)
     {
@@ -56,7 +56,7 @@ public class IdleState : IWeaponState
 
     public void ExitState(Weapon weapon)
     {
-        Debug.Log("Weapon Exitting");
+        //Debug.Log("Weapon Exitting");
     }
 
 }
@@ -65,7 +65,7 @@ public class FiringState : IWeaponState
 {
     public void EnterState(Weapon weapon)
     {
-        Debug.Log("Weapon Fired");
+        //Debug.Log("Weapon Fired");
         weapon.PlayAnimation("Fire");
         
     }
@@ -91,7 +91,7 @@ public class ReloadingState : IWeaponState
 {
     public void EnterState(Weapon weapon)
     {
-        Debug.Log("Weapon is Reloading");
+        //Debug.Log("Weapon is Reloading");
         weapon.PlayAnimation("Reload");
     }
 
