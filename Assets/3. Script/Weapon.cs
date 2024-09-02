@@ -80,6 +80,14 @@ public class Weapon : MonoBehaviour
                 //hitPlayer.hp -= damage;
                 hitPlayer.TakeDamage(damage);
                 
+                if(hitPlayer.hp <= 0)
+                {
+                    
+                    hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * impactForce, ForceMode.Impulse);
+                    Debug.Log(-hit.normal);
+                    Debug.Log("Added force");
+                }
+                
                 
                 
                 

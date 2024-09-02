@@ -110,8 +110,8 @@ public class PlayerControl : MonoBehaviour
         player_rg = GetComponent<Rigidbody>();
 
         setRagdoll(true);   
-        //setCollider(true);
-        
+        setCollider(true);
+        transform.GetComponent<BoxCollider>().enabled = true;
         //hitBoxCollider.enabled = true;
 
 
@@ -138,23 +138,23 @@ public class PlayerControl : MonoBehaviour
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-        transform.GetComponent<Rigidbody>().isKinematic = !state;
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
             //Debug.Log(rb.name);
         }
+        transform.GetComponent<Rigidbody>().isKinematic = !state;
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
     private void setCollider(bool state)
     {
         skeleton_cl = transform.GetComponentsInChildren<Collider>();
-        transform.GetComponent<BoxCollider>().enabled = state;
         foreach (Collider cl in skeleton_cl)
         {
             cl.enabled = !state;
             //Debug.Log(cl.name);
         }
+        
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
 

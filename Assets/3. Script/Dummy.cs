@@ -300,7 +300,9 @@ public class Dummy : MonoBehaviour
         hp -= amount;
         if (hp <= 0)
         {
+            Debug.Log("before Die");
             Die();
+            Debug.Log("after die");
         }
 
     }
