@@ -5,8 +5,9 @@ using UnityEngine;
 public class GranadeThrower : MonoBehaviour
 {
 
-    public float throwForce = 40f;
+    public float throwForce = 10f;
     public GameObject grenadePrefab;
+    public GameObject viewModel;
 
     private void Update()
     {
@@ -19,9 +20,9 @@ public class GranadeThrower : MonoBehaviour
 
     void ThrowGrenade()
     {
-        GameObject grenade = Instantiate(grenadePrefab, transform.position + transform.forward, transform.rotation);
+        GameObject grenade = Instantiate(grenadePrefab, viewModel.transform.position + viewModel.transform.forward, viewModel.transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
+        rb.AddForce(viewModel.transform.forward * throwForce, ForceMode.VelocityChange);
 
     }
 }
