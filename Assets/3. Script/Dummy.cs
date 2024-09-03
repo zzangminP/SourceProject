@@ -96,7 +96,8 @@ public class Dummy : MonoBehaviour
         player_rg = GetComponent<Rigidbody>();
 
         setRagdoll(true);
-        //setCollider(true);
+        //transform.GetComponent<BoxCollider>().enabled = true;
+        setCollider(true);
 
         //hitBoxCollider.enabled = true;
 
@@ -130,17 +131,28 @@ public class Dummy : MonoBehaviour
             rb.isKinematic = state;
             //Debug.Log(rb.name);
         }
+
+        //skeleton_cl = transform.GetComponentsInChildren<Collider>();
+        //transform.GetComponent<BoxCollider>().enabled = state;
+        //foreach (Collider cl in skeleton_cl)
+        //{
+        //    cl.enabled = !state;
+        //    //Debug.Log(cl.name);
+        //}
+        //transform.GetComponent<Rigidbody>().isKinematic = !state;
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
+
     private void setCollider(bool state)
     {
         skeleton_cl = transform.GetComponentsInChildren<Collider>();
-        transform.GetComponent<BoxCollider>().enabled = state;
+        //transform.GetComponent<BoxCollider>().enabled = state;
         foreach (Collider cl in skeleton_cl)
         {
-            cl.enabled = !state;
+            cl.enabled = state;
             //Debug.Log(cl.name);
         }
+        transform.GetComponent<BoxCollider>().enabled = !state;
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
 
@@ -244,15 +256,8 @@ public class Dummy : MonoBehaviour
         xRotation -= _mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         player_tr.Rotate(Vector3.up * _mouseX);
-
-        //viewModelCam_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        //viewModelTest_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
-
-        //viewModel_tr.localRotation = Quaternion.Euler(, 0, 0);
         viewModel_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-
-        //viewModel_tr.rotation (viewModelCam_tr.position, xRotation);
 
         if (direction != Vector3.zero)
         {
@@ -280,7 +285,7 @@ public class Dummy : MonoBehaviour
         sec_weapon = GameObject.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
 
         //if (Input.GetKey(KeyCode.R))
-        //{
+        //{   
         //    //if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
         //    //{ 
         //    //
@@ -309,11 +314,11 @@ public class Dummy : MonoBehaviour
 
     public void Die()
     {
-        setRagdoll(false);
-        setCollider(false);
-
         transform.GetComponent<BoxCollider>().enabled = false;
         transform.GetComponent<Animator>().enabled = false;
+        setRagdoll(false);
+        //setCollider(false);
+
         player_movement_ani = null;
     }
 

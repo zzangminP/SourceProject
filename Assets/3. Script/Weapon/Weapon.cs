@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -70,16 +71,36 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log(hit.collider.gameObject.layer);
 
 
             //PlayerControl hitPlayer = hit.transform.GetComponent<PlayerControl>();
-            Dummy hitPlayer = hit.transform.GetComponent<Dummy>();
+            Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+            int calcDamage = 0;
             if (hitPlayer != null)
             {
+                switch(hit.collider.gameObject.layer)
+                {
+                    case 9: calcDamage = damage * 4;
+                        break;
+                    //case 10:       ---> default
+                    //    break;     ---> default
+                    case 11: calcDamage = (int)(damage * 1.25);
+                        break;
+                    case 12: calcDamage = (int)(damage * 0.75);
+                        break;
+                    default: calcDamage = damage;
+                        break;
+
+
+                }
+
+
                 //hitPlayer.hp -= damage;
-                hitPlayer.TakeDamage(damage);
-                
+                //hitPlayer.TakeDamage(damage);
+                hitPlayer.TakeDamage(calcDamage);
+                Debug.Log(calcDamage);
+
                 if(hitPlayer.hp <= 0)
                 {
                     
