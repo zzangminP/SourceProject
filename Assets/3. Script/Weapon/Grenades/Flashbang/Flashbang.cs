@@ -87,6 +87,7 @@ public class Flashbang : MonoBehaviour
         var planes = GeometryUtility.CalculateFrustumPlanes(cam);
         var point = transform.position;
 
+
         foreach (var plane in planes)
         {
             if (plane.GetDistanceToPoint(point) > 0)
