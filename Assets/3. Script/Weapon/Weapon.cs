@@ -34,7 +34,9 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         // 초기 상태를 DrawState로 설정
+        
         SetState(new DrawState());
+        fpsCam = GetComponentInParent<Camera>();
     }
 
     void Update()
