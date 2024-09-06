@@ -74,6 +74,7 @@ public class FiringState : IWeaponState
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("Fire") || stateInfo.normalizedTime >= 1.0f)
         {
+            
             weapon.SetState(new IdleState());
         }
 
