@@ -20,118 +20,110 @@ public class Weapon : MonoBehaviour
     /// 
     /// 
     /// </summary>
+    /// 
+
+    /// 0909 전략패턴 적용하기위해 Update문하고 Shoot 잠깐 주석처리함
     
-    public Animator animator;
+    public Animator animator { get; set; }
 
     private IWeaponState currentState;
-    //private EWeaponState eCurrentState;
 
-    public int damage = 25;
-    public float range = 100f;
-    public float impactForce = 50f;
-    public Camera fpsCam;
+    //public int damage = 25;
+    //public float range = 100f;
+    //public float impactForce = 50f;
+    public int damage { get; set; }
+    public float range { get; set; }
+    public float impactForce { get; set; }
+
+    public int maxMag { get; set; }
+    public int maxAmmo { get; set; }
+    public int currentAmmo {  get; set; }
+
+    public Camera fpsCam { get; set; }
+
+
+    // strategy
+    public ILeftClick leftClick;
+    public IRightClick rightClick;
+    public IReloadClick reloadClick;
+    public IWASDMove wasdMove;
+
 
     void Start()
     {
-        // 초기 상태를 DrawState로 설정
-        
+        // 초기 상태를 DrawState로 설정     
         SetState(new DrawState());
+        animator = GetComponent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
     }
 
-    void Update()
-    {
-        // 현재 상태의 UpdateState 메서드 호출
-        if (currentState != null)
-        {
-            currentState.UpdateState(this);
-        }
-        //Debug.Log(currentState);
+    
+    public void Left(Weapon weapon) { leftClick.OnLeftClick(weapon); }
+    public void Right(Weapon weapon) { rightClick.OnRigtClick(weapon); }
+
+    public void Reload(Weapon weapon) { reloadClick.OnReloadClick(weapon); }
+    public void WASD(Weapon weapon) { wasdMove.DefaultWASDMove(weapon); }
+
+    //void Shoot()
+    //{
+    //
+    //    RaycastHit hit;
+    //
+    //    if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+    //    {
+    //        Debug.Log(hit.collider.gameObject.layer);
+    //
+    //
+    //        //PlayerControl hitPlayer = hit.transform.GetComponent<PlayerControl>();
+    //        Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+    //        int calcDamage = 0;
+    //        if (hitPlayer != null)
+    //        {
+    //            switch(hit.collider.gameObject.layer)
+    //            {
+    //                case 9: calcDamage = damage * 4;
+    //                    break;
+    //                //case 10:       ---> default
+    //                //    break;     ---> default
+    //                case 11: calcDamage = (int)(damage * 1.25);
+    //                    break;
+    //                case 12: calcDamage = (int)(damage * 0.75);
+    //                    break;
+    //                default: calcDamage = damage;
+    //                    break;
+    //
+    //
+    //            }
+    //
+    //            hitPlayer.TakeDamage(calcDamage);
+    //            Debug.Log(calcDamage);
+    //
+    //            if(hitPlayer.hp <= 0)
+    //            {
+    //                
+    //                hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * impactForce, ForceMode.Impulse);
+    //                Debug.Log(-hit.normal);
+    //                Debug.Log("Added force");
+    //            }         
+    //            
+    //            
+    //        }
+    //        
+    //
+    //        if (hit.rigidbody != null)
+    //        {
+    //            hit.rigidbody.AddForce(-hit.normal * impactForce);
+    //
+    //        }
+    //
+    //    }
+    //
+    //
+    //    
+    //
+    //}
 
 
-
-        ///
-        /// Actually fire guns
-        ///
-
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Shoot();
-        }
-
-
-        Ray ray = new Ray(fpsCam.transform.position, fpsCam.transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction * range, Color.red);
-
-
-    }
-
-    void Shoot()
-    {
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-        {
-            Debug.Log(hit.collider.gameObject.layer);
-
-
-            //PlayerControl hitPlayer = hit.transform.GetComponent<PlayerControl>();
-            Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
-            int calcDamage = 0;
-            if (hitPlayer != null)
-            {
-                switch(hit.collider.gameObject.layer)
-                {
-                    case 9: calcDamage = damage * 4;
-                        break;
-                    //case 10:       ---> default
-                    //    break;     ---> default
-                    case 11: calcDamage = (int)(damage * 1.25);
-                        break;
-                    case 12: calcDamage = (int)(damage * 0.75);
-                        break;
-                    default: calcDamage = damage;
-                        break;
-
-
-                }
-
-
-                //hitPlayer.hp -= damage;
-                //hitPlayer.TakeDamage(damage);
-                hitPlayer.TakeDamage(calcDamage);
-                Debug.Log(calcDamage);
-
-                if(hitPlayer.hp <= 0)
-                {
-                    
-                    hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * impactForce, ForceMode.Impulse);
-                    Debug.Log(-hit.normal);
-                    Debug.Log("Added force");
-                }
-                
-                
-                
-                
-            }
-            
-
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
-
-            }
-
-
-
-
-        }
-
-
-        
-
-    }
     public void SetState(IWeaponState newState)
     {
          
