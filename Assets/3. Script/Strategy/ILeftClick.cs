@@ -13,9 +13,11 @@ public class AK47Left : ILeftClick
 
     public void OnLeftClick(Weapon w)
     {
-        w.SetState(new FiringState());
-
-
+        if (Input.GetKeyDown(KeyCode.Mouse0) && w.currentAmmo > 0)
+        {
+            w.currentAmmo -= 1;
+            w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
+            w.SetState(new FiringState());
             RaycastHit hit;
 
             if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
@@ -60,7 +62,7 @@ public class AK47Left : ILeftClick
                     }
 
 
-                }
+                } // if hitPlayer != null
 
 
                 if (hit.rigidbody != null)
@@ -69,13 +71,17 @@ public class AK47Left : ILeftClick
 
                 }
 
-            }
+
+
+            } // if Physics.Raycast
 
 
 
 
-        
-    }
+
+        } // if - mouse keydown
+    
+    } // Method
 
 
 }
