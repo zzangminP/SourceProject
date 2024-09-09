@@ -44,21 +44,12 @@ public class IdleState : IWeaponState
     }
     public void UpdateState(Weapon weapon)
     {
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    weapon.SetState(new FiringState());
-        //}
-        //
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    weapon.SetState(new ReloadingState());
-        //
-        //}
+
     }
 
     public void ExitState(Weapon weapon)
     {
-        //Debug.Log("Weapon Exitting");
+
     }
 
 }
@@ -67,7 +58,7 @@ public class FiringState : IWeaponState
 {
     public void EnterState(Weapon weapon)
     {
-        //Debug.Log("Weapon Fired");
+
         weapon.PlayAnimation("Fire");
         
     }
