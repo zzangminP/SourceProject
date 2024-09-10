@@ -52,7 +52,7 @@ public class IdleState : IWeaponState
 
 }
 
-public class FiringState : IWeaponState
+public class SingleFiringState : IWeaponState
 {
     public void EnterState(Weapon weapon)
     {
@@ -77,6 +77,147 @@ public class FiringState : IWeaponState
 
 
 }
+
+public class AutoFiringState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Fire1");
+    }
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if(stateInfo.IsName("Fire1") && Input.GetMouseButtonDown(0))
+        {
+            weapon.PlayAnimation("Fire2");
+        }
+        else if(stateInfo.IsName("Fire2") && Input.GetMouseButtonDown(0))
+        {
+            weapon.PlayAnimation("Fire3");
+        }
+        else if(stateInfo.IsName("Fire3") && Input.GetMouseButtonDown(0))
+        {
+            weapon.PlayAnimation("Fire1");
+        }
+        if (!stateInfo.IsName("Fire1") ||
+            !stateInfo.IsName("Fire2") ||
+            !stateInfo.IsName("Fire3") || 
+            stateInfo.normalizedTime >= 0.9f)
+        {
+
+            weapon.SetState(new IdleState());
+        }
+
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+        //weapon.SetState(new DropState());
+
+    }
+
+
+}
+
+
+public class FireOneState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimationAuto("Fire1");
+    }
+    public void UpdateState(Weapon weapon)
+    {
+
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            weapon.SetState(new FireTwoState());
+
+        }
+
+        if (!stateInfo.IsName("Fire1") || stateInfo.normalizedTime >= 0.9f)
+        {
+
+            weapon.SetState(new IdleState());
+        }
+
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+}
+public class FireTwoState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Fire2");
+    }
+    public void UpdateState(Weapon weapon)
+    {
+
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            weapon.SetState(new FireThreeState());
+
+        }
+
+        if (!stateInfo.IsName("Fire2") || stateInfo.normalizedTime >= 0.9f)
+        {
+
+            weapon.SetState(new IdleState());
+        }
+
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+}
+
+public class FireThreeState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Fire3");
+    }
+    public void UpdateState(Weapon weapon)
+    {
+
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            weapon.SetState(new FireOneState());
+
+        }
+
+        if (!stateInfo.IsName("Fire3") || stateInfo.normalizedTime >= 0.9f)
+        {
+
+            weapon.SetState(new IdleState());
+        }
+
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+}
+
+
+
+
 
 public class ReloadingState : IWeaponState
 {

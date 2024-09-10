@@ -26,7 +26,9 @@ public class MagReload : IReloadClick
     {
         // MagazineReload
         // MagazineReload
-        if (Input.GetKeyDown(KeyCode.R) && w.currentAmmo < w.maxMag)
+        if (Input.GetKeyDown(KeyCode.R) && 
+            w.currentAmmo < w.maxMag &&
+            w.maxAmmo > 0)
         {
             w.SetState(new ReloadingState());
 

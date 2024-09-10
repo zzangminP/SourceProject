@@ -213,16 +213,16 @@ public class Dummy : MonoBehaviour
         //}
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            pri_weapon.SetState(new FiringState());
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            pri_weapon.SetState(new ReloadingState());
-
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    pri_weapon.SetState(new FiringState());
+        //}
+        //
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    pri_weapon.SetState(new ReloadingState());
+        //
+        //}
 
 
 

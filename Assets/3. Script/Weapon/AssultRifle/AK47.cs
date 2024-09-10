@@ -8,24 +8,30 @@ public class AK47 : Weapon
 
     public AK47()
     {
-        leftClick = new AK47Left();
-        rightClick = new RightClickNothing();
-        reloadClick = new MagReload();
-        wasdMove = new WASDMove();
-        damage = 27;
+        damage      = 27;
         currentAmmo = 30;
-        maxAmmo = 90;
-        maxMag = 30;
-        range = 100f;
-        cost = 2700;
+        maxAmmo     = 90;
+        maxMag      = 30;
+        range       = 100f;
+        cost        = 2700;
         impactForce = 50f;
+        fireRate    = 10f;
+        isAuto      = true;
+        
+        leftClick   = new AK47Left();
+        rightClick  = new RightClickNothing();
+        reloadClick = new MagReload();
+        wasdMove    = new WASDMove();
 
     }
+
+
+
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        fpsCam = GetComponentInParent<Camera>();
-        Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
+        animator    = GetComponent<Animator>();
+        fpsCam      = GetComponentInParent<Camera>();
+        Ammo_ui     = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         SetState(new DrawState());
         UIInit();
     }

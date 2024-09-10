@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using TMPro.EditorUtilities;
 
-public class Weapon : MonoBehaviour
+public class Weapon : WeaponSetting
 {
     public enum EWeaponState
     {
@@ -25,38 +25,44 @@ public class Weapon : MonoBehaviour
     /// 
 
     /// 0909 전략패턴 적용하기위해 Update문하고 Shoot 잠깐 주석처리함
-    
-    public Animator animator { get; set; }
 
-    public IWeaponState currentState;
+    //public IWeaponState currentState;
+    //
+    //public Animator animator { get; set; }
+    //
+    //
+    //
+    //
+    ///// <summary>
+    ///// Physics
+    ///// </summary>
+    //
+    //public int   damage             { get; set; }
+    //public float range              { get; set; }
+    //public float impactForce        { get; set; }
+    ////public bool isAuto              { get; set; }
+    //public float fireRate           { get; set; }
+    //public float lastFireTime       { get; set; }
+    //
+    //
+    ///// <summary>
+    ///// Ammo
+    ///// </summary>
+    //
+    //public int   maxMag             { get; set; }
+    //public int   maxAmmo            { get; set; }
+    //public int   currentAmmo        { get; set; }
+    //
+    //
+    //
+    //public int   cost               { get; set; }
+    //
+    //
+    //public Camera fpsCam            { get; set; }
 
-    
-
-    /// <summary>
-    /// Physics
-    /// </summary>
-    
-    public int   damage             { get; set; }
-    public float range              { get; set; }
-    public float impactForce        { get; set; }
 
 
-    /// <summary>
-    /// Ammo
-    /// </summary>
-
-    public int   maxMag             { get; set; }
-    public int   maxAmmo            { get; set; }
-    public int   currentAmmo        { get; set; }
-
-
-
-    public int   cost               { get; set; }
-
-
-    public Camera fpsCam            { get; set; }
-
-    public TMP_Text Ammo_ui         { get; set; }
+    public TMP_Text Ammo_ui { get; set; }
 
     public GameObject v_model;
     public GameObject w_model;
@@ -116,5 +122,14 @@ public class Weapon : MonoBehaviour
         {
             animator.CrossFadeInFixedTime(animationClip, 0f);
         }
+    }
+    public void PlayAnimationAuto(string animationClip)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName(animationClip))
+        {
+            animator.CrossFadeInFixedTime(animationClip, 0.15f,-1,0f);
+        }
+
     }
 }
