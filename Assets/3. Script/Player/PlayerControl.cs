@@ -121,7 +121,7 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //PlayerInput();
 

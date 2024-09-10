@@ -13,7 +13,9 @@ public class AK47Left : ILeftClick
 
     public void OnLeftClick(Weapon w)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && w.currentAmmo > 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0)    && 
+            w.currentAmmo > 0                   && 
+            !(w.currentState is ReloadingState))
         {
             w.currentAmmo -= 1;
             w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";

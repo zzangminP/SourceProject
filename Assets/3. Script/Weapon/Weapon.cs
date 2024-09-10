@@ -6,14 +6,14 @@ using TMPro.EditorUtilities;
 
 public class Weapon : MonoBehaviour
 {
-    //public enum EWeaponState
-    //{
-    //    Draw = 0,
-    //    Idle,
-    //    Fire,
-    //    Reload
-    //
-    //}
+    public enum EWeaponState
+    {
+        Draw = 0,
+        Idle,
+        Fire,
+        Reload
+    
+    }
 
     /// <summary>
     /// 
@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
     
     public Animator animator { get; set; }
 
-    private IWeaponState currentState;
+    public IWeaponState currentState;
 
     
 
@@ -76,12 +76,19 @@ public class Weapon : MonoBehaviour
         // animator = GetComponent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
     }
+    private void Update()
+    {
+        //if(currentState != null)
+        //{
+        //    currentState.UpdateState(this);
+        //}
+    }
 
-    
-    public void Left(Weapon weapon) { leftClick.OnLeftClick(weapon); }
-    public void Right(Weapon weapon) { rightClick.OnRigtClick(weapon); }
-    public void Reload(Weapon weapon) { reloadClick.OnReloadClick(weapon); }
-    public void WASD(Weapon weapon) { wasdMove.DefaultWASDMove(weapon); }
+
+    public void Left(Weapon weapon)     { leftClick.OnLeftClick(weapon); }
+    public void Right(Weapon weapon)    { rightClick.OnRigtClick(weapon); }
+    public void Reload(Weapon weapon)   { reloadClick.OnReloadClick(weapon); }
+    public void WASD(Weapon weapon)     { wasdMove.DefaultWASDMove(weapon); }
 
 
     public void SetState(IWeaponState newState)

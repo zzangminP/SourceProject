@@ -27,6 +27,7 @@ public class AK47 : Weapon
         fpsCam = GetComponentInParent<Camera>();
         Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         SetState(new DrawState());
+        UIInit();
     }
 
     private void OnEnable()
@@ -42,11 +43,18 @@ public class AK47 : Weapon
     private void Update()
     {
         StrategyControl();
+        //Debug.Log(currentState);
+        
         
     }
 
     void StrategyControl()
     {
+        if (currentState != null)
+        {
+            currentState.UpdateState(this);
+        }
+
         leftClick.OnLeftClick(this);
         rightClick.OnRigtClick(this);
         reloadClick.OnReloadClick(this);

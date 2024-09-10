@@ -25,23 +25,30 @@ public class MagReload : IReloadClick
     public void OnReloadClick(Weapon w)
     {
         // MagazineReload
+        // MagazineReload
         if (Input.GetKeyDown(KeyCode.R) && w.currentAmmo < w.maxMag)
         {
             w.SetState(new ReloadingState());
-            if (w.maxAmmo >= w.maxMag)
+
+
+            int neededAmmo = w.maxMag - w.currentAmmo;
+
+
+            if (w.maxAmmo >= neededAmmo)
             {
-                int tempAmmo = (w.maxMag - w.currentAmmo);
-                w.maxAmmo -= tempAmmo;
-                w.currentAmmo += tempAmmo;
+                w.currentAmmo += neededAmmo;
+                w.maxAmmo -= neededAmmo;
             }
             else
             {
+
                 w.currentAmmo += w.maxAmmo;
                 w.maxAmmo = 0;
             }
-            w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
 
+            w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
         }
+
     }
 }
 
