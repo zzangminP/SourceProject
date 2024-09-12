@@ -12,6 +12,7 @@ public class AK47 : Weapon
         currentAmmo = 30;
         maxAmmo     = 90;
         maxMag      = 30;
+        pellet      = 1; 
         range       = 100f;
         cost        = 2700;
         reward      = 300;      

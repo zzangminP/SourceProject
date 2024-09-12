@@ -8,7 +8,7 @@ public class XM1014 : Weapon
 
     public XM1014() 
     {
-        // bullet per dmg
+        // Per pellet dmg
         damage      = 14;
         currentAmmo = 7;
         maxAmmo     = 32;
@@ -19,6 +19,7 @@ public class XM1014 : Weapon
         impactForce = 50f;
         fireRate    = 2f;
         isAuto      = false;
+        int pellet = 6;
 
         leftClick   = new ShotgunLeft();
         rightClick  = new RightClickNothing();
@@ -27,25 +28,24 @@ public class XM1014 : Weapon
     
     }
 
-    //private void Start()
-    //{
-    //    animator = GetComponent<Animator>();
-    //    fpsCam = GetComponentInParent<Camera>();
-    //    Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
-    //    SetState(new DrawState());
-    //    UIInit();
-    //}
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        fpsCam = GetComponentInParent<Camera>();
+        Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
+        SetState(new DrawState());
+        UIInit();
+    }
     //
-    //private void OnEnable()
-    //{
-    //    UIInit();
-    //}
-    //
-    //private void UIInit()
-    //{
-    //    Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
-    //}
-
+    private void OnEnable()
+    {
+        UIInit();
+    }
+    
+    private void UIInit()
+    {
+        Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
+    }
     private void Update()
     {
         StrategyControl();

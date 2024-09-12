@@ -15,18 +15,18 @@ public class AK47Left : ILeftClick
     public void OnLeftClick(Weapon w)
     {
 
-            if (Input.GetMouseButtonDown(0))
-            {
+        if (Input.GetMouseButtonDown(0))
+        {
 
-                w.StartCoroutine(StartAutoFire_Co(w));
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                
-                isFiring = false;
-                Debug.Log("isFiring? : " + isFiring);
-                w.StopCoroutine(StartAutoFire_Co(w));
-            }
+            w.StartCoroutine(StartAutoFire_Co(w));
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+
+            isFiring = false;
+            Debug.Log("isFiring? : " + isFiring);
+            w.StopCoroutine(StartAutoFire_Co(w));
+        }
 
     }
 
@@ -103,9 +103,81 @@ public class AK47Left : ILeftClick
 
 public class ShotgunLeft : ILeftClick
 {
-    public void OnLeftClick(Weapon weapon)
+    public void OnLeftClick(Weapon w)
     {
-        
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+
+
+            w.SetState(new SingleFiringState());
+            if (w.currentAmmo > 0)
+            {
+                w.currentAmmo -= 1;
+                w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
+
+                RaycastHit hit;
+
+                for (int i = 0; i < w.pellet; i++)
+                {
+                    ShotgunRay(w);
+
+
+                    if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
+                    {
+                        //Debug.Log(hit.collider.gameObject.layer);
+
+                        Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                        int calcDamage = 0;
+
+                        if (hitPlayer != null)
+                        {
+                            switch (hit.collider.gameObject.layer)
+                            {
+                                case 9:
+                                    calcDamage = w.damage * 4;
+                                    break;
+                                case 11:
+                                    calcDamage = (int)(w.damage * 1.25);
+                                    break;
+                                case 12:
+                                    calcDamage = (int)(w.damage * 0.75);
+                                    break;
+                                default:
+                                    calcDamage = w.damage;
+                                    break;
+                            } // switch - case
+
+                            hitPlayer.TakeDamage(calcDamage);
+                            Debug.Log(calcDamage);
+
+                            if (hitPlayer.hp <= 0)
+                            {
+                                hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                                //Debug.Log("Added force to dead player.");
+                            }
+                        } // if hitPlayer != null
+
+                        if (hit.rigidbody != null)
+                        {
+                            hit.rigidbody.AddForce(-hit.normal * w.impactForce);
+                        }
+
+                    } // if Physics.Raycast
+                }
+
+            } // if w.currentAmmo blablabla....
+
+        } // if input.getkeydown mouseLeft 
+    } // OnLeftAttack
+
+    void ShotgunRay(Weapon w)
+    {
+        Vector3 direction = w.fpsCam.transform.forward; // your initial aim.
+        Vector3 spread = Vector3.zero;
+        spread += w.fpsCam.transform.up * Random.Range(-1f, 1f); // add random up or down (because random can get negative too)
+        spread += w.fpsCam.transform.right * Random.Range(-1f, 1f); // add random left or right
+
+        direction += spread.normalized * Random.Range(0f, 0.2f);
     }
 }
 

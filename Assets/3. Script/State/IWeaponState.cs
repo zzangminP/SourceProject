@@ -10,6 +10,17 @@ public interface IWeaponState
     
 }
 
+
+///
+/// #####################################################################
+///                                 Draw
+/// #####################################################################
+/// 
+
+
+///<summary>
+/// Draw
+///</summary>
 public class DrawState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -33,6 +44,16 @@ public class DrawState : IWeaponState
     }
 }
 
+/// 
+/// #####################################################################
+///                                 Idle
+/// #####################################################################
+/// 
+
+///<summary>
+/// Idle
+///</summary>
+
 public class IdleState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -52,6 +73,12 @@ public class IdleState : IWeaponState
 
 }
 
+
+/// 
+/// #####################################################################
+///                                 Fire
+/// #####################################################################
+/// 
 public class SingleFiringState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -120,6 +147,11 @@ public class AutoFiringState : IWeaponState
 }
 
 
+
+/// <summary>
+/// For AutoShot
+/// Fire One, Two, Three
+/// </summary>
 public class FireOneState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -151,6 +183,11 @@ public class FireOneState : IWeaponState
     }
 
 }
+
+/// <summary>
+/// For AutoShot
+/// Fire One, Two, Three
+/// </summary>
 public class FireTwoState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -183,6 +220,10 @@ public class FireTwoState : IWeaponState
 
 }
 
+/// <summary>
+/// For AutoShot
+/// Fire One, Two, Three
+/// </summary>
 public class FireThreeState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -218,7 +259,15 @@ public class FireThreeState : IWeaponState
 
 
 
+/// 
+/// #####################################################################
+///                                 Reload
+/// #####################################################################
+/// 
 
+/// <summary>
+/// Mag Reload
+/// </summary>
 public class ReloadingState : IWeaponState
 {
     public void EnterState(Weapon weapon)
@@ -241,6 +290,80 @@ public class ReloadingState : IWeaponState
         }
     }
 }
+
+
+/// <summary>
+/// Single Reload
+/// StartReload -> Insert -> AfterReload
+/// Fire state can be entered at any state
+/// </summary>
+public class SingleStartReloadState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+
+        weapon.PlayAnimation("StartReload");
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("StartReload") || stateInfo.normalizedTime >= 1.0f)
+        {
+            weapon.SetState(new IdleState());
+        }
+    }
+}
+
+public class SingleInsertReloadState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Insert");
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+       
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("InsertReload") || stateInfo.normalizedTime >= 1.0f)
+        {
+            weapon.SetState(new SingleAfterReloadState());
+        }
+    }
+}
+
+public class SingleAfterReloadState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+        
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("AfterReload") || stateInfo.normalizedTime >= 1.0f)
+        {
+            weapon.SetState(new IdleState());
+        }
+    }
+}
+
 
 public class DropState : IWeaponState
 {

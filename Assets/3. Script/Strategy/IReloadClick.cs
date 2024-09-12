@@ -12,9 +12,31 @@ public class SingleReload : IReloadClick
 {
 
 
-    public void OnReloadClick(Weapon weapon)
+    public void OnReloadClick(Weapon w)
     {
-        // SingleReload code here;
+        if(Input.GetKeyDown(KeyCode.R) &&
+           w.currentAmmo < w.maxMag &&
+           w.maxAmmo > 0 )
+        {     
+            w.SetState(new SingleStartReloadState());
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                while (w.currentAmmo != w.maxMag || 
+                       w.maxAmmo != 0)
+                {
+                    w.SetState(new SingleInsertReloadState());
+                    w.currentAmmo += 1;
+                    w.maxAmmo -= 1;
+                }
+
+
+                // Update ui
+                w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
+
+            }
+
+            
+        }
     }
 }
 
@@ -25,7 +47,7 @@ public class MagReload : IReloadClick
     public void OnReloadClick(Weapon w)
     {
         // MagazineReload
-        // MagazineReload
+
         if (Input.GetKeyDown(KeyCode.R) && 
             w.currentAmmo < w.maxMag &&
             w.maxAmmo > 0)

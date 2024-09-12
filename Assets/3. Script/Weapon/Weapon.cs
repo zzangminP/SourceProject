@@ -15,13 +15,13 @@ public class Weapon : WeaponSetting
     
     }
 
-    /// <summary>
+    /// 
     /// 
     /// 
     /// view model 하고 world model하고 어떻게 관리할껀지 생각해봐야함..
     /// 
     /// 
-    /// </summary>
+    /// 
     /// 
 
     /// 0909 전략패턴 적용하기위해 Update문하고 Shoot 잠깐 주석처리함
@@ -79,8 +79,9 @@ public class Weapon : WeaponSetting
     {
         // 초기 상태를 DrawState로 설정     
 
-        animator = GetComponent<Animator>();
-        fpsCam = GetComponentInParent<Camera>();
+    //    animator = GetComponent<Animator>();
+    //    fpsCam = GetComponentInParent<Camera>();
+    //    GameObject.Find("Ammo").TryGetComponent<TMP_Text>(out TMP_Text Ammo_ui);
         SetState(new DrawState());
         UIInit();
     }
@@ -125,6 +126,7 @@ public class Weapon : WeaponSetting
     public void PlayAnimation(string animationClip)
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        Debug.Log(stateInfo);
         if (!stateInfo.IsName(animationClip))
         {
             animator.CrossFadeInFixedTime(animationClip, 0f);
