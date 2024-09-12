@@ -21,12 +21,18 @@ public class SingleReload : IReloadClick
             w.SetState(new SingleStartReloadState());
             if(Input.GetKeyDown(KeyCode.R))
             {
-                while (w.currentAmmo != w.maxMag || 
-                       w.maxAmmo != 0)
+                while (w.currentAmmo < w.maxMag && 
+                       w.maxAmmo > 0)
                 {
-                    w.SetState(new SingleInsertReloadState());
+                    w.StartCoroutine(ReloadShell_co(w));
+                    //w.SetState(new SingleInsertReloadState());
                     w.currentAmmo += 1;
                     w.maxAmmo -= 1;
+                }
+                if (w.currentAmmo == w.maxMag || w.maxAmmo == 0)
+                {
+                    w.SetState(new SingleAfterReloadState());
+
                 }
 
 
@@ -37,6 +43,12 @@ public class SingleReload : IReloadClick
 
             
         }
+    }
+
+    IEnumerator ReloadShell_co(Weapon w)
+    {
+        yield return new WaitForSeconds(1f);
+        w.SetState(new SingleInsertReloadState());
     }
 }
 

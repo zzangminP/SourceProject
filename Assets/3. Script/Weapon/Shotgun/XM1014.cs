@@ -19,7 +19,7 @@ public class XM1014 : Weapon
         impactForce = 50f;
         fireRate    = 2f;
         isAuto      = false;
-        int pellet = 6;
+        pellet      = 6;
 
         leftClick   = new ShotgunLeft();
         rightClick  = new RightClickNothing();
