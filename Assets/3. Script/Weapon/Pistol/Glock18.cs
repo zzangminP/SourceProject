@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Glock18 : Weapon<Glock18>
+public class Glock18 : Weapon
 {
 
      public Glock18() { 
@@ -20,7 +20,7 @@ public class Glock18 : Weapon<Glock18>
         isAuto      = true;
 
         
-         leftClick   = new PistolLeft();
+        leftClick   = new PistolLeft();
         rightClick  = new GlockRight();
         reloadClick = new MagReload();
         wasdMove    = new WASDMove();

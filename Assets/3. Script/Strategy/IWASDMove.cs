@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWASDMove
+public interface IWASDMove 
 {
     public void DefaultWASDMove(Weapon weapon);
 }

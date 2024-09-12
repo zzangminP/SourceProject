@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ILeftClick<T>
+public interface ILeftClick
 {
-    public void OnLeftClick(T weapon);
+    public void OnLeftClick(Weapon weapon);
     //void Fire(Weapon weapon);
 }
 
-public class AK47Left : ILeftClick<AK47>
+public class AK47Left : ILeftClick
 {
     bool isFiring = false;
 
-    public void OnLeftClick(AK47 w)
+    public void OnLeftClick(Weapon w)
     {
 
         if (Input.GetMouseButtonDown(0))
@@ -30,7 +30,7 @@ public class AK47Left : ILeftClick<AK47>
 
     }
 
-    IEnumerator StartAutoFire_Co(AK47 w)
+    IEnumerator StartAutoFire_Co(Weapon w)
     {
         isFiring = true;
 
@@ -46,11 +46,11 @@ public class AK47Left : ILeftClick<AK47>
         isFiring = false; // 발사가 끝난 후 상태 초기화
     }
 
-    void OnAttack(AK47 w)
+    void OnAttack(Weapon w)
     {
-        w.SetState(new FireOneState<AK47>());
+        w.SetState(new FireOneState());
         if (w.currentAmmo > 0 &&
-            !(w.currentState is ReloadingState<AK47>))
+            !(w.currentState is ReloadingState))
         {
             w.currentAmmo -= 1;
             w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
@@ -101,19 +101,19 @@ public class AK47Left : ILeftClick<AK47>
     } //OnAttack()
 }
 
-public class ShotgunLeft<T> : ILeftClick<T> where T : Weapon<T>
+public class ShotgunLeft : ILeftClick
 {
-    public void OnLeftClick(T w)
+    public void OnLeftClick(Weapon w)
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (w.currentState is SingleFiringState<T>)
+            if (w.currentState is SingleFiringState)
                 return;
 
 
             if (w.currentAmmo > 0)
             {
-                w.SetState(new SingleFiringState<T>());
+                w.SetState(new SingleFiringState());
                 w.currentAmmo -= 1;
                 w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
 
@@ -183,7 +183,7 @@ public class ShotgunLeft<T> : ILeftClick<T> where T : Weapon<T>
         } // if input.getkeydown mouseLeft 
     } // OnLeftAttack
 
-    Vector3 ShotgunRay(T w)
+    Vector3 ShotgunRay(Weapon w)
     {
         Vector3 direction = w.fpsCam.transform.forward; // your initial aim.
         Vector3 spread = Vector3.zero;
@@ -197,20 +197,20 @@ public class ShotgunLeft<T> : ILeftClick<T> where T : Weapon<T>
     }
 }
 
-public class PistolLeft : ILeftClick<Glock18>
+public class PistolLeft : ILeftClick
 {
-    public void OnLeftClick(Glock18 w)
+    public void OnLeftClick(Weapon w)
     {
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (w.currentState is SingleFiringState<Glock18>)
+            if (w.currentState is SingleFiringState)
                 return;
 
 
             if (w.currentAmmo > 0)
             {
-                w.SetState(new SingleFiringState<Glock18>());
+                w.SetState(new SingleFiringState());
                 w.currentAmmo -= 1;
                 w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
 
@@ -277,9 +277,9 @@ public class PistolLeft : ILeftClick<Glock18>
 
 }
 
-public class KnifeLeft<T> : ILeftClick<T> where T : Weapon<T>
+public class KnifeLeft : ILeftClick
 {
-    public void OnLeftClick(T weapon)
+    public void OnLeftClick(Weapon weapon)
     {
         // Knife slash code here 
     }

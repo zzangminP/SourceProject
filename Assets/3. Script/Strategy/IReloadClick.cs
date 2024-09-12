@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IReloadClick<T>
+public interface IReloadClick
 {
-    void OnReloadClick(T weapon);
+    void OnReloadClick(Weapon weapon);
 }
 
 
-public class SingleReload<T> : IReloadClick<T> where T : Weapon<T>
+public class SingleReload : IReloadClick
 {
 
 
-    public void OnReloadClick(T w)
+    public void OnReloadClick(Weapon w)
     {
         if(Input.GetKeyDown(KeyCode.R) &&
            w.currentAmmo < w.maxMag &&
            w.maxAmmo > 0 )
         {     
-            w.SetState(new SingleStartReloadState<T>());
+            w.SetState(new SingleStartReloadState());
             if(Input.GetKeyDown(KeyCode.R))
             {
                 while (w.currentAmmo < w.maxMag && 
@@ -32,7 +32,7 @@ public class SingleReload<T> : IReloadClick<T> where T : Weapon<T>
                 }
                 if (w.currentAmmo == w.maxMag || w.maxAmmo == 0)
                 {
-                    w.SetState(new SingleAfterReloadState<T>());
+                    w.SetState(new SingleAfterReloadState());
 
                 }
 
@@ -46,19 +46,19 @@ public class SingleReload<T> : IReloadClick<T> where T : Weapon<T>
         }
     }
 
-    IEnumerator ReloadShell_co(T w)
+    IEnumerator ReloadShell_co(Weapon w)
     {
-        w.SetState(new SingleInsertReloadState<T>());
+        w.SetState(new SingleInsertReloadState());
         yield return new WaitForSeconds(1f);
 
     }
 }
 
-public class MagReload<T> : IReloadClick<T> where T : Weapon<T>
+public class MagReload : IReloadClick
 {
 
 
-    public void OnReloadClick(T w)
+    public void OnReloadClick(Weapon w)
     {
         // MagazineReload
 
@@ -66,7 +66,7 @@ public class MagReload<T> : IReloadClick<T> where T : Weapon<T>
             w.currentAmmo < w.maxMag &&
             w.maxAmmo > 0)
         {
-            w.SetState(new ReloadingState<T>());
+            w.SetState(new ReloadingState());
 
 
             int neededAmmo = w.maxMag - w.currentAmmo;
@@ -90,11 +90,11 @@ public class MagReload<T> : IReloadClick<T> where T : Weapon<T>
     }
 }
 
-public class RClickNothing<T> : IReloadClick<T> where T : Weapon<T>
+public class RClickNothing : IReloadClick
 {
 
 
-    public void OnReloadClick(T weapon)
+    public void OnReloadClick(Weapon weapon)
     {
         return;
     }

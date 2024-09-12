@@ -16,7 +16,7 @@ public enum PlayerState
     C_Shoot
 }
 
-public class PlayerControl<T> : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
 
     [SerializeField] private Animator player_movement_ani;
@@ -160,21 +160,6 @@ public class PlayerControl<T> : MonoBehaviour
 
 
 
-    //private void PlayerInput()
-    //{
-    //
-    //    //PlayerMovement();
-    //
-    //    
-    //
-    //    WeaponControl();
-    //    //player_ani.SetBool("Move", isMove);
-    //    //player_ani.SetFloat("DirX", direction.x);
-    //    //player_ani.SetFloat("DirZ", direction.z);
-    //
-    //
-    //}
-
     private void HandleInput()
     {
         // WASD
@@ -207,42 +192,18 @@ public class PlayerControl<T> : MonoBehaviour
         }
 
 
-        //if (Input.GetKey(KeyCode.R))
-        //{
-        //    // input reload method here
-        //    
-        //
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    pri_weapon.SetState(new FiringState());
-        //}
-        //
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    pri_weapon.SetState(new ReloadingState());
-        //
-        //}
-
-
-
     }
 
 
     private void PlayerMovement(float dirX, float dirZ, float mouseX, float mouseY)
     {
         // WASD
-        //float _dirX = Input.GetAxis("Horizontal");
-        //float _dirZ = Input.GetAxis("Vertical");
+
 
         float _dirX = dirX;
         float _dirZ = dirZ;
 
         // mouse
-        //float _mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
-        //float _mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
         float _mouseX = mouseX * Time.deltaTime * mouseSensitivity;
         float _mouseY = mouseY * Time.deltaTime * mouseSensitivity;
 
@@ -293,20 +254,6 @@ public class PlayerControl<T> : MonoBehaviour
 
         sec_weapon = GameObject.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
 
-        //if (Input.GetKey(KeyCode.R))
-        //{
-        //    //if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
-        //    //{ 
-        //    //
-        //    //}
-        //    //v_model_ani.SetBool("Reload", false);
-        //    //Debug.Log("Reloaded");
-        //}
-
-        //if(Input.GetKey(KeyCode.Mouse0))
-        //{
-        //    v_model_ani.SetBool("Fire", true);
-        //}
     }
 
     private void TakeDamage(int amount)

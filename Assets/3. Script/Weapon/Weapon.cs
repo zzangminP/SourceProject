@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using TMPro.EditorUtilities;
 
-public class Weapon<T> : WeaponSetting where T : Weapon<T>
+public class Weapon : WeaponSetting
 {
     public enum EWeaponState
     {
@@ -36,9 +36,9 @@ public class Weapon<T> : WeaponSetting where T : Weapon<T>
 
 
     // strategy
-    public ILeftClick<T>            leftClick;
-    public IRightClick<T>           rightClick;
-    public IReloadClick<T>          reloadClick;
+    public ILeftClick            leftClick;
+    public IRightClick           rightClick;
+    public IReloadClick          reloadClick;
     public IWASDMove                wasdMove;
 
 
@@ -49,7 +49,7 @@ public class Weapon<T> : WeaponSetting where T : Weapon<T>
     //    animator = GetComponent<Animator>();
     //    fpsCam = GetComponentInParent<Camera>();
     //    GameObject.Find("Ammo").TryGetComponent<TMP_Text>(out TMP_Text Ammo_ui);
-        SetState(new DrawState<T>());
+        SetState(new DrawState());
         UIInit();
     }
     private void Update()
@@ -66,13 +66,13 @@ public class Weapon<T> : WeaponSetting where T : Weapon<T>
     }
 
 
-    public void Left(T weapon)     { leftClick.OnLeftClick(weapon); }
-    public void Right(T weapon)    { rightClick.OnRigtClick(weapon); }
-    public void Reload(T weapon)   { reloadClick.OnReloadClick(weapon); }
-    public void WASD(T weapon)     { wasdMove.DefaultWASDMove(weapon); }
+    public void Left(Weapon weapon)     { leftClick.OnLeftClick(weapon); }
+    public void Right(Weapon weapon)    { rightClick.OnRigtClick(weapon); }
+    public void Reload(Weapon weapon)   { reloadClick.OnReloadClick(weapon); }
+    public void WASD(Weapon weapon)     { wasdMove.DefaultWASDMove(weapon); }
 
 
-    public void SetState(IWeaponState<T> newState)
+    public void SetState(IWeaponState newState)
     {
          
         if (currentState != null)

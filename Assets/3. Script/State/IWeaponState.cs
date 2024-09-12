@@ -1,12 +1,12 @@
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-public interface IWeaponState<T> where T : Weapon<T>
+public interface IWeaponState
 {
-    void EnterState(T weapon);
+    void EnterState(Weapon weapon);
     
-    void UpdateState(T weapon);
+    void UpdateState(Weapon weapon);
 
-    void ExitState(T weapon);
+    void ExitState(Weapon weapon);
     
 }
 
@@ -21,25 +21,25 @@ public interface IWeaponState<T> where T : Weapon<T>
 ///<summary>
 /// Draw
 ///</summary>
-public class DrawState<T> : IWeaponState<T> where T : Weapon<T>
+public class DrawState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
         weapon.PlayAnimation("Draw");
         //Debug.Log("Weapon is drawing");
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
 
     }
 
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("Draw"))
         {
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
     }
 }
@@ -54,19 +54,19 @@ public class DrawState<T> : IWeaponState<T> where T : Weapon<T>
 /// Idle
 ///</summary>
 
-public class IdleState<T> : IWeaponState<T> where T : Weapon<T>
+public class IdleState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
         //Debug.Log("Weapon is Idle");
         weapon.PlayAnimation("Idle");
     }
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
 
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
 
     }
@@ -79,24 +79,24 @@ public class IdleState<T> : IWeaponState<T> where T : Weapon<T>
 ///                                 Fire
 /// #####################################################################
 /// 
-public class SingleFiringState<T> : IWeaponState<T> where T : Weapon<T>
+public class SingleFiringState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
             weapon.PlayAnimation("Fire");        
     }
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("Fire") || stateInfo.normalizedTime >= 0.9f )
         {
             
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
 
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
         //weapon.SetState(new DropState());
             
@@ -110,13 +110,13 @@ public class SingleFiringState<T> : IWeaponState<T> where T : Weapon<T>
 /// For AutoShot
 /// Fire One, Two, Three
 /// </summary>
-public class FireOneState<T> : IWeaponState<T> where T : Weapon<T>
+public class FireOneState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
         weapon.PlayAnimationAuto("Fire1");
     }
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
 
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
@@ -130,12 +130,12 @@ public class FireOneState<T> : IWeaponState<T> where T : Weapon<T>
         if (!stateInfo.IsName("Fire1") || stateInfo.normalizedTime >= 0.9f)
         {
 
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
 
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
 
     }
@@ -154,25 +154,25 @@ public class FireOneState<T> : IWeaponState<T> where T : Weapon<T>
 /// <summary>
 /// Mag Reload
 /// </summary>
-public class ReloadingState<T> : IWeaponState<T> where T : Weapon<T>
+public class ReloadingState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
 
         weapon.PlayAnimation("Reload");
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
         
     }
 
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0); 
         if (!stateInfo.IsName("Reload") || stateInfo.normalizedTime >= 1.0f)
         {
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
     }
 }
@@ -183,92 +183,92 @@ public class ReloadingState<T> : IWeaponState<T> where T : Weapon<T>
 /// StartReload -> Insert -> AfterReload
 /// Fire state can be entered at any state
 /// </summary>
-public class SingleStartReloadState<T> : IWeaponState<T> where T : Weapon<T>
+public class SingleStartReloadState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
 
         weapon.PlayAnimation("StartReload");
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
 
     }
 
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("StartReload") || stateInfo.normalizedTime >= 1.0f)
         {
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
     }
 }
 
-public class SingleInsertReloadState<T> : IWeaponState<T> where T : Weapon<T>
+public class SingleInsertReloadState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
         weapon.PlayAnimation("Insert");
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
        
     }
 
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("InsertReload") || stateInfo.normalizedTime >= 1.0f)
         {
-            weapon.SetState(new SingleAfterReloadState<T>());
+            weapon.SetState(new SingleAfterReloadState());
         }
     }
 }
 
-public class SingleAfterReloadState<T> : IWeaponState<T> where T : Weapon<T>
+public class SingleAfterReloadState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
         
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
         
     }
 
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("AfterReload") || stateInfo.normalizedTime >= 1.0f)
         {
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
     }
 }
 
 
-public class DropState<T> : IWeaponState<T> where T : Weapon<T>
+public class DropState : IWeaponState
 {
-    public void EnterState(T weapon)
+    public void EnterState(Weapon weapon)
     {
         weapon.PlayAnimation("Drop");
     }
 
-    public void ExitState(T weapon)
+    public void ExitState(Weapon weapon)
     {
 
     }
 
-    public void UpdateState(T weapon)
+    public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName("Drop") || stateInfo.normalizedTime >= 0.1f)
         {
-            weapon.SetState(new IdleState<T>());
+            weapon.SetState(new IdleState());
         }
     }
 }

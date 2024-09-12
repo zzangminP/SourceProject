@@ -17,6 +17,7 @@ public class WeaponSetting : MonoBehaviour
     public float impactForce        { get; set; }
     public int pellet               { get; set; }
     public bool isAuto              { get; set; }
+    public bool isBurst             { get; set; }
 
     /// <summary>
     /// RPM / 60

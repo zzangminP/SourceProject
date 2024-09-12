@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class AK47 : Weapon<AK47>
+public class AK47 : Weapon
 {
 
     public AK47()
@@ -34,7 +34,7 @@ public class AK47 : Weapon<AK47>
         animator    = GetComponent<Animator>();
         fpsCam      = GetComponentInParent<Camera>();
         Ammo_ui     = GameObject.Find("Ammo").GetComponent<TMP_Text>();
-        SetState(new DrawState<AK47>());
+        SetState(new DrawState());
         UIInit();
     }
 

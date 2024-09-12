@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public interface IRightClick<T>
+public interface IRightClick
 {
-    public void OnRigtClick(T weapon);
+    public void OnRigtClick(Weapon weapon);
 }
 
 
-public class RightClickNothing<T> : IRightClick<T> where T : Weapon<T>
+public class RightClickNothing : IRightClick
 {
 
 
-    public void OnRigtClick(T w)
+    public void OnRigtClick(Weapon w)
     {
         return;
     }
@@ -24,22 +24,22 @@ public class RightClickNothing<T> : IRightClick<T> where T : Weapon<T>
 /// <summary>
 /// Set Bust mode
 /// </summary>
-public class GlockRight : IRightClick<Glock18>
+public class GlockRight : IRightClick
 {
-    public void OnRigtClick(Glock18 w)
+    public void OnRigtClick(Weapon w)
     {
-        if(w.isBust == false)
-            w.isBust = true;
+        if(w.isBurst == false)
+            w.isBurst = true;
         else
-            w.isBust = false;
+            w.isBurst = false;
         
     }
 }
 
-public class ZoomIn<T> : IRightClick<T> where T : Weapon<T>
+public class ZoomIn : IRightClick
 {
 
-    public void OnRigtClick(T weapon)
+    public void OnRigtClick(Weapon weapon)
     {
         // ZoomIn Code here; 
     }
@@ -47,11 +47,11 @@ public class ZoomIn<T> : IRightClick<T> where T : Weapon<T>
 
 
 
-public class KnifeRight<T> : IRightClick<T> where T : Weapon<T>
+public class KnifeRight : IRightClick
 {
 
 
-    public void OnRigtClick(T weapon)
+    public void OnRigtClick(Weapon weapon)
     {
         //stab code here;
     }
