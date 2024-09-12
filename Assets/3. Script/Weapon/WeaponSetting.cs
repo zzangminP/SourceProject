@@ -17,6 +17,10 @@ public class WeaponSetting : MonoBehaviour
     public float impactForce        { get; set; }
     public int pellet               { get; set; }
     public bool isAuto              { get; set; }
+
+    /// <summary>
+    /// RPM / 60
+    /// </summary>
     public float fireRate           { get; set; }
     public float lastFireTime       { get; set; }
 

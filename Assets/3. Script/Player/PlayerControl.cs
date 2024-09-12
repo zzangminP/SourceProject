@@ -16,7 +16,7 @@ public enum PlayerState
     C_Shoot
 }
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl<T> : MonoBehaviour
 {
 
     [SerializeField] private Animator player_movement_ani;

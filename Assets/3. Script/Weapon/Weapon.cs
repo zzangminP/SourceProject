@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using TMPro.EditorUtilities;
 
-public class Weapon : WeaponSetting
+public class Weapon<T> : WeaponSetting where T : Weapon<T>
 {
     public enum EWeaponState
     {
@@ -26,39 +26,6 @@ public class Weapon : WeaponSetting
 
     /// 0909 전략패턴 적용하기위해 Update문하고 Shoot 잠깐 주석처리함
 
-    //public IWeaponState currentState;
-    //
-    //public Animator animator { get; set; }
-    //
-    //
-    //
-    //
-    ///// <summary>
-    ///// Physics
-    ///// </summary>
-    //
-    //public int   damage             { get; set; }
-    //public float range              { get; set; }
-    //public float impactForce        { get; set; }
-    ////public bool isAuto              { get; set; }
-    //public float fireRate           { get; set; }
-    //public float lastFireTime       { get; set; }
-    //
-    //
-    ///// <summary>
-    ///// Ammo
-    ///// </summary>
-    //
-    //public int   maxMag             { get; set; }
-    //public int   maxAmmo            { get; set; }
-    //public int   currentAmmo        { get; set; }
-    //
-    //
-    //
-    //public int   cost               { get; set; }
-    //
-    //
-    //public Camera fpsCam            { get; set; }
 
 
 
@@ -69,10 +36,10 @@ public class Weapon : WeaponSetting
 
 
     // strategy
-    public ILeftClick       leftClick;
-    public IRightClick      rightClick;
-    public IReloadClick     reloadClick;
-    public IWASDMove        wasdMove;
+    public ILeftClick<T>            leftClick;
+    public IRightClick<T>           rightClick;
+    public IReloadClick<T>          reloadClick;
+    public IWASDMove                wasdMove;
 
 
     void Start()
@@ -82,7 +49,7 @@ public class Weapon : WeaponSetting
     //    animator = GetComponent<Animator>();
     //    fpsCam = GetComponentInParent<Camera>();
     //    GameObject.Find("Ammo").TryGetComponent<TMP_Text>(out TMP_Text Ammo_ui);
-        SetState(new DrawState());
+        SetState(new DrawState<T>());
         UIInit();
     }
     private void Update()
@@ -99,13 +66,13 @@ public class Weapon : WeaponSetting
     }
 
 
-    public void Left(Weapon weapon)     { leftClick.OnLeftClick(weapon); }
-    public void Right(Weapon weapon)    { rightClick.OnRigtClick(weapon); }
-    public void Reload(Weapon weapon)   { reloadClick.OnReloadClick(weapon); }
-    public void WASD(Weapon weapon)     { wasdMove.DefaultWASDMove(weapon); }
+    public void Left(T weapon)     { leftClick.OnLeftClick(weapon); }
+    public void Right(T weapon)    { rightClick.OnRigtClick(weapon); }
+    public void Reload(T weapon)   { reloadClick.OnReloadClick(weapon); }
+    public void WASD(T weapon)     { wasdMove.DefaultWASDMove(weapon); }
 
 
-    public void SetState(IWeaponState newState)
+    public void SetState(IWeaponState<T> newState)
     {
          
         if (currentState != null)
