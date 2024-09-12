@@ -3,7 +3,17 @@ guid: c8bd8af9357b2aa47b6afff924c45cb6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shot_xm1014.001
+    second: {fileID: 2100000, guid: e4e406ef331cc8e4ca19bc1cf998c562, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: v_hands
+    second: {fileID: 2100000, guid: ffb1909e4b7ed4e418cc4f7b6939034f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -32,7 +42,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -99,7 +109,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

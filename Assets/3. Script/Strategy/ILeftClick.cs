@@ -98,9 +98,16 @@ public class AK47Left : ILeftClick
                 }
             } // if Physics.Raycast
         } // if w.currentAmmo blablabla....
-    }
+    } //OnAttack()
 }
 
+public class ShotgunLeft : ILeftClick
+{
+    public void OnLeftClick(Weapon weapon)
+    {
+        
+    }
+}
 
 public class PistolLeft : ILeftClick
 {

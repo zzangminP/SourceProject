@@ -14,6 +14,7 @@ public class AK47 : Weapon
         maxMag      = 30;
         range       = 100f;
         cost        = 2700;
+        reward      = 300;      
         impactForce = 50f;
         fireRate    = 10f;
         isAuto      = true;

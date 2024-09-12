@@ -78,16 +78,23 @@ public class Weapon : WeaponSetting
     void Start()
     {
         // 초기 상태를 DrawState로 설정     
-        // SetState(new DrawState());
-        // animator = GetComponent<Animator>();
+
+        animator = GetComponent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
+        SetState(new DrawState());
+        UIInit();
     }
     private void Update()
     {
-        //if(currentState != null)
-        //{
-        //    currentState.UpdateState(this);
-        //}
+    }
+    private void OnEnable()
+    {
+        UIInit();
+    }
+
+    private void UIInit()
+    {
+        Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
     }
 
 

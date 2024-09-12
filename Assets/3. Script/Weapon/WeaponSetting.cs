@@ -31,6 +31,7 @@ public class WeaponSetting : MonoBehaviour
 
 
     public int cost                 { get; set; }
+    public int reward               { get; set; }
 
 
     public Camera fpsCam            { get; set; }
