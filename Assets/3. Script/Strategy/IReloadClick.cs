@@ -14,6 +14,11 @@ public class SingleReload : IReloadClick
 
     public void OnReloadClick(Weapon w)
     {
+
+        if ((w.currentState is FireOneState ||
+           w.currentState is SingleFiringState))
+            return;
+
         if(Input.GetKeyDown(KeyCode.R) &&
            w.currentAmmo < w.maxMag &&
            w.maxAmmo > 0 )
@@ -61,6 +66,7 @@ public class MagReload : IReloadClick
     public void OnReloadClick(Weapon w)
     {
         // MagazineReload
+        
 
         if (Input.GetKeyDown(KeyCode.R) && 
             w.currentAmmo < w.maxMag &&

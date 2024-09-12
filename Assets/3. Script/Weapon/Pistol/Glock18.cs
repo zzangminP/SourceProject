@@ -7,18 +7,18 @@ public class Glock18 : Weapon
 {
 
      public Glock18() { 
-        damage      = 27;
-        currentAmmo = 30;
-        maxAmmo     = 90;
-        maxMag      = 30;
+        damage      = 25;
+        currentAmmo = 20;
+        maxAmmo     = 120;
+        maxMag      = 20;
         pellet      = 1; 
         range       = 100f;
-        cost        = 2700;
+        cost        = 200;
         reward      = 300;      
         impactForce = 50f;
         fireRate    = 6.6f;
         isAuto      = true;
-
+        isBurst     = false; 
         
         leftClick   = new PistolLeft();
         rightClick  = new GlockRight();
@@ -26,7 +26,7 @@ public class Glock18 : Weapon
         wasdMove    = new WASDMove();
 
      }
-    public bool isBust = false;
+
 
 
 

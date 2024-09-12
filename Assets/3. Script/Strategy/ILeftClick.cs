@@ -202,10 +202,14 @@ public class PistolLeft : ILeftClick
     public void OnLeftClick(Weapon w)
     {
 
+
+        if (w.currentState is ReloadingState || 
+            w.currentState is SingleFiringState)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (w.currentState is SingleFiringState)
-                return;
+
 
 
             if (w.currentAmmo > 0)
