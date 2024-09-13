@@ -5,7 +5,7 @@ using UnityEngine;
 public interface ILeftClick
 {
     public void OnLeftClick(Weapon weapon);
-    //void Fire(Weapon weapon);
+   
 }
 
 public class AK47Left : ILeftClick
@@ -34,16 +34,16 @@ public class AK47Left : ILeftClick
     {
         isFiring = true;
 
-        // 연사 모드로 발사
+
         while (isFiring && w.currentAmmo > 0)
         {
             OnAttack(w);
 
-            // 발사 속도 조절: fireRate를 기준으로 대기
+            
             yield return new WaitForSeconds(1f / w.fireRate);
         }
 
-        isFiring = false; // 발사가 끝난 후 상태 초기화
+        isFiring = false;
     }
 
     void OnAttack(Weapon w)
@@ -277,6 +277,41 @@ public class PistolLeft : ILeftClick
         } // if input.getkeydown mouseLeft 
 
     }
+
+
+}
+
+public class C4Left : ILeftClick
+{
+    bool isPlanting = false;
+    public void OnLeftClick(Weapon weapon)
+    {
+        C4 c4 = weapon as C4;
+        if (c4.player.canC4Plant == false)
+        {
+            return;
+        }
+        else
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                c4.StartCoroutine(C4Planting_co(c4));
+            }
+            else if(Input.GetMouseButtonUp(0))
+            {
+                c4.StopAllCoroutines();
+            }
+            
+
+        }  // if (canC4Plant = false) -- else
+        
+    } // OnLeftClick
+
+    IEnumerator C4Planting_co(C4 c4)
+    {
+        yield return new WaitForSeconds(5f);
+    }
+
 
 
 }

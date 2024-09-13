@@ -67,6 +67,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Weapon[] miscellaneous;
     [SerializeField] private Weapon current_weapon;
     [SerializeField] private Weapon privious_weapon = null;
+    [SerializeField] public bool canC4Plant = false;
 
 
 
@@ -174,13 +175,6 @@ public class PlayerControl : MonoBehaviour
 
 
         PlayerMovement(dirX, dirZ, mouseX, mouseY);
-
-
-
-
-
-
-
         // Jump
 
 
@@ -272,6 +266,45 @@ public class PlayerControl : MonoBehaviour
         setCollider(false);
     }
 
+    //private void OnCollisionEnter(Collision col)
+    //{
+    //    if(col.gameObject.CompareTag("BombSite"))
+    //    {
+    //        canC4Plant = true;
+    //        Debug.Log("BombSite Entered");
+    //    }
+    //    
+    //}
+
+    //private void OnCollisionExit(Collision col)
+    //{
+    //    if (col.gameObject.CompareTag("BombSite"))
+    //    {
+    //        canC4Plant = false;
+    //        Debug.Log("BombSite Out");
+    //    }
+    //
+    //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("BombSite"))
+        {
+            canC4Plant = true;
+            Debug.Log("BombSite Entered");
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("BombSite"))
+        {
+            canC4Plant = false;
+            Debug.Log("BombSite Out");
+        }
+
+    }
 
 
 
