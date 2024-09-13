@@ -251,6 +251,37 @@ public class SingleAfterReloadState : IWeaponState
 }
 
 
+
+
+/// <summary>
+/// For Planting C4
+/// </summary>
+public class PlantingState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Planting");
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("Planting") || stateInfo.normalizedTime >= 0.1f)
+        {
+            weapon.SetState(new DropState());
+        }
+    }
+}
+
+
+/// <summary>
+/// For Planting C4
+/// </summary>
 public class DropState : IWeaponState
 {
     public void EnterState(Weapon weapon)

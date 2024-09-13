@@ -98,6 +98,7 @@ public class Dummy : MonoBehaviour
         setRagdoll(true);
         //transform.GetComponent<BoxCollider>().enabled = true;
         setCollider(true);
+        transform.GetComponent<BoxCollider>().enabled = true;
 
         //hitBoxCollider.enabled = true;
 

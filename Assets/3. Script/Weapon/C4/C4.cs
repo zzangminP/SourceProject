@@ -23,12 +23,13 @@ public class C4 : Weapon
         rightClick = new RightClickNothing();
         reloadClick = new RClickNothing();
         wasdMove = new WASDMove();
-
+        
     }
 
     // maybe change class.. 
     // PlayerControl -> Player
     public PlayerControl player;
+        
 
     private void Start()
     {

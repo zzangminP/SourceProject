@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public interface ILeftClick
@@ -14,6 +15,9 @@ public class AK47Left : ILeftClick
 
     public void OnLeftClick(Weapon w)
     {
+        if (w.currentState is DrawState ||
+            w.currentState is ReloadingState)
+            return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -56,8 +60,9 @@ public class AK47Left : ILeftClick
             w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
 
             RaycastHit hit;
+            int layerMask = -1 - (1 << LayerMask.NameToLayer("Player"));
 
-            if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
+            if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range, layerMask))
             {
                 Debug.Log(hit.collider.gameObject.layer);
 
@@ -100,6 +105,7 @@ public class AK47Left : ILeftClick
         } // if w.currentAmmo blablabla....
     } //OnAttack()
 }
+
 
 public class ShotgunLeft : ILeftClick
 {
@@ -284,9 +290,14 @@ public class PistolLeft : ILeftClick
 public class C4Left : ILeftClick
 {
     bool isPlanting = false;
+    float plantingAmount = 1000f;
+    float current = 0f;
     public void OnLeftClick(Weapon weapon)
     {
         C4 c4 = weapon as C4;
+        bool isPressing = false;
+        float pressTime = 0f;
+
         if (c4.player.canC4Plant == false)
         {
             return;
@@ -295,11 +306,16 @@ public class C4Left : ILeftClick
         {
             if(Input.GetMouseButtonDown(0))
             {
-                c4.StartCoroutine(C4Planting_co(c4));
+
+                c4.StartCoroutine(PlantingC4_co(c4));
+                
+
             }
             else if(Input.GetMouseButtonUp(0))
             {
-                c4.StopAllCoroutines();
+                isPressing = false;
+                c4.StopCoroutine(PlantingC4_co(c4));
+
             }
             
 
@@ -307,9 +323,39 @@ public class C4Left : ILeftClick
         
     } // OnLeftClick
 
-    IEnumerator C4Planting_co(C4 c4)
+    IEnumerator PlantingC4_co(C4 c4)
     {
-        yield return new WaitForSeconds(5f);
+        isPlanting = true;
+
+        while (isPlanting)
+        {
+
+            PlatingC4(c4);
+            yield return new WaitForSeconds(3.5f);
+        }
+
+        isPlanting = false;   
+
+        // Planting Amount need to connect to slide ui
+        // platingAmount = ;;;; ;; ;; ; ; ; ;
+
+    }
+
+    void PlatingC4(C4 c4)
+    {
+
+        c4.SetState(new PlantingState());
+        //c4.StartCoroutine(Wait_co());
+        Vector3 position = c4.GetComponentInParent<PlayerControl>().transform.position;
+        position.y += 0.1f;
+        GameObject newC4 = GameObject.Instantiate(c4.w_model, position ,c4.w_model.transform.rotation);
+        newC4.GetComponent<Rigidbody>().isKinematic = true;
+        newC4.GetComponentInChildren<MeshCollider>().isTrigger = true;
+    }                                                       
+
+    IEnumerator Wait_co()
+    {
+        yield return new WaitForSeconds(3.5f);
     }
 
 
