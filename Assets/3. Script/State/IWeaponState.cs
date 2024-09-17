@@ -271,7 +271,9 @@ public class PlantingState : IWeaponState
     public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
-        if (!stateInfo.IsName("Planting") || stateInfo.normalizedTime >= 0.1f)
+        
+        //if (!stateInfo.IsName("Planting"))
+        if(!stateInfo.IsName("Planting") || stateInfo.normalizedTime >= 1f)
         {
             weapon.SetState(new DropState());
         }
@@ -297,7 +299,7 @@ public class DropState : IWeaponState
     public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
-        if (!stateInfo.IsName("Drop") || stateInfo.normalizedTime >= 0.1f)
+        if (!stateInfo.IsName("Drop") || stateInfo.normalizedTime >= 1f)
         {
             weapon.SetState(new IdleState());
         }

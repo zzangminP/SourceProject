@@ -7,7 +7,7 @@ public class C4 : Weapon
 {
     public C4()
     {
-        damage = 27;
+        damage = 500;
         currentAmmo = 0;
         maxAmmo = 0;
         maxMag = 0;

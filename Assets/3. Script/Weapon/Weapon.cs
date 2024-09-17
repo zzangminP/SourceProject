@@ -15,6 +15,8 @@ public class Weapon : WeaponSetting
     
     }
 
+
+
     /// 
     /// 
     /// 
@@ -35,6 +37,10 @@ public class Weapon : WeaponSetting
     public GameObject w_model;
 
 
+
+    public Transform weaponHolder;
+    public GameObject weaponCamera; 
+
     // strategy
     public ILeftClick            leftClick;
     public IRightClick           rightClick;
@@ -44,16 +50,17 @@ public class Weapon : WeaponSetting
 
     void Start()
     {
-        // 초기 상태를 DrawState로 설정     
 
-    //    animator = GetComponent<Animator>();
-    //    fpsCam = GetComponentInParent<Camera>();
-    //    GameObject.Find("Ammo").TryGetComponent<TMP_Text>(out TMP_Text Ammo_ui);
+        Init();
+
+        
+    }
+
+    private void Init()
+    {
         SetState(new DrawState());
         UIInit();
-    }
-    private void Update()
-    {
+
     }
     private void OnEnable()
     {

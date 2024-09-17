@@ -69,6 +69,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Weapon privious_weapon = null;
     [SerializeField] public bool canC4Plant = false;
 
+    [Header("UI")]
+    [SerializeField] public GameObject scopeOverlay;
+
 
 
     //private int holdingWeaponIndex = 0;
@@ -109,6 +112,9 @@ public class PlayerControl : MonoBehaviour
         player_movement_ani = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
+        //scopeOverlay = GameObject.Find("Scope");
+        //scopeOverlay.SetActive(false);
+
 
         setRagdoll(true);   
         setCollider(true);
