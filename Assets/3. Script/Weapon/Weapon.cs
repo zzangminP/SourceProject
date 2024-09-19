@@ -74,7 +74,7 @@ public class Weapon : WeaponSetting
 
 
     public void Left(Weapon weapon)     { leftClick.OnLeftClick(weapon); }
-    public void Right(Weapon weapon)    { rightClick.OnRigtClick(weapon); }
+    public void Right(Weapon weapon)    { rightClick.OnRightClick(weapon); }
     public void Reload(Weapon weapon)   { reloadClick.OnReloadClick(weapon); }
     public void WASD(Weapon weapon)     { wasdMove.DefaultWASDMove(weapon); }
 

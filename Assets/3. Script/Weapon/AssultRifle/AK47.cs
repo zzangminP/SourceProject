@@ -64,7 +64,7 @@ public class AK47 : Weapon
         }
 
         leftClick.OnLeftClick(this);
-        rightClick.OnRigtClick(this);
+        rightClick.OnRightClick(this);
         reloadClick.OnReloadClick(this);
         wasdMove.DefaultWASDMove(this);
     }

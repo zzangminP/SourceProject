@@ -69,7 +69,7 @@ public class C4 : Weapon
         }
 
         leftClick.OnLeftClick(this);
-        rightClick.OnRigtClick(this);
+        rightClick.OnRightClick(this);
         reloadClick.OnReloadClick(this);
         wasdMove.DefaultWASDMove(this);
     }

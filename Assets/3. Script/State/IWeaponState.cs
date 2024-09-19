@@ -305,3 +305,74 @@ public class DropState : IWeaponState
         }
     }
 }
+
+
+public class KnifeStabHitState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Stab");
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("Stab") || stateInfo.normalizedTime >= 1f)
+        {
+            weapon.SetState(new IdleState());
+        }
+    }
+}
+
+public class KnifeSlashState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("Slash");
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.normalizedTime >= 0.6f)
+        {
+            weapon.SetState(new IdleState());
+        }
+    }
+}
+
+
+
+
+
+public class KnifeStabMissState : IWeaponState
+{
+    public void EnterState(Weapon weapon)
+    {
+        weapon.PlayAnimation("StabMiss");
+    }
+
+    public void ExitState(Weapon weapon)
+    {
+
+    }
+
+    public void UpdateState(Weapon weapon)
+    {
+        AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("StabMiss") || stateInfo.normalizedTime >= 1f)
+        {
+            weapon.SetState(new IdleState());
+        }
+    }
+}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public interface ILeftClick
 {
@@ -54,7 +55,7 @@ public class AK47Left : ILeftClick
     {
         w.SetState(new FireOneState());
         if (w.currentAmmo > 0 &&
-            !(w.currentState is ReloadingState))
+            (w.currentState is not ReloadingState))
         {
             w.currentAmmo -= 1;
             w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
@@ -290,7 +291,7 @@ public class PistolLeft : ILeftClick
 public class C4Left : ILeftClick
 {
     bool isPlanting = false;
-    float plantingTime = 3.0f; // 설치 시간이 3초라고 가정
+    float plantingTime = 3.0f; 
     Coroutine plantingCoroutine;
 
     public void OnLeftClick(Weapon weapon)
@@ -451,14 +452,104 @@ public class AWPLeft : ILeftClick
 
         } // if input.getkeydown mouseLeft 
 
-    }
+    } // OnLeftClick
 }
 
 public class KnifeLeft : ILeftClick
 {
-    public void OnLeftClick(Weapon weapon)
+    bool isFiring = false;
+    public void OnLeftClick(Weapon w)
     {
-        // Knife slash code here 
+
+
+        if (w.currentState is KnifeStabHitState ||
+            w.currentState is KnifeStabMissState)
+            return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            w.StartCoroutine(StartAutoFire_Co(w));
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+
+            isFiring = false;
+            Debug.Log("isFiring? : " + isFiring);
+            w.StopCoroutine(StartAutoFire_Co(w));
+        }
+
+
+
+    }
+
+
+    IEnumerator StartAutoFire_Co(Weapon w)
+    {
+
+        isFiring = true;
+
+
+        while (isFiring && w.currentAmmo > 0)
+        {
+            OnAttack(w);
+
+
+            yield return new WaitForSeconds(1f / w.fireRate);
+        }
+
+        isFiring = false;
+
+    }
+
+
+    void OnAttack(Weapon w)
+    {
+        w.SetState(new KnifeSlashState());
+        w.Ammo_ui.text = $" ";
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
+        {
+            //Debug.Log(hit.collider.gameObject.layer);
+            Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
+            Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+            int calcDamage = w.damage;
+
+
+
+            if (hitPlayer != null)
+            {
+                Vector3 rayDirection = (hit.point - w.transform.position).normalized;
+                Vector3 targetForward = hitPlayer.transform.forward;
+
+                // 내적 계산
+                float dotProduct = Vector3.Dot(rayDirection, targetForward);
+                if (dotProduct > 0)
+                {
+                    calcDamage = w.damage + 20;
+
+
+                }
+
+
+                hitPlayer.TakeDamage(calcDamage);
+                Debug.Log(calcDamage);
+
+                if (hitPlayer.hp <= 0)
+                {
+                    hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                    //Debug.Log("Added force to dead player.");
+                }
+            } // if hitPlayer != null
+
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * w.impactForce);
+            }
+
+        } // if Physics.Raycast
     }
 
 

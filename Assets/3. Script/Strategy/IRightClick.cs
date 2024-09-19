@@ -6,7 +6,7 @@ using UnityEngine;
 
 public interface IRightClick
 {
-    public void OnRigtClick(Weapon weapon);
+    public void OnRightClick(Weapon weapon);
 }
 
 
@@ -14,7 +14,7 @@ public class RightClickNothing : IRightClick
 {
 
 
-    public void OnRigtClick(Weapon w)
+    public void OnRightClick(Weapon w)
     {
         return;
     }
@@ -26,7 +26,7 @@ public class RightClickNothing : IRightClick
 /// </summary>
 public class GlockRight : IRightClick
 {
-    public void OnRigtClick(Weapon w)
+    public void OnRightClick(Weapon w)
     {
         if(w.isBurst == false)
             w.isBurst = true;
@@ -43,7 +43,7 @@ public class ZoomIn : IRightClick
     public float secondScopedFOV = 10f;
     private float normalFOV = 60f;
 
-    public void OnRigtClick(Weapon weapon)
+    public void OnRightClick(Weapon weapon)
     {
         AWP awp = weapon as AWP;
 
@@ -101,9 +101,70 @@ public class KnifeRight : IRightClick
 {
 
 
-    public void OnRigtClick(Weapon weapon)
+    public void OnRightClick(Weapon w)
     {
-        //stab code here;
+
+
+        if (w.currentState is not IdleState)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
+            {
+
+                Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                int calcDamage = w.damage;
+                Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
+
+
+
+                if (hitPlayer != null)
+                {
+                    w.SetState(new KnifeStabHitState());
+                    Vector3 rayDirection = (hit.point - w.transform.position).normalized;
+                    Vector3 targetForward = hitPlayer.transform.forward;
+
+
+                    float dotProduct = Vector3.Dot(rayDirection, targetForward);
+
+                    // if from behind
+                    if (dotProduct > 0)
+                    {
+                        calcDamage = 9999;
+                    }
+                    else
+                    {
+                        calcDamage = w.damage + 20;
+                    }
+
+
+
+                    hitPlayer.TakeDamage(calcDamage);
+                    Debug.Log(calcDamage);
+
+                } // if hitPlayer != null
+                
+
+
+
+
+            } // if Physics.Raycast
+            else
+            {
+                Debug.Log("Stab Miss");
+                w.SetState(new KnifeStabMissState());
+            }
+
+
+
+        } // if input.getkeydown mouseLeft 
+
     }
+
 }
 
