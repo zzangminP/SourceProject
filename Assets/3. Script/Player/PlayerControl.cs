@@ -77,6 +77,9 @@ public class PlayerControl : MonoBehaviour
 
     public WeaponHolder weaponHolder;
 
+    private int currentWeaponIndex = 0; // 현재 무기의 인덱스
+    private int previousWeaponIndex = -1; // 이전 무기의 인덱스
+
 
     //private int holdingWeaponIndex = 0;
     /// <summary>
@@ -192,8 +195,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             PlayerJump();
-
-
         }
 
 
@@ -201,7 +202,6 @@ public class PlayerControl : MonoBehaviour
         if(Input.GetKey(KeyCode.G))
         {
             weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, WeaponSetting.Type.AK47);
-
         }
 
 
@@ -274,14 +274,11 @@ public class PlayerControl : MonoBehaviour
         
         foreach(var i in playerViewModels_List)
         {
-            if (i.GetComponent<Weapon>().type == WeaponSetting.Type.Knife)
+            if (i.GetComponent<Weapon>().type != WeaponSetting.Type.Knife)
             {
-                Debug.Log(i.GetComponent<Weapon>().type);
-                return;
+                i.SetActive(false);
             }
 
-            Debug.Log(i.GetComponent<Weapon>().type);
-            i.SetActive(false);
         }
 
         //pri_weapon = transform.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
@@ -289,6 +286,68 @@ public class PlayerControl : MonoBehaviour
         //weaponHolder = transform.Find("Main Camera/Weapon Camera/WeaponHolder").GetComponent<WeaponHolder>();
     }
 
+    private void SwitchingWeapon()
+    {
+        // Q를 눌러 이전 무기로 교체
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (previousWeaponIndex != -1) // 이전 무기가 설정된 경우에만
+            {
+                SwapWeapon(previousWeaponIndex); // 이전 무기로 교체
+            }
+            else
+            {
+                return; // 이전 무기가 없으면 리턴
+            }
+        }
+
+        // 마우스 휠을 아래로 스크롤
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
+            currentWeaponIndex = (currentWeaponIndex + 1) % weaponHolder_List.Count; // 다음 무기로 순환
+            SwapWeapon(currentWeaponIndex); // 무기 교체
+        }
+
+        // 마우스 휠을 위로 스크롤
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
+            currentWeaponIndex = (currentWeaponIndex - 1 + weaponHolder_List.Count) % weaponHolder_List.Count; // 이전 무기로 순환
+            SwapWeapon(currentWeaponIndex); // 무기 교체
+        }
+
+        // 숫자키 1-5를 눌렀을 때 해당 무기로 교체
+        for (int i = 0; i < weaponHolder_List.Count; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
+                currentWeaponIndex = i; // 선택한 무기 인덱스로 변경
+                SwapWeapon(currentWeaponIndex); // 무기 교체
+            }
+        }
+    }
+
+
+    private void SwapWeapon(int weaponIndex)
+    {
+        // 모든 무기 비활성화
+        foreach (var weapon in playerViewModels_List)
+        {
+            weapon.SetActive(false);
+        }
+
+        // 선택한 무기 활성화
+        playerViewModels_List[weaponIndex].SetActive(true);
+
+        // 현재 무기와 이전 무기 업데이트
+        privious_weapon = current_weapon;
+        current_weapon = playerViewModels_List[weaponIndex].GetComponent<Weapon>();
+
+        // 무기 타입에 맞는 애니메이션 업데이트 등 추가 작업 가능
+        Debug.Log($"무기 교체: {current_weapon.type}");
+    }
     private void TakeDamage(int amount)
     {
         hp -= amount;

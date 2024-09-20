@@ -8,6 +8,7 @@ public class WeaponSetting : MonoBehaviour
 
     public enum Type
     {
+        None    =  0,
         AWP     = 100,
         AK47    = 101,
         XM1014  = 102,
