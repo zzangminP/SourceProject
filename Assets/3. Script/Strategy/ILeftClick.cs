@@ -120,6 +120,7 @@ public class GELeft : ILeftClick
     public void OnLeftClick(Weapon w)
     {
 
+
         if (Input.GetMouseButtonDown(0))
         {
             ThrowGrenade(w);
@@ -130,7 +131,7 @@ public class GELeft : ILeftClick
     public void ThrowGrenade(Weapon w)
     {
 
-        GameObject grenade = w.Instantiate(grenadePrefab, viewModel.transform.position + viewModel.transform.forward, viewModel.transform.rotation);
+        GameObject grenade = Object.Instantiate(grenadePrefab, viewModel.transform.position + viewModel.transform.forward, viewModel.transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         rb.AddForce(viewModel.transform.forward * throwForce, ForceMode.VelocityChange);
 

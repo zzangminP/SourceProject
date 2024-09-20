@@ -1,7 +1,29 @@
 using UnityEngine;
 
-public class SmokeGrenade : MonoBehaviour
+public class SmokeGrenade : Weapon
 {
+
+    public SmokeGrenade()
+    {
+        damage      = 1;
+        currentAmmo = 1;
+        maxAmmo     = 1;
+        range       = 100f;
+        cost        = 300;
+        reward      = 300;
+        impactForce = 0;
+        fireRate    = 0;
+        isAuto      = false;
+
+        type = Type.SMOKE;
+
+        leftClick = new GELeft();
+        rightClick = new RightClickNothing();
+        reloadClick = new RClickNothing();
+        wasdMove = new WASDMove();
+    }
+
+
     public float delay = 3f;
 
 

@@ -19,9 +19,9 @@ public class Flashbang : Weapon
 
         type = Type.FL;
 
-        leftClick   = new AK47Left();
+        leftClick   = new GELeft();
         rightClick  = new RightClickNothing();
-        reloadClick = new MagReload();
+        reloadClick = new RClickNothing();
         wasdMove    = new WASDMove();
 
 

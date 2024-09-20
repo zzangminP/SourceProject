@@ -132,6 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35868c9a14c01914eb1b7c20f59f24d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  v_model: {fileID: 0}
+  w_model: {fileID: 8945911416398295240}
+  weaponHolder: {fileID: 0}
+  weaponCamera: {fileID: 0}
   delay: 3
   explosionEffect: {fileID: 6846455896171463179, guid: faba46b1807f8da4c92ee151c6d3fcfe, type: 3}
   radius: 50
