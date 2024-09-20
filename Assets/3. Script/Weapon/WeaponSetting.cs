@@ -6,6 +6,37 @@ public class WeaponSetting : MonoBehaviour
 
     public IWeaponState currentState;
 
+    public enum Type
+    {
+        AWP     = 10,
+        AK47    = 11,
+        XM1014  = 12,
+
+        Glock18 = 20,
+
+        Knife   = 30, 
+
+
+        HE      = 40,
+        FL      = 41,
+        SMOKE   = 42,
+
+
+        C4      = 50,
+    }
+
+    //public enum Type_Sec
+    //{
+    //    Glock18 = 0,
+    //}
+    //
+    //public enum Type_GE
+    //{
+    //    HE = 0,
+    //    FL,
+    //    SMOKE,
+    //}
+
     public Animator animator        { get; set; }
 
     /// <summary>
