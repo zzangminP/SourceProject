@@ -19,7 +19,9 @@ public class AK47 : Weapon
         impactForce = 50f;
         fireRate    = 10f;
         isAuto      = true;
-        
+
+        type = Type.AK47;
+       
         leftClick   = new AK47Left();
         rightClick  = new RightClickNothing();
         reloadClick = new MagReload();
@@ -51,7 +53,7 @@ public class AK47 : Weapon
     private void Update()
     {
         StrategyControl();
-        //Debug.Log(currentState);
+
         
         
     }

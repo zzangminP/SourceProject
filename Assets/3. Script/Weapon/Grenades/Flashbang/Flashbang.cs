@@ -3,8 +3,31 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class Flashbang : MonoBehaviour
+public class Flashbang : Weapon
 {
+    public Flashbang() 
+    {
+        damage      = 0;
+        currentAmmo = 1;
+        maxAmmo     = 1;
+        range       = 100f;
+        cost        = 200;
+        reward      = 300;
+        impactForce = 0;
+        fireRate    = 0;
+        isAuto      = false;
+
+        type = Type.FL;
+
+        leftClick   = new AK47Left();
+        rightClick  = new RightClickNothing();
+        reloadClick = new MagReload();
+        wasdMove    = new WASDMove();
+
+
+
+    }
+
     public float delay = 3f;
     public GameObject explosionEffect;
     public float radius = 50f;

@@ -107,6 +107,36 @@ public class AK47Left : ILeftClick
     } //OnAttack()
 }
 
+public class GELeft : ILeftClick
+{
+    public float throwForce = 10f;
+    public GameObject grenadePrefab;
+    public GameObject viewModel;
+
+
+
+
+
+    public void OnLeftClick(Weapon w)
+    {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            ThrowGrenade(w);
+
+        }
+
+    }
+    public void ThrowGrenade(Weapon w)
+    {
+
+        GameObject grenade = w.Instantiate(grenadePrefab, viewModel.transform.position + viewModel.transform.forward, viewModel.transform.rotation);
+        Rigidbody rb = grenade.GetComponent<Rigidbody>();
+        rb.AddForce(viewModel.transform.forward * throwForce, ForceMode.VelocityChange);
+
+
+    }
+}
 
 public class ShotgunLeft : ILeftClick
 {

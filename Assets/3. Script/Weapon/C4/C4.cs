@@ -19,6 +19,8 @@ public class C4 : Weapon
         fireRate = 0f;
         isAuto = false;
 
+        type = Type.C4; 
+
         leftClick = new C4Left();
         rightClick = new RightClickNothing();
         reloadClick = new RClickNothing();

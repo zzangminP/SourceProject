@@ -8,23 +8,23 @@ public class WeaponSetting : MonoBehaviour
 
     public enum Type
     {
-        AWP     = 10,
-        AK47    = 11,
-        XM1014  = 12,
+        AWP     = 100,
+        AK47    = 101,
+        XM1014  = 102,
 
-        Glock18 = 20,
+        Glock18 = 200,
 
-        Knife   = 30, 
-
-
-        HE      = 40,
-        FL      = 41,
-        SMOKE   = 42,
+        Knife   = 300, 
 
 
-        C4      = 50,
-    }
+        HE      = 400,
+        FL      = 401,
+        SMOKE   = 402,
 
+
+        C4      = 500,
+    } 
+    public Type type { get; set; }
     //public enum Type_Sec
     //{
     //    Glock18 = 0,

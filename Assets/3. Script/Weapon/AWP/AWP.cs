@@ -19,6 +19,8 @@ public class AWP : Weapon
         fireRate = 10f;
         isAuto = false;
 
+        type = Type.AWP;
+
         leftClick = new AWPLeft();
         rightClick = new ZoomIn();
         reloadClick = new MagReload();

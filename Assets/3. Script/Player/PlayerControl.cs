@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
     //[SerializeField] private Transform viewModelTest_tr;
 
     [SerializeField] private Rigidbody player_rg;
+    [SerializeField] public GameObject fpsCam;
 
 
 
@@ -60,18 +61,21 @@ public class PlayerControl : MonoBehaviour
 
 
     [Header("Weapon")]
+    [SerializeField] private List<GameObject> weaponHolder_List;
+    [SerializeField] private List<GameObject> playerViewModels_List;
     [SerializeField] private Weapon pri_weapon;
     [SerializeField] private Weapon sec_weapon;
     //[SerializeField] private Weapon weapon;
-    [SerializeField] private Weapon[] gn;
-    [SerializeField] private Weapon[] miscellaneous;
-    [SerializeField] private Weapon current_weapon;
+    //[SerializeField] private Weapon[] gn;
+    //[SerializeField] private Weapon[] miscellaneous;
+    [SerializeField] private Weapon current_weapon = null;
     [SerializeField] private Weapon privious_weapon = null;
     [SerializeField] public bool canC4Plant = false;
 
     [Header("UI")]
     [SerializeField] public GameObject scopeOverlay;
 
+    public WeaponHolder weaponHolder;
 
 
     //private int holdingWeaponIndex = 0;
@@ -181,13 +185,22 @@ public class PlayerControl : MonoBehaviour
 
 
         PlayerMovement(dirX, dirZ, mouseX, mouseY);
+        
+        
+
         // Jump
-
-
         if (Input.GetKey(KeyCode.Space))
         {
             PlayerJump();
 
+
+        }
+
+
+        // Drop Weapon
+        if(Input.GetKey(KeyCode.G))
+        {
+            weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, WeaponSetting.Type.AK47);
 
         }
 
@@ -250,10 +263,30 @@ public class PlayerControl : MonoBehaviour
 
     private void WeaponSet()
     {
-        pri_weapon = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
+        for (int i = 0 ; i<weaponHolder_List.Count; i++)
+        {
+            for(int j = 0; j < weaponHolder_List[i].transform.childCount; j++)
+            {
+                playerViewModels_List.Add(weaponHolder_List[i].transform.GetChild(j).gameObject);
+            }
+           
+        }
+        
+        foreach(var i in playerViewModels_List)
+        {
+            if (i.GetComponent<Weapon>().type == WeaponSetting.Type.Knife)
+            {
+                Debug.Log(i.GetComponent<Weapon>().type);
+                return;
+            }
 
-        sec_weapon = GameObject.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
+            Debug.Log(i.GetComponent<Weapon>().type);
+            i.SetActive(false);
+        }
 
+        //pri_weapon = transform.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
+        //sec_weapon = transform.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
+        //weaponHolder = transform.Find("Main Camera/Weapon Camera/WeaponHolder").GetComponent<WeaponHolder>();
     }
 
     private void TakeDamage(int amount)

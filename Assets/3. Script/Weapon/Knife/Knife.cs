@@ -18,7 +18,7 @@ public class Knife : Weapon
         fireRate = 0.5f;
         isAuto = true;
 
-
+        type = Type.Knife;
 
         leftClick = new KnifeLeft();
         rightClick = new KnifeRight();
