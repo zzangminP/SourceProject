@@ -50,23 +50,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7264557706827880885, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: -3598126722730871137, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: -3581762485270311248, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: -1209552116181067492, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 285534523344551594, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Name
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e39b07ec423f8ae4289ed3327b811376, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

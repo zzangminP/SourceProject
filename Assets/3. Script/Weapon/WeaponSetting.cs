@@ -26,6 +26,7 @@ public class WeaponSetting : MonoBehaviour
         C4      = 500,
     } 
     public Type type { get; set; }
+
     //public enum Type_Sec
     //{
     //    Glock18 = 0,
@@ -40,9 +41,9 @@ public class WeaponSetting : MonoBehaviour
 
     public Animator animator        { get; set; }
 
-    /// <summary>
+    /// 
     /// Physics
-    /// </summary>
+    /// 
 
     public int damage               { get; set; }
     public float range              { get; set; }
@@ -51,16 +52,17 @@ public class WeaponSetting : MonoBehaviour
     public bool isAuto              { get; set; }
     public bool isBurst             { get; set; }
 
-    /// <summary>
+    /// 
     /// RPM / 60
-    /// </summary>
+    /// 
+
     public float fireRate           { get; set; }
     public float lastFireTime       { get; set; }
 
 
-    /// <su
-    /// Amm
-    /// </s
+    /// 
+    /// Ammo
+    /// 
 
     public int maxMag               { get; set; }
     public int maxAmmo              { get; set; }

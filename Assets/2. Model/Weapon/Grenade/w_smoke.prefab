@@ -48,9 +48,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5356498189181191634, guid: 84e453a86347c5346b2fba79306db208, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84e453a86347c5346b2fba79306db208, type: 3}
       propertyPath: m_Name
       value: w_smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84e453a86347c5346b2fba79306db208, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570223606561447719, guid: 84e453a86347c5346b2fba79306db208, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3788336733899976595, guid: 84e453a86347c5346b2fba79306db208, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435081716671492942, guid: 84e453a86347c5346b2fba79306db208, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216693916910149530, guid: 84e453a86347c5346b2fba79306db208, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -132,5 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be93b5c58d316914087f11ede8e29609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  v_model: {fileID: 0}
+  w_model: {fileID: 0}
+  weaponHolder: {fileID: 0}
+  weaponCamera: {fileID: 0}
   delay: 3
   smokeEffect: {fileID: 6110175619368060008, guid: 5bda3578f8fc77845823c922d332556d, type: 3}

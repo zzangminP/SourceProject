@@ -62,6 +62,15 @@ public class Weapon : WeaponSetting
         UIInit();
 
     }
+
+    public virtual void DropInit(WeaponWorldDrop drop)
+    {
+        type = drop.type;
+        maxAmmo = drop.maxAmmo;
+        currentAmmo = drop.currentAmmo;
+    }
+
+
     private void OnEnable()
     {
         UIInit();

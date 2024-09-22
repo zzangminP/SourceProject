@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using Unity.XR.OpenVR;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -63,13 +65,16 @@ public class PlayerControl : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] private List<GameObject> weaponHolder_List;
     [SerializeField] private List<GameObject> playerViewModels_List;
-    [SerializeField] private Weapon pri_weapon;
-    [SerializeField] private Weapon sec_weapon;
+    //[SerializeField] private Weapon pri_weapon;
+    //[SerializeField] private Weapon sec_weapon;
+    [SerializeField] private Weapon[] playerWeapon_List;
+    [SerializeField] private Weapon[] GE_weapon = null;
+    [SerializeField] private Weapon C4_weapon;
     //[SerializeField] private Weapon weapon;
     //[SerializeField] private Weapon[] gn;
     //[SerializeField] private Weapon[] miscellaneous;
-    [SerializeField] private Weapon current_weapon = null;
-    [SerializeField] private Weapon privious_weapon = null;
+    [SerializeField] private GameObject current_weapon = null;
+    [SerializeField] private GameObject privious_weapon = null;
     [SerializeField] public bool canC4Plant = false;
 
     [Header("UI")]
@@ -127,11 +132,16 @@ public class PlayerControl : MonoBehaviour
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
         //hitBoxCollider.enabled = true;
+        playerWeapon_List = new Weapon[5];
 
 
         //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
         WeaponSet();
-        current_weapon = pri_weapon;
+
+    }
+
+    private void Update()
+    {
 
     }
 
@@ -144,7 +154,93 @@ public class PlayerControl : MonoBehaviour
         //WeaponControl();
     }
 
+    private void OnCollisionEnter(Collision col)
+    {
 
+        if (col.gameObject.TryGetComponent<WeaponWorldDrop>(out WeaponWorldDrop tempGun))
+        {
+            Debug.Log(tempGun);
+            ContactWeapon(tempGun);
+        }
+
+    }
+
+    private void ContactWeapon(WeaponWorldDrop tempGun)
+    {
+        int tmpGunType = (int)tempGun.type;
+        if ((tmpGunType >= 100 && tmpGunType <= 199))
+        {
+            //pri_weapon
+            playerWeapon_List[0] = PickUpWeapon(tempGun);
+
+        }
+        else if ((tmpGunType >= 200 && tmpGunType <= 299))
+        {
+            //sec_weapon
+            playerWeapon_List[1] = PickUpWeapon(tempGun);
+
+        }
+        else if (tmpGunType >= 400 && tmpGunType <= 499)
+        {
+            // GE
+        }
+        else if (tempGun.type == WeaponSetting.Type.C4)
+        {
+            // c4
+            C4_weapon = PickUpWeapon(tempGun);
+        }
+
+        tempGun = null;
+
+    }
+
+    Weapon PickUpWeapon(WeaponWorldDrop tempGun)
+    {
+
+        for(int i = 0; i< playerViewModels_List.Count; i++)
+        {
+            playerViewModels_List[i].TryGetComponent<Weapon>(out Weapon playerGun);
+            if (tempGun.type == playerGun.type)
+            {
+                playerGun.type = tempGun.type;
+                playerGun.maxAmmo = tempGun.maxAmmo;
+                playerGun.currentAmmo = tempGun.currentAmmo;
+
+                Debug.Log(playerGun.maxAmmo);
+                Debug.Log(playerGun.currentAmmo);
+                return playerGun;           
+            }
+        }
+        return null;
+    }
+
+
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("BombSite"))
+        {
+            canC4Plant = true;
+            Debug.Log("BombSite Entered");
+        }
+
+
+
+    }
+
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("BombSite"))
+        {
+            canC4Plant = false;
+            Debug.Log("BombSite Out");
+        }
+
+    }
 
 
 
@@ -203,6 +299,9 @@ public class PlayerControl : MonoBehaviour
         {
             weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, WeaponSetting.Type.AK47);
         }
+
+        SwapWeapon();
+
 
 
     }
@@ -263,7 +362,7 @@ public class PlayerControl : MonoBehaviour
 
     private void WeaponSet()
     {
-        for (int i = 0 ; i<weaponHolder_List.Count; i++)
+        for (int i = 0 ; i < weaponHolder_List.Count; i++)
         {
             for(int j = 0; j < weaponHolder_List[i].transform.childCount; j++)
             {
@@ -278,76 +377,168 @@ public class PlayerControl : MonoBehaviour
             {
                 i.SetActive(false);
             }
+            else
+            {
+                playerWeapon_List[2] = i.GetComponent<Weapon>();
+                current_weapon = i;
+            }
 
         }
+
 
         //pri_weapon = transform.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
         //sec_weapon = transform.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
         //weaponHolder = transform.Find("Main Camera/Weapon Camera/WeaponHolder").GetComponent<WeaponHolder>();
     }
 
-    private void SwitchingWeapon()
+    //private void SwitchingWeapon()
+    //{
+    //    // Q를 눌러 이전 무기로 교체
+    //    if (Input.GetKeyDown(KeyCode.Q))
+    //    {
+    //        if (previousWeaponIndex != -1) // 이전 무기가 설정된 경우에만
+    //        {
+    //            SwapWeapon(previousWeaponIndex); // 이전 무기로 교체
+    //        }
+    //        else
+    //        {
+    //            return; // 이전 무기가 없으면 리턴
+    //        }
+    //    }
+    //
+    //    // 마우스 휠을 아래로 스크롤
+    //    if (Input.mouseScrollDelta.y < 0)
+    //    {
+    //        previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
+    //        currentWeaponIndex = (currentWeaponIndex + 1) % 5; // 다음 무기로 순환 (1~5번 무기)
+    //        SwapWeapon(currentWeaponIndex); // 무기 교체
+    //    }
+    //
+    //    // 마우스 휠을 위로 스크롤
+    //    if (Input.mouseScrollDelta.y > 0)
+    //    {
+    //        previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
+    //        currentWeaponIndex = (currentWeaponIndex - 1 + 5) % 5; // 이전 무기로 순환 (1~5번 무기)
+    //        SwapWeapon(currentWeaponIndex); // 무기 교체
+    //    }
+    //
+    //    // 숫자키 1-5를 눌렀을 때 해당 무기로 교체
+    //    for (int i = 0; i < 5; i++)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+    //        {
+    //            previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
+    //            currentWeaponIndex = i; // 선택한 무기 인덱스로 변경
+    //            SwapWeapon(currentWeaponIndex); // 무기 교체
+    //        }
+    //    }
+    //}
+
+
+
+    //private void SwapWeapon(int weaponIndex)
+    //{
+    //    // 모든 무기 뷰 모델 비활성화 (필요시 유지)
+    //    DeactivateAllWeapons();
+    //
+    //    // 무기 인덱스에 따라 적절한 무기를 활성화
+    //    switch (weaponIndex)
+    //    {
+    //        case 0: // 1번 슬롯: pri_weapon
+    //            if (pri_weapon != null)
+    //            {
+    //                ActivateWeaponModel(pri_weapon.type);
+    //                Debug.Log($"Primary Weapon: {pri_weapon.type}");
+    //            }
+    //            break;
+    //
+    //        case 1: // 2번 슬롯: sec_weapon
+    //            if (sec_weapon != null)
+    //            {
+    //                ActivateWeaponModel(sec_weapon.type);
+    //                Debug.Log($"Secondary Weapon: {sec_weapon.type}");
+    //            }
+    //            break;
+    //
+    //        case 2: // 3번 슬롯: Knife
+    //            ActivateWeaponModel(WeaponSetting.Type.Knife);
+    //            Debug.Log("Knife activated");
+    //            break;
+    //
+    //        case 3: // 4번 슬롯: GE (Grenades)
+    //                // 여기에 수류탄 관련 로직을 추가하면 됩니다.
+    //            Debug.Log("Grenade slot activated");
+    //            break;
+    //
+    //        case 4: // 5번 슬롯: C4
+    //            if (C4_weapon != null)
+    //            {
+    //                ActivateWeaponModel(C4_weapon.type);
+    //                Debug.Log("C4 activated");
+    //            }
+    //            break;
+    //
+    //        default:
+    //            Debug.LogWarning("Invalid weapon slot");
+    //            break;
+    //    }
+    //}
+
+
+
+    private void DeactivateAllWeapons()
     {
-        // Q를 눌러 이전 무기로 교체
-        if (Input.GetKeyDown(KeyCode.Q))
+        // 모든 무기 뷰모델 비활성화
+        foreach (var weapon in playerViewModels_List)
         {
-            if (previousWeaponIndex != -1) // 이전 무기가 설정된 경우에만
-            {
-                SwapWeapon(previousWeaponIndex); // 이전 무기로 교체
-            }
-            else
-            {
-                return; // 이전 무기가 없으면 리턴
-            }
+            weapon.SetActive(false);
+        }
+    }
+
+    private void SwapWeapon()
+    {
+
+        previousWeaponIndex = currentWeaponIndex;
+
+
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            currentWeaponIndex = (currentWeaponIndex + 1) % playerViewModels_List.Count;
+
         }
 
         // 마우스 휠을 아래로 스크롤
         if (Input.mouseScrollDelta.y < 0)
         {
-            previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
-            currentWeaponIndex = (currentWeaponIndex + 1) % weaponHolder_List.Count; // 다음 무기로 순환
-            SwapWeapon(currentWeaponIndex); // 무기 교체
+            currentWeaponIndex = (currentWeaponIndex - 1 + playerViewModels_List.Count) % playerViewModels_List.Count;
+
         }
 
-        // 마우스 휠을 위로 스크롤
-        if (Input.mouseScrollDelta.y > 0)
-        {
-            previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
-            currentWeaponIndex = (currentWeaponIndex - 1 + weaponHolder_List.Count) % weaponHolder_List.Count; // 이전 무기로 순환
-            SwapWeapon(currentWeaponIndex); // 무기 교체
-        }
-
-        // 숫자키 1-5를 눌렀을 때 해당 무기로 교체
-        for (int i = 0; i < weaponHolder_List.Count; i++)
+        // 숫자키 (1 ~ playerViewModels_List.Count) 로 무기 교체
+        for (int i = 0; i < playerViewModels_List.Count; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
-                previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
-                currentWeaponIndex = i; // 선택한 무기 인덱스로 변경
-                SwapWeapon(currentWeaponIndex); // 무기 교체
+
             }
         }
-    }
 
-
-    private void SwapWeapon(int weaponIndex)
-    {
-        // 모든 무기 비활성화
-        foreach (var weapon in playerViewModels_List)
+        // Q 키로 이전 무기로 교체
+        if (Input.GetKeyDown(KeyCode.Q) && previousWeaponIndex != -1)
         {
-            weapon.SetActive(false);
+
         }
 
         // 선택한 무기 활성화
-        playerViewModels_List[weaponIndex].SetActive(true);
-
-        // 현재 무기와 이전 무기 업데이트
-        privious_weapon = current_weapon;
-        current_weapon = playerViewModels_List[weaponIndex].GetComponent<Weapon>();
-
-        // 무기 타입에 맞는 애니메이션 업데이트 등 추가 작업 가능
-        Debug.Log($"무기 교체: {current_weapon.type}");
+        ActivateWeaponModel(currentWeaponIndex);
     }
+
+    private void ActivateWeaponModel(int weaponIndex)
+    {
+    }
+
+
+
     private void TakeDamage(int amount)
     {
         hp -= amount;
@@ -362,59 +553,6 @@ public class PlayerControl : MonoBehaviour
     {
         setRagdoll(false);
         setCollider(false);
-    }
-
-    //private void OnCollisionEnter(Collision col)
-    //{
-    //    if(col.gameObject.CompareTag("BombSite"))
-    //    {
-    //        canC4Plant = true;
-    //        Debug.Log("BombSite Entered");
-    //    }
-    //    
-    //}
-
-    //private void OnCollisionExit(Collision col)
-    //{
-    //    if (col.gameObject.CompareTag("BombSite"))
-    //    {
-    //        canC4Plant = false;
-    //        Debug.Log("BombSite Out");
-    //    }
-    //
-    //}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("BombSite"))
-        {
-            canC4Plant = true;
-            Debug.Log("BombSite Entered");
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("BombSite"))
-        {
-            canC4Plant = false;
-            Debug.Log("BombSite Out");
-        }
-
-    }
-
-
-
-    protected void VModelPlayAnimation(string animationClip)
-    {
-        AnimatorStateInfo v_stateinfo = v_model_ani.GetCurrentAnimatorStateInfo(0);
-        //AnimatorStateInfo w_stateinfo = w_model_ani.GetCurrentAnimatorStateInfo(0);
-        if (!v_stateinfo.IsName(animationClip))//&& w_stateinfo.IsName(animationClip))
-        {
-            v_model_ani.CrossFadeInFixedTime(animationClip, 0f);
-            //w_model_ani.CrossFadeInFixedTime(animationClip, 0f);
-        }
     }
 
 }

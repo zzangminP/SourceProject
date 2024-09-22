@@ -5,11 +5,7 @@ using UnityEngine;
 public class WeaponWorldDrop : WeaponSetting
 {
     public Type type;
-
-    private void Update()
-    {
-        //Debug.Log(type);
-    }
-
+    public int maxAmmo;
+    public int currentAmmo;
 
 }
