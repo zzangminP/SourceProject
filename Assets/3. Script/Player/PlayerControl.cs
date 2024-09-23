@@ -287,7 +287,8 @@ public class PlayerControl : MonoBehaviour
 
         // Walk, Crouch
         isWalking = Input.GetButton("Walk") ;
-        isCrouch = Input.GetButton("Crouch");
+        isCrouch = Input.GetButton("Crouch") ? true : false;
+        Debug.Log(isCrouch);
 
 
         // Mouse
@@ -356,18 +357,18 @@ public class PlayerControl : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-            if(!_isWalking && !_isCrouch)
+            if (!_isWalking && !_isCrouch)
             {
 
                 isRunning = true;
                 this.transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
-                
+
 
             }
 
-            if(_isWalking)
+            if (_isWalking)
             {
-                
+
                 isRunning = false;
                 _isCrouch = false;
                 this.transform.Translate(direction.normalized * moveSpeed * 0.5f * Time.deltaTime);
@@ -377,13 +378,13 @@ public class PlayerControl : MonoBehaviour
             if (_isCrouch)
             {
 
-                _isWalking = false;                
+                _isWalking = false;
                 isRunning = false;
                 this.transform.Translate(direction.normalized * moveSpeed * 0.3f * Time.deltaTime);
 
             }
 
-
+        }
 
             player_movement_ani.SetBool("Run", isRunning);
             player_movement_ani.SetBool("Walk", _isWalking);
@@ -395,7 +396,7 @@ public class PlayerControl : MonoBehaviour
             player_movement_ani.SetFloat("DirZ", direction.z);
 
 
-        }
+        
 
 
     }
