@@ -311,7 +311,14 @@ public class PlayerControl : MonoBehaviour
         // Drop Weapon
         if(Input.GetKey(KeyCode.G))
         {
-            weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, WeaponSetting.Type.AK47);
+            weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, playerWeapon_List[currentWeaponIndex]);
+            if (playerWeapon_List[currentWeaponIndex].type != WeaponSetting.Type.Knife)
+            {
+                playerWeapon_List[currentWeaponIndex].gameObject.SetActive(false);
+                playerWeapon_List[currentWeaponIndex] = null;
+                currentWeaponIndex = 2; // knife index
+
+            }
         }
 
         SwapWeapon();
@@ -528,6 +535,7 @@ public class PlayerControl : MonoBehaviour
         {
             return;
         }
+
         ActivateWeaponModel(currentWeaponIndex);
     }
 

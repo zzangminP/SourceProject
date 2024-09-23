@@ -38,20 +38,34 @@ public class WeaponHolder : MonoBehaviour
 
     }
 
-    public void WeaponDrop(Vector3 position, WeaponSetting.Type type)
+    public void WeaponDrop(Vector3 position, Weapon playerWeapon)
     {
+        if (playerWeapon.type == WeaponSetting.Type.Knife)
+            return;
         GameObject dropGunPrefab = null;
         for(int i = 0; i < selectedWeapon.Count; i++)
         {
-            if (selectedWeapon[i].key == type)
+            if (selectedWeapon[i].key == playerWeapon.type)
             {
                 dropGunPrefab = selectedWeapon[i].value;
+                //dropGunPrefab.AddComponent<WeaponWorldDrop>();
+                dropGunPrefab.TryGetComponent<WeaponWorldDrop>(out WeaponWorldDrop tempGun);
+                
+                tempGun.maxAmmo = playerWeapon.maxAmmo;
+                tempGun.currentAmmo = playerWeapon.currentAmmo;
+                tempGun.type = playerWeapon.type;
+
+
                 break;
             }
         }
-
+                                  
         GameObject dropGun = Instantiate(dropGunPrefab, position, Quaternion.identity,GameObject.Find("SpawnedObject").transform);
         //dropGun.transform.SetParent(GameObject.Find("SpawnedObject").transform);
+
+        //tempGun.maxAmmo = 0;
+        //tempGun.currentAmmo = 0;
+        //tempGun.type = type;
         dropGun.GetComponent<Rigidbody>().AddForce(player.fpsCam.transform.forward * 10f, ForceMode.Impulse);
     }
 
