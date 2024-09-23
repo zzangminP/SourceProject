@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using Unity.XR.OpenVR;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.InputSystem;
 
 
@@ -84,6 +85,8 @@ public class PlayerControl : MonoBehaviour
 
     private int currentWeaponIndex = 0; // 현재 무기의 인덱스
     private int previousWeaponIndex = -1; // 이전 무기의 인덱스
+
+    private int scrollValue = 0;
 
 
     //private int holdingWeaponIndex = 0;
@@ -208,6 +211,7 @@ public class PlayerControl : MonoBehaviour
 
                 Debug.Log(playerGun.maxAmmo);
                 Debug.Log(playerGun.currentAmmo);
+                tempGun.gameObject.SetActive(false);
                 return playerGun;           
             }
         }
@@ -385,104 +389,23 @@ public class PlayerControl : MonoBehaviour
 
         }
 
+        for(int i = 0; i < playerWeapon_List.Length; i++)
+        {
+            if (playerWeapon_List[i] == null)
+                continue;
+            else if (playerWeapon_List[i].isActiveAndEnabled)
+                currentWeaponIndex = i;
 
+            Debug.Log(currentWeaponIndex);
+
+        }
+        
         //pri_weapon = transform.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
         //sec_weapon = transform.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
         //weaponHolder = transform.Find("Main Camera/Weapon Camera/WeaponHolder").GetComponent<WeaponHolder>();
     }
 
-    //private void SwitchingWeapon()
-    //{
-    //    // Q를 눌러 이전 무기로 교체
-    //    if (Input.GetKeyDown(KeyCode.Q))
-    //    {
-    //        if (previousWeaponIndex != -1) // 이전 무기가 설정된 경우에만
-    //        {
-    //            SwapWeapon(previousWeaponIndex); // 이전 무기로 교체
-    //        }
-    //        else
-    //        {
-    //            return; // 이전 무기가 없으면 리턴
-    //        }
-    //    }
-    //
-    //    // 마우스 휠을 아래로 스크롤
-    //    if (Input.mouseScrollDelta.y < 0)
-    //    {
-    //        previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
-    //        currentWeaponIndex = (currentWeaponIndex + 1) % 5; // 다음 무기로 순환 (1~5번 무기)
-    //        SwapWeapon(currentWeaponIndex); // 무기 교체
-    //    }
-    //
-    //    // 마우스 휠을 위로 스크롤
-    //    if (Input.mouseScrollDelta.y > 0)
-    //    {
-    //        previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
-    //        currentWeaponIndex = (currentWeaponIndex - 1 + 5) % 5; // 이전 무기로 순환 (1~5번 무기)
-    //        SwapWeapon(currentWeaponIndex); // 무기 교체
-    //    }
-    //
-    //    // 숫자키 1-5를 눌렀을 때 해당 무기로 교체
-    //    for (int i = 0; i < 5; i++)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-    //        {
-    //            previousWeaponIndex = currentWeaponIndex; // 이전 무기 설정
-    //            currentWeaponIndex = i; // 선택한 무기 인덱스로 변경
-    //            SwapWeapon(currentWeaponIndex); // 무기 교체
-    //        }
-    //    }
-    //}
 
-
-
-    //private void SwapWeapon(int weaponIndex)
-    //{
-    //    // 모든 무기 뷰 모델 비활성화 (필요시 유지)
-    //    DeactivateAllWeapons();
-    //
-    //    // 무기 인덱스에 따라 적절한 무기를 활성화
-    //    switch (weaponIndex)
-    //    {
-    //        case 0: // 1번 슬롯: pri_weapon
-    //            if (pri_weapon != null)
-    //            {
-    //                ActivateWeaponModel(pri_weapon.type);
-    //                Debug.Log($"Primary Weapon: {pri_weapon.type}");
-    //            }
-    //            break;
-    //
-    //        case 1: // 2번 슬롯: sec_weapon
-    //            if (sec_weapon != null)
-    //            {
-    //                ActivateWeaponModel(sec_weapon.type);
-    //                Debug.Log($"Secondary Weapon: {sec_weapon.type}");
-    //            }
-    //            break;
-    //
-    //        case 2: // 3번 슬롯: Knife
-    //            ActivateWeaponModel(WeaponSetting.Type.Knife);
-    //            Debug.Log("Knife activated");
-    //            break;
-    //
-    //        case 3: // 4번 슬롯: GE (Grenades)
-    //                // 여기에 수류탄 관련 로직을 추가하면 됩니다.
-    //            Debug.Log("Grenade slot activated");
-    //            break;
-    //
-    //        case 4: // 5번 슬롯: C4
-    //            if (C4_weapon != null)
-    //            {
-    //                ActivateWeaponModel(C4_weapon.type);
-    //                Debug.Log("C4 activated");
-    //            }
-    //            break;
-    //
-    //        default:
-    //            Debug.LogWarning("Invalid weapon slot");
-    //            break;
-    //    }
-    //}
 
 
 
@@ -500,41 +423,83 @@ public class PlayerControl : MonoBehaviour
 
         previousWeaponIndex = currentWeaponIndex;
 
+        scrollValue = (int)Mathf.Clamp(Input.mouseScrollDelta.y, 0, 5f);
 
-        if (Input.mouseScrollDelta.y > 0)
+
+        if (scrollValue > 0)
         {
-            currentWeaponIndex = (currentWeaponIndex + 1) % playerViewModels_List.Count;
+            currentWeaponIndex++;
+            while(playerWeapon_List[currentWeaponIndex] == null)
+            {
+                currentWeaponIndex++;
+                
+                if (currentWeaponIndex > playerWeapon_List.Length - 1)
+                {
+                    currentWeaponIndex = 0;
 
+                }
+                
+
+            }
+            Debug.Log(currentWeaponIndex);
         }
 
-        // 마우스 휠을 아래로 스크롤
-        if (Input.mouseScrollDelta.y < 0)
+        
+        if (scrollValue < 0)
         {
-            currentWeaponIndex = (currentWeaponIndex - 1 + playerViewModels_List.Count) % playerViewModels_List.Count;
+            currentWeaponIndex--;
+            while (playerWeapon_List[currentWeaponIndex] == null)
+            {
+                currentWeaponIndex--;
+                if (currentWeaponIndex < 0)
+                {
+                    currentWeaponIndex = playerWeapon_List.Length - 1;
 
+                }
+                
+
+            }
+            Debug.Log(currentWeaponIndex);
         }
 
-        // 숫자키 (1 ~ playerViewModels_List.Count) 로 무기 교체
-        for (int i = 0; i < playerViewModels_List.Count; i++)
+        
+        for (int i = 0; i < playerWeapon_List.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
-
+                currentWeaponIndex = i;
             }
         }
 
-        // Q 키로 이전 무기로 교체
+        
         if (Input.GetKeyDown(KeyCode.Q) && previousWeaponIndex != -1)
         {
+            int temp = previousWeaponIndex;
+            previousWeaponIndex = currentWeaponIndex;
+            currentWeaponIndex = temp;
 
         }
 
-        // 선택한 무기 활성화
+        if (previousWeaponIndex == currentWeaponIndex)
+        {
+            return;
+        }
         ActivateWeaponModel(currentWeaponIndex);
     }
 
     private void ActivateWeaponModel(int weaponIndex)
     {
+
+        //if (playerWeapon_List[weaponIndex] != null)
+        //{
+            DeactivateAllWeapons();
+            playerWeapon_List[weaponIndex].gameObject.SetActive(true);
+        //}
+        //else
+        //{
+        //
+        //}
+
     }
 
 
