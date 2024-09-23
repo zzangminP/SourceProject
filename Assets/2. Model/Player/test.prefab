@@ -483,8 +483,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6444423937241031332}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0039999485, y: 1.376, z: 0.28199768}
+  m_LocalRotation: {x: 0.000000059604645, y: -0.00000014901158, z: 0.000000044703516, w: 1}
+  m_LocalPosition: {x: -0.0039999764, y: 1.3759995, z: 0.28199768}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -607,7 +607,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c14995ee3acc6b84caee0df3aad907ea, type: 3}
-      insertIndex: -1
+      insertIndex: 13
       addedObject: {fileID: 3754095305857008330}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c14995ee3acc6b84caee0df3aad907ea, type: 3}
@@ -963,6 +963,7 @@ MonoBehaviour:
   player_tr: {fileID: 3389891869216739675}
   viewModel_tr: {fileID: 3754095305857008330}
   player_rg: {fileID: 0}
+  fpsCam: {fileID: 0}
   hp: 100
   armor: 100
   moveSpeed: 8
@@ -972,14 +973,20 @@ MonoBehaviour:
   skeleton_cl: []
   v_model_ani: {fileID: 0}
   w_model_ani: {fileID: 0}
-  pri_weapon: {fileID: 0}
-  sec_weapon: {fileID: 0}
-  gn: []
-  miscellaneous: []
+  isMoving: 0
+  isCrouch: 0
+  isRunning: 0
+  isWalking: 0
+  weaponHolder_List: []
+  playerViewModels_List: []
+  playerWeapon_List: []
+  GE_weapon: []
+  C4_weapon: {fileID: 0}
   current_weapon: {fileID: 0}
   privious_weapon: {fileID: 0}
   canC4Plant: 0
   scopeOverlay: {fileID: 0}
+  weaponHolder: {fileID: 0}
 --- !u!65 &5887452333944435827
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -16,11 +16,77 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: "Copied Avatar Rig Configuration mis-match. Transform hierarchy
-      does not match:\n\tTransform 't_arctic_reference_skeleton' not found in HumanDescription.\n"
-    rigImportWarnings: 
+    rigImportErrors: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'ValveBiped.Bip01_Spine4'
+      : rotation error = 3.153965 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Run_Reload_TMP_Layer' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Idle_Reload_PISTOL_Layer' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Run_Reload_AUG_Layer' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Idle_Reload_AK_Layer' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'a_Crouch_walkE' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'a_Crouch_walkNE' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'a_Crouch_walkS' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'a_Crouch_walkSE' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'a_Crouch_walkSW' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'a_Crouch_walkW' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      't_arctic_reference_skeleton|a_Crouch_walkE' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 't_arctic_reference_skeleton|a_Crouch_walkNE'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      't_arctic_reference_skeleton|a_Crouch_walkS' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 't_arctic_reference_skeleton|a_Crouch_walkSE'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      't_arctic_reference_skeleton|a_Crouch_walkSW' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 't_arctic_reference_skeleton|a_Crouch_walkW'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      't_arctic_reference_skeleton|Idle_Reload_AK_Layer' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 't_arctic_reference_skeleton|Idle_Reload_PISTOL_Layer'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      't_arctic_reference_skeleton|Run_Reload_AUG_Layer' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 't_arctic_reference_skeleton|Run_Reload_TMP_Layer'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'ValveBiped.Bip01_Spine4'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -32,7 +98,4241 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run_Pistol_aim_neutral
+      takeName: Run_Pistol_aim_neutral
+      internalID: -5108528599433832409
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run_Reload_TMP_Layer
+      takeName: Run_Reload_TMP_Layer
+      internalID: 6988905665871368561
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_Reload_PISTOL_Layer
+      takeName: Idle_Reload_PISTOL_Layer
+      internalID: 5396828836462785424
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run_Reload_AUG_Layer
+      takeName: Run_Reload_AUG_Layer
+      internalID: -368362201885109325
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle_Reload_AK_Layer
+      takeName: Idle_Reload_AK_Layer
+      internalID: -3547082278144145579
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run_MP5_aim_neutral
+      takeName: Run_MP5_aim_neutral
+      internalID: 6926549229303527074
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk_MP5_aim_neutral
+      takeName: walk_MP5_aim_neutral
+      internalID: 5501739750281444872
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run_AWP_aim_neutral
+      takeName: Run_AWP_aim_neutral
+      internalID: 4957221302587634251
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle_Pistol_aim_neutral
+      takeName: idle_Pistol_aim_neutral
+      internalID: -2156687436419661545
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: crouch_KNIFE_aim_neutral
+      takeName: crouch_KNIFE_aim_neutral
+      internalID: 7469105211568796119
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkE
+      takeName: a_Crouch_walkE
+      internalID: -5849803350730324564
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkN
+      takeName: a_Crouch_walkN
+      internalID: -1653255325385864612
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkNE
+      takeName: a_Crouch_walkNE
+      internalID: 2994883293325072352
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkNW
+      takeName: a_Crouch_walkNW
+      internalID: 936234898612338589
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkS
+      takeName: a_Crouch_walkS
+      internalID: -6250211299108224216
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkSE
+      takeName: a_Crouch_walkSE
+      internalID: 5950886439015092095
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkSW
+      takeName: a_Crouch_walkSW
+      internalID: 6121888834814834101
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkW
+      takeName: a_Crouch_walkW
+      internalID: 6366881244547764009
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: -20
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: a_Crouch_walkZero
+      takeName: a_Crouch_walkZero
+      internalID: -566382828691523038
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk_Upper_XM1014
+      takeName: Walk_Upper_XM1014
+      internalID: 1772104901465657487
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run_reload_XM1014_start
+      takeName: run_reload_XM1014_start
+      internalID: -2416644418125155838
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run_reload_XM1014_loop
+      takeName: run_reload_XM1014_loop
+      internalID: -4148966999288590427
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkE
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkE
+      internalID: 8226923954723220297
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkN
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkN
+      internalID: -5192272404785902821
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkNE
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkNE
+      internalID: 6946859864767569157
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkNW
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkNW
+      internalID: 313577350232568656
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkS
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkS
+      internalID: 7028993764744174735
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkSE
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkSE
+      internalID: -2674262621729656738
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkSW
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkSW
+      internalID: -1815425308566356334
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkW
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkW
+      internalID: -600167478796533303
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|a_Crouch_walkZero
+      takeName: t_arctic_reference_skeleton|a_Crouch_walkZero
+      internalID: -7881052021949321590
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|crouch_KNIFE_aim_neutral
+      takeName: t_arctic_reference_skeleton|crouch_KNIFE_aim_neutral
+      internalID: -6046058857488131210
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|idle_Pistol_aim_neutral
+      takeName: t_arctic_reference_skeleton|idle_Pistol_aim_neutral
+      internalID: -7744015864822578931
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Idle_Reload_AK_Layer
+      takeName: t_arctic_reference_skeleton|Idle_Reload_AK_Layer
+      internalID: 3410422701149139832
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Idle_Reload_PISTOL_Layer
+      takeName: t_arctic_reference_skeleton|Idle_Reload_PISTOL_Layer
+      internalID: -4591626789733640308
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Run_AWP_aim_neutral
+      takeName: t_arctic_reference_skeleton|Run_AWP_aim_neutral
+      internalID: 2256134149208553445
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Run_MP5_aim_neutral
+      takeName: t_arctic_reference_skeleton|Run_MP5_aim_neutral
+      internalID: -7755968109884370071
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Run_Pistol_aim_neutral
+      takeName: t_arctic_reference_skeleton|Run_Pistol_aim_neutral
+      internalID: 2465079198032519601
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Run_Reload_AUG_Layer
+      takeName: t_arctic_reference_skeleton|Run_Reload_AUG_Layer
+      internalID: -6179889277151567468
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Run_Reload_TMP_Layer
+      takeName: t_arctic_reference_skeleton|Run_Reload_TMP_Layer
+      internalID: 5690260171602165315
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|run_reload_XM1014_end
+      takeName: t_arctic_reference_skeleton|run_reload_XM1014_end
+      internalID: -242042870897921870
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|run_reload_XM1014_loop
+      takeName: t_arctic_reference_skeleton|run_reload_XM1014_loop
+      internalID: 4156333511969015334
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|run_reload_XM1014_start
+      takeName: t_arctic_reference_skeleton|run_reload_XM1014_start
+      internalID: -8584727277838144335
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkE
+      internalID: -4332776668728564208
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkN
+      internalID: -5708861125204895812
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkNE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkNE
+      internalID: 1091560975527243707
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkNW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkNW
+      internalID: -7271229761182895613
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkS
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkS
+      internalID: 6889123340826437841
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkSE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkSE
+      internalID: 959125938619010313
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkSW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkSW
+      internalID: 1697568290868421503
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkW
+      internalID: 2633690574611053100
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkZero
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouch_walkZero
+      internalID: -6364417617548828871
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunE
+      internalID: -6455321921709136770
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunN
+      internalID: -8131044224279290691
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNE
+      internalID: -7994262332131198940
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNW
+      internalID: 1949033190385246260
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunS
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunS
+      internalID: -3231863703792828568
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSE
+      internalID: -106671826658455365
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSW
+      internalID: 4259206265169802599
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunW
+      internalID: -6526897487659214944
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunZero
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunZero
+      internalID: -3046520108320025643
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkE
+      internalID: 4843701554984888427
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkN
+      internalID: -4637805748468779033
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkNE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkNE
+      internalID: 264284439164313885
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkNW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkNW
+      internalID: -1672770391392291077
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkS
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkS
+      internalID: 245441551506251583
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkSE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkSE
+      internalID: -2105812272075860939
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkSW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkSW
+      internalID: -6514566685320879566
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkW
+      internalID: -6540582646620638605
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_walkZero
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_walkZero
+      internalID: -2288963492931921300
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_AWP_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_AWP_aim_neutral
+      internalID: -3476881204362441302
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_GREN_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_GREN_aim_neutral
+      internalID: -4934025582630925938
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_KNIFE_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_KNIFE_aim_neutral
+      internalID: -596163241509355921
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_AWP_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_AWP_aim_neutral
+      internalID: -5420737927122796939
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_GREN_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_GREN_aim_neutral
+      internalID: -4936300741585447566
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_KNIFE_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_KNIFE_aim_neutral
+      internalID: -6868268855287566488
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idle_Reload_AWP_Layer
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idle_Reload_AWP_Layer
+      internalID: 4840566774279327284
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Run_GREN_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Run_GREN_aim_neutral
+      internalID: -5836033477514518510
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Stand_Shoot_GREN_layer1
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Stand_Shoot_GREN_layer1
+      internalID: -2691645416173450443
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Stand_Shoot_GREN_layer2
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Stand_Shoot_GREN_layer2
+      internalID: 2843269028153577678
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C
+      internalID: -1839802397607252383
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.001
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.001
+      internalID: -7148181759097821839
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.002
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.002
+      internalID: -1881474025667858597
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.003
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.003
+      internalID: 3182110388470237322
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.004
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.004
+      internalID: 738915135594490528
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.005
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.005
+      internalID: 474351525111512440
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.006
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.006
+      internalID: 7380722870326518891
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.007
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.007
+      internalID: -4590746159071387560
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.008
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.008
+      internalID: -7957842264882314196
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.009
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.009
+      internalID: -6147259660959855137
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.010
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.010
+      internalID: -1771548864100523079
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.011
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.011
+      internalID: -1692629139095489081
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.012
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.012
+      internalID: -6562872988265123585
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.013
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.013
+      internalID: -2249524230017150029
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.014
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.014
+      internalID: 2364177927985393288
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.015
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.015
+      internalID: 5107005779484683302
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.016
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.016
+      internalID: -5747541767581827903
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.017
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.017
+      internalID: -7183297166949309947
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.018
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.018
+      internalID: -7151222535979695534
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.019
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.019
+      internalID: -674997102417840310
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.020
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.020
+      internalID: 1509408588435505285
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.021
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.021
+      internalID: 1626426061011850763
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.022
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.022
+      internalID: 2589324941725683414
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.023
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.023
+      internalID: 6895810228508638664
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.024
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_C.024
+      internalID: -1884587954158381509
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouc
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_Crouc
+      internalID: 4885234749262322039
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunE
+      internalID: 7929795487089507531
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunN
+      internalID: -1695425073414048445
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNE
+      internalID: -4826221993063271590
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunNW
+      internalID: 5981193938901364392
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunS
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunS
+      internalID: 8398494735961605149
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSE
+      internalID: -9007682913673264211
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunSW
+      internalID: 8667164599306509166
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunW
+      internalID: -3450803826032052503
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunZe
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_RunZe
+      internalID: -1558770476230715642
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W
+      internalID: 1092012320113482694
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W.001
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W.001
+      internalID: -7793250412933825198
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W.002
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W.002
+      internalID: 3431057180077037520
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W.003
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_W.003
+      internalID: -4640892787174470338
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkE
+      internalID: -7667295661119330712
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkN
+      internalID: -3987224373445764059
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkS
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkS
+      internalID: 1769733038699901499
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_WalkW
+      internalID: 8660554602121060374
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_walkZ
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|a_walkZ
+      internalID: 2013570709634633419
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Action
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Action
+      internalID: 6329750832574709716
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|cro
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|cro
+      internalID: 7841940833474228202
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|cro.001
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|cro.001
+      internalID: -6172954713107457014
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|crouch_
+      internalID: 8289412296060212657
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Crouch_
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Crouch_
+      internalID: -8512228222787985846
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idl
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idl
+      internalID: 3079105706947846531
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_AW
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_AW
+      internalID: 7512100805373597080
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_GR
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_GR
+      internalID: -8211411747286183038
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idle_Ha
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idle_Ha
+      internalID: 225707575644818093
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_KN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|idle_KN
+      internalID: 8392036892539537511
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idle_Re
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Idle_Re
+      internalID: -6551547616797414200
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|ragdoll
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|ragdoll
+      internalID: 1127393249473231428
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Run_GRE
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Run_GRE
+      internalID: 7505414997238011322
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Sta
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Sta
+      internalID: 519800857880163293
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Stand_S
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Stand_S
+      internalID: -568772468947242525
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|walk_KN
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|walk_KN
+      internalID: 1460212325509101072
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Walk_Re
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Walk_Re
+      internalID: -8291780368996154076
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Walk_We
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|t_arctic_reference_skeleton|Walk_We
+      internalID: 6538853744666924962
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|walk_KNIFE_aim_neutral
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|walk_KNIFE_aim_neutral
+      internalID: -1283722056395959809
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Walk_Reload_AWP_Layer
+      takeName: t_arctic_reference_skeleton|t_arctic_reference_skeleton|Walk_Reload_AWP_Layer
+      internalID: -3078014885629775061
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|walk_MP5_aim_neutral
+      takeName: t_arctic_reference_skeleton|walk_MP5_aim_neutral
+      internalID: -1306264177312828406
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: t_arctic_reference_skeleton|Walk_Upper_XM1014
+      takeName: t_arctic_reference_skeleton|Walk_Upper_XM1014
+      internalID: 3495543242121595613
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -82,8 +4382,733 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: ValveBiped.Bip01_Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_Neck1
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_Head1
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Toe0
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Toe0
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger0
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger01
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger02
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger11
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger12
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger2
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger21
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_L_Finger22
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger0
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger01
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger02
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger11
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger12
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger2
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger21
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_R_Finger22
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ValveBiped.Bip01_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: wtfterrorist20240923(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: t_arctic_reference_skeleton
+      parentName: wtfterrorist20240923(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_Pelvis
+      parentName: t_arctic_reference_skeleton
+      position: {x: -0.0000016700001, y: 0.024218708, z: 0.41970503}
+      rotation: {x: 0.7071067, y: -0.00000001366646, z: 0.000000009385914, w: 0.7071069}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: ValveBiped.Bip01_L_Thigh
+      parentName: ValveBiped.Bip01_Pelvis
+      position: {x: -0.04162778, y: 0.000000009117938, z: -0.0000000018646824}
+      rotation: {x: -0.4881137, y: -0.51142895, z: 0.4856294, w: 0.51414937}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+    - name: ValveBiped.Bip01_L_Calf
+      parentName: ValveBiped.Bip01_L_Thigh
+      position: {x: -0.19097562, y: 0.000000065863134, z: -0.000000014901161}
+      rotation: {x: -0.0000001490116, y: -0.000000059604638, z: -0.01710057, w: 0.99985385}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Foot
+      parentName: ValveBiped.Bip01_L_Calf
+      position: {x: -0.17682038, y: 0.00000002682209, z: -0.0000000038743018}
+      rotation: {x: 0.020804798, y: -0.011545227, z: -0.5106119, w: -0.859482}
+      scale: {x: 0.9999996, y: 0.9999999, z: 0.9999998}
+    - name: ValveBiped.Bip01_L_Toe0
+      parentName: ValveBiped.Bip01_L_Foot
+      position: {x: -0.073593765, y: 0.0000000010430813, z: -4.1909515e-10}
+      rotation: {x: -0.0055479673, y: 0.0011260145, z: 0.28804594, w: 0.95759994}
+      scale: {x: 1.0000005, y: 1.0000008, z: 1.0000004}
+    - name: ValveBiped.Bip01_L_Toe0_end
+      parentName: ValveBiped.Bip01_L_Toe0
+      position: {x: -0.0000000024971085, y: 0.002163589, z: -0.0000000013643875}
+      rotation: {x: 0.00000058766443, y: -0.000000006868502, z: 0.0000003769491, w: 1}
+      scale: {x: 1, y: 0.9999996, z: 0.99999994}
+    - name: ValveBiped.Bip01_L_Toe0_end_end
+      parentName: ValveBiped.Bip01_L_Toe0_end
+      position: {x: -0, y: 0.0021635941, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Thigh
+      parentName: ValveBiped.Bip01_Pelvis
+      position: {x: 0.041627772, y: -0.00000003407011, z: -0.0000000039782027}
+      rotation: {x: -0.4855879, y: -0.5141116, z: 0.4881548, w: 0.51146716}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1.0000001}
+    - name: ValveBiped.Bip01_R_Calf
+      parentName: ValveBiped.Bip01_R_Thigh
+      position: {x: -0.19097562, y: 0.0000000102072955, z: 0.000000028088689}
+      rotation: {x: 0.00000008940696, y: -0, z: -0.017100422, w: 0.99985385}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999976}
+    - name: ValveBiped.Bip01_R_Foot
+      parentName: ValveBiped.Bip01_R_Calf
+      position: {x: -0.17682022, y: -0.000000077486035, z: 0.000000042915342}
+      rotation: {x: 0.028652944, y: -0.006802489, z: 0.5106978, w: 0.85925585}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: ValveBiped.Bip01_R_Toe0
+      parentName: ValveBiped.Bip01_R_Foot
+      position: {x: -0.07359375, y: 0.0000000035762786, z: 0.000000024198089}
+      rotation: {x: -0.041091625, y: -0.0097777145, z: 0.28788388, w: 0.95673335}
+      scale: {x: 1.0000002, y: 1.0000002, z: 0.9999999}
+    - name: ValveBiped.Bip01_R_Toe0_end
+      parentName: ValveBiped.Bip01_R_Toe0
+      position: {x: -0.0000000081514, y: 0.0021635925, z: 6.891787e-10}
+      rotation: {x: -0.000000078231075, y: -0.000000002793967, z: 0.00000007130437, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000004}
+    - name: ValveBiped.Bip01_R_Toe0_end_end
+      parentName: ValveBiped.Bip01_R_Toe0_end
+      position: {x: -0, y: 0.0021635937, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_Spine
+      parentName: ValveBiped.Bip01_Pelvis
+      position: {x: -0.000000016160774, y: 0.035793036, z: -0.031906318}
+      rotation: {x: 0.47877547, y: -0.52035934, z: -0.4787755, w: 0.52035975}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: ValveBiped.Bip01_Spine1
+      parentName: ValveBiped.Bip01_Spine
+      position: {x: -0.042755485, y: -0.0000000066682695, z: 0.0000000016391277}
+      rotation: {x: -0.000000059604645, y: -0.000000029802322, z: 0.014410585, w: 0.9998962}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1}
+    - name: ValveBiped.Bip01_Spine2
+      parentName: ValveBiped.Bip01_Spine1
+      position: {x: -0.03766728, y: -0.000000014901161, z: 0.000000007152557}
+      rotation: {x: 0.00000008963698, y: 0.00000012079377, z: -0.048635975, w: 0.9988166}
+      scale: {x: 1.0000005, y: 1, z: 1.0000004}
+    - name: ValveBiped.Bip01_Spine4
+      parentName: ValveBiped.Bip01_Spine2
+      position: {x: -0.09545995, y: 0.000000037252903, z: -0.000000030994414}
+      rotation: {x: 0.00000002951764, y: 0.000000197227, z: 0.09307165, w: -0.9956594}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: ValveBiped.Bip01_Neck1
+      parentName: ValveBiped.Bip01_Spine4
+      position: {x: -0.03537106, y: 0.00000005170703, z: 0.00000002592802}
+      rotation: {x: 0.98693043, y: -0.16114731, z: -0.0000005037335, w: 0.0000011182813}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+    - name: ValveBiped.Bip01_Head1
+      parentName: ValveBiped.Bip01_Neck1
+      position: {x: -0.03853523, y: -0.000000057294965, z: -0.00000001847744}
+      rotation: {x: 0.00000002444005, y: 0.00000071034145, z: -0.20112202, w: 0.9795662}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: ValveBiped.forward
+      parentName: ValveBiped.Bip01_Head1
+      position: {x: -0.020000495, y: -0.029999664, z: 0.000000004842877}
+      rotation: {x: -0.55721045, y: -0.4353345, z: 0.43533522, w: 0.5572107}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1}
+    - name: ValveBiped.forward_end
+      parentName: ValveBiped.forward
+      position: {x: -0.0000000035844276, y: 0.0021635937, z: -0.00000008323928}
+      rotation: {x: -0.0000006258486, y: 0.00000019371505, z: -0.0000005364417, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: ValveBiped.forward_end_end
+      parentName: ValveBiped.forward_end
+      position: {x: -0, y: 0.0021635937, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_L_Clavicle
+      parentName: ValveBiped.Bip01_Spine4
+      position: {x: -0.022037068, y: 0.010463812, z: 0.020733008}
+      rotation: {x: 0.47275227, y: -0.52835643, z: -0.59875757, w: -0.37260458}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: ValveBiped.Bip01_L_UpperArm
+      parentName: ValveBiped.Bip01_L_Clavicle
+      position: {x: -0.06450117, y: -0.00000011920929, z: 0.00000006198883}
+      rotation: {x: -0.64421517, y: 0.07469727, z: -0.09384954, w: 0.75538033}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: ValveBiped.Bip01_L_Forearm
+      parentName: ValveBiped.Bip01_L_UpperArm
+      position: {x: -0.12511058, y: 0.000000057220458, z: -0.000000021457671}
+      rotation: {x: 0.0000024735925, y: -0.0000002533197, z: 0.030180898, w: 0.99954444}
+      scale: {x: 1.0000005, y: 1, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Hand
+      parentName: ValveBiped.Bip01_L_Forearm
+      position: {x: -0.12285407, y: -0.00000006318092, z: -0.00000030875205}
+      rotation: {x: 0.70621854, y: 0.000986597, z: -0.026422115, w: 0.7075001}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000007}
+    - name: ValveBiped.Bip01_L_Finger2
+      parentName: ValveBiped.Bip01_L_Hand
+      position: {x: -0.041523423, y: 0.0022961153, z: 0.00428222}
+      rotation: {x: 0.013902956, y: 0.12585676, z: 0.045438163, w: 0.9909098}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.99999994}
+    - name: ValveBiped.Bip01_L_Finger21
+      parentName: ValveBiped.Bip01_L_Finger2
+      position: {x: -0.018398415, y: -0.000000093281265, z: 0.00000002592802}
+      rotation: {x: 0.00046361008, y: -0.00046366415, z: 0.034363218, w: 0.99940926}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Finger22
+      parentName: ValveBiped.Bip01_L_Finger21
+      position: {x: -0.01292964, y: -0.00000007390976, z: -0.0000000170595}
+      rotation: {x: 0.00097323046, y: -0.0010117951, z: 0.7001635, w: 0.7139813}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1}
+    - name: ValveBiped.Bip01_L_Finger22_end
+      parentName: ValveBiped.Bip01_L_Finger22
+      position: {x: -0.000000021457671, y: 0.0021635932, z: 0.00000004434958}
+      rotation: {x: 0.00000009116771, y: -0.00000002735759, z: 0.0000005381167, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 0.99999994}
+    - name: ValveBiped.Bip01_L_Finger22_end_end
+      parentName: ValveBiped.Bip01_L_Finger22_end
+      position: {x: -0, y: 0.0021635918, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_L_Finger1
+      parentName: ValveBiped.Bip01_L_Hand
+      position: {x: -0.041406203, y: 0.001256019, z: 0.013916009}
+      rotation: {x: 0.14160335, y: 0.13261361, z: 0.031477503, w: 0.9804954}
+      scale: {x: 0.99999994, y: 1.0000002, z: 0.9999998}
+    - name: ValveBiped.Bip01_L_Finger11
+      parentName: ValveBiped.Bip01_L_Finger1
+      position: {x: -0.018388676, y: -0.000000042319297, z: 0.00000007182359}
+      rotation: {x: 0.00046889455, y: -0.00047762663, z: 0.03445943, w: 0.99940586}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Finger12
+      parentName: ValveBiped.Bip01_L_Finger11
+      position: {x: -0.011757786, y: 0.00000010848045, z: -0.000000009536743}
+      rotation: {x: 0.0011414336, y: -0.0011831523, z: 0.6996611, w: 0.714473}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Finger12_end
+      parentName: ValveBiped.Bip01_L_Finger12
+      position: {x: 0.000000032782555, y: 0.0021636009, z: 0.00000006198883}
+      rotation: {x: -0.00000010554501, y: 0.00000016461122, z: -0.000000281425, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1.0000004}
+    - name: ValveBiped.Bip01_L_Finger12_end_end
+      parentName: ValveBiped.Bip01_L_Finger12_end
+      position: {x: -0, y: 0.0021635857, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_L_Finger0
+      parentName: ValveBiped.Bip01_L_Hand
+      position: {x: -0.008974579, y: -0.0032129013, z: 0.014042961}
+      rotation: {x: -0.7031856, y: 0.11008002, z: 0.1737023, w: 0.6806174}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Finger01
+      parentName: ValveBiped.Bip01_L_Finger0
+      position: {x: -0.019150421, y: 0.00000002503395, z: 0.000000017285346}
+      rotation: {x: 0.0001217126, y: 0.0003556085, z: -0.037889984, w: 0.9992819}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1}
+    - name: ValveBiped.Bip01_L_Finger02
+      parentName: ValveBiped.Bip01_L_Finger01
+      position: {x: -0.012910151, y: -0.000000006556511, z: -0.0000000077486035}
+      rotation: {x: -0.0011663933, y: 0.0011745786, z: 0.7071141, w: 0.7070976}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000004}
+    - name: ValveBiped.Bip01_L_Finger02_end
+      parentName: ValveBiped.Bip01_L_Finger02
+      position: {x: 0.00000003516674, y: 0.00216356, z: 0.000000017434358}
+      rotation: {x: -0.000000039988645, y: 0.000000030384385, z: -0.00000016912495, w: 1}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000002}
+    - name: ValveBiped.Bip01_L_Finger02_end_end
+      parentName: ValveBiped.Bip01_L_Finger02_end
+      position: {x: -0, y: 0.002163592, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_L_Wrist
+      parentName: ValveBiped.Bip01_L_Forearm
+      position: {x: -0.12281255, y: 0.00000001847744, z: 0.000000032186506}
+      rotation: {x: -0.0005080824, y: 0.0000003439791, z: 0.0000022575632, w: 0.9999999}
+      scale: {x: 1.0000007, y: 1.000001, z: 1.0000004}
+    - name: ValveBiped.Bip01_L_Wrist_end
+      parentName: ValveBiped.Bip01_L_Wrist
+      position: {x: -0.000000011920928, y: 0.0021636111, z: 0.00000000834465}
+      rotation: {x: -0.0000003881286, y: -0.000000018326286, z: 0.00000045633868, w: 1}
+      scale: {x: 1.0000005, y: 1.000001, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Wrist_end_end
+      parentName: ValveBiped.Bip01_L_Wrist_end
+      position: {x: -0, y: 0.0021635948, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_L_Ulna
+      parentName: ValveBiped.Bip01_L_Forearm
+      position: {x: -0.061406247, y: 0.00000004053116, z: -0.0000000047683715}
+      rotation: {x: -0.00027555443, y: 0.00000013581491, z: 0.000003362095, w: 1}
+      scale: {x: 1.0000006, y: 1.0000008, z: 1.0000001}
+    - name: ValveBiped.Bip01_L_Ulna_end
+      parentName: ValveBiped.Bip01_L_Ulna
+      position: {x: 0.0000000047683715, y: 0.002163585, z: 0.000000023841856}
+      rotation: {x: 0.00000068463845, y: -0.000000035100367, z: -0.0000017732472, w: 1}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1}
+    - name: ValveBiped.Bip01_L_Ulna_end_end
+      parentName: ValveBiped.Bip01_L_Ulna_end
+      position: {x: -0, y: 0.0021635932, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Clavicle
+      parentName: ValveBiped.Bip01_Spine4
+      position: {x: -0.022037132, y: 0.01046378, z: -0.020732969}
+      rotation: {x: 0.45906875, y: -0.5495152, z: 0.5793998, w: 0.389339}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
+    - name: ValveBiped.Bip01_R_UpperArm
+      parentName: ValveBiped.Bip01_R_Clavicle
+      position: {x: -0.06450118, y: 0.000000010728836, z: -0.000000050663946}
+      rotation: {x: 0.6794949, y: -0.072421245, z: -0.09563914, w: 0.72380596}
+      scale: {x: 0.9999998, y: 1.0000002, z: 0.9999998}
+    - name: ValveBiped.Bip01_R_Forearm
+      parentName: ValveBiped.Bip01_R_UpperArm
+      position: {x: -0.12511066, y: -0.000000042915342, z: 0.000000076293944}
+      rotation: {x: 0.000001043081, y: 0.00000016391273, z: 0.030180708, w: 0.9995445}
+      scale: {x: 1.0000004, y: 0.99999994, z: 0.99999994}
+    - name: ValveBiped.Bip01_R_Hand
+      parentName: ValveBiped.Bip01_R_Forearm
+      position: {x: -0.1228543, y: -0.0000000011920929, z: -0.000000009536743}
+      rotation: {x: -0.70327896, y: -0.0010876162, z: -0.0264029, w: 0.7104228}
+      scale: {x: 0.9999997, y: 1, z: 0.9999996}
+    - name: ValveBiped.Bip01_R_Finger2
+      parentName: ValveBiped.Bip01_R_Hand
+      position: {x: -0.041523475, y: 0.002260716, z: -0.0042993072}
+      rotation: {x: -0.014448664, y: -0.1254955, z: 0.046406757, w: 0.99090296}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: ValveBiped.Bip01_R_Finger21
+      parentName: ValveBiped.Bip01_R_Finger2
+      position: {x: -0.0183984, y: -0.000000028610229, z: -0.000000039339064}
+      rotation: {x: -0.00070445077, y: 0.00070162053, z: 0.03435922, w: 0.9994091}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: ValveBiped.Bip01_R_Finger22
+      parentName: ValveBiped.Bip01_R_Finger21
+      position: {x: -0.012929713, y: -0.00000003017485, z: -0.000000024139881}
+      rotation: {x: -0.0014838163, y: 0.0015067632, z: 0.70016307, w: 0.71397984}
+      scale: {x: 1, y: 0.9999997, z: 1.0000004}
+    - name: ValveBiped.Bip01_R_Finger22_end
+      parentName: ValveBiped.Bip01_R_Finger22
+      position: {x: -0.0000000043056207, y: 0.0021635932, z: 0.000000034826808}
+      rotation: {x: -0.000000008716593, y: 0.000000082654836, z: -0.00000022594861, w: 1}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000006}
+    - name: ValveBiped.Bip01_R_Finger22_end_end
+      parentName: ValveBiped.Bip01_R_Finger22_end
+      position: {x: -0, y: 0.002163591, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Finger1
+      parentName: ValveBiped.Bip01_R_Hand
+      position: {x: -0.041406237, y: 0.0011407376, z: -0.013925824}
+      rotation: {x: -0.14204355, y: -0.1323582, z: 0.032517985, w: 0.9804324}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: ValveBiped.Bip01_R_Finger11
+      parentName: ValveBiped.Bip01_R_Finger1
+      position: {x: -0.018388724, y: -0.0000000011920929, z: -0.000000004172325}
+      rotation: {x: -0.0007118426, y: 0.0007279806, z: 0.03444834, w: 0.9994059}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1}
+    - name: ValveBiped.Bip01_R_Finger12
+      parentName: ValveBiped.Bip01_R_Finger11
+      position: {x: -0.011757793, y: 0.0000000134855505, z: -0.00000003784895}
+      rotation: {x: -0.0017256269, y: 0.0017539611, z: 0.6996526, w: 0.71447897}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: ValveBiped.Bip01_R_Finger12_end
+      parentName: ValveBiped.Bip01_R_Finger12
+      position: {x: 0.000000011324882, y: 0.002163599, z: -0.0000000093877315}
+      rotation: {x: -0.00000022826126, y: 0.00000011944208, z: 0.000000016937344, w: 1}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
+    - name: ValveBiped.Bip01_R_Finger12_end_end
+      parentName: ValveBiped.Bip01_R_Finger12_end
+      position: {x: -0, y: 0.0021636013, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Finger0
+      parentName: ValveBiped.Bip01_R_Hand
+      position: {x: -0.008974601, y: -0.0033276437, z: -0.014013665}
+      rotation: {x: 0.70204175, y: -0.10892967, z: 0.17442349, w: 0.6817978}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000005}
+    - name: ValveBiped.Bip01_R_Finger01
+      parentName: ValveBiped.Bip01_R_Finger0
+      position: {x: -0.019150428, y: 0.000000026673078, z: 0.000000013262033}
+      rotation: {x: -0.00018972145, y: -0.00053842325, z: -0.037887786, w: 0.9992819}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000002}
+    - name: ValveBiped.Bip01_R_Finger02
+      parentName: ValveBiped.Bip01_R_Finger01
+      position: {x: -0.012910177, y: 0.000000023022293, z: -0.00000005990267}
+      rotation: {x: 0.0017670912, y: -0.0017610387, z: 0.7071102, w: 0.7070989}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000005}
+    - name: ValveBiped.Bip01_R_Finger02_end
+      parentName: ValveBiped.Bip01_R_Finger02
+      position: {x: 0.000000020842998, y: 0.002163634, z: -0.00000002399087}
+      rotation: {x: -0.00000015931433, y: 0.000000009313224, z: -0.00000014278655, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Finger02_end_end
+      parentName: ValveBiped.Bip01_R_Finger02_end
+      position: {x: -0, y: 0.0021635962, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Wrist
+      parentName: ValveBiped.Bip01_R_Forearm
+      position: {x: -0.12281251, y: -0.000000021457671, z: 0.000000019073486}
+      rotation: {x: 0.004252547, y: -0.0000001503033, z: 0.000000115350055, w: 0.99999094}
+      scale: {x: 0.9999996, y: 0.99999994, z: 1}
+    - name: ValveBiped.Bip01_R_Wrist_end
+      parentName: ValveBiped.Bip01_R_Wrist
+      position: {x: -0.000000015497207, y: 0.0021635904, z: 0.000000019073486}
+      rotation: {x: 0.00000038882703, y: 0.00000004396105, z: -0.00000092406697, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: ValveBiped.Bip01_R_Wrist_end_end
+      parentName: ValveBiped.Bip01_R_Wrist_end
+      position: {x: -0, y: 0.0021635937, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.Bip01_R_Ulna
+      parentName: ValveBiped.Bip01_R_Forearm
+      position: {x: -0.06140623, y: -0.00000007390976, z: -0.000000011920928}
+      rotation: {x: 0.0023004164, y: -0.0000000036719854, z: -0.0000010599176, w: 0.99999744}
+      scale: {x: 0.99999946, y: 0.9999998, z: 0.99999976}
+    - name: ValveBiped.Bip01_R_Ulna_end
+      parentName: ValveBiped.Bip01_R_Ulna
+      position: {x: 0.0000000047683715, y: 0.002163584, z: 0}
+      rotation: {x: -0.000001161359, y: 0.000000048261526, z: -0.0000007395829, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: ValveBiped.Bip01_R_Ulna_end_end
+      parentName: ValveBiped.Bip01_R_Ulna_end
+      position: {x: -0, y: 0.0021635948, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ValveBiped.weapon_bone
+      parentName: ValveBiped.Bip01_Spine
+      position: {x: -0.25359374, y: 0.3290625, z: -0.021894505}
+      rotation: {x: -0.47877538, y: 0.520359, z: 0.47877595, w: 0.52035975}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: ValveBiped.weapon_bone_RHand
+      parentName: ValveBiped.weapon_bone
+      position: {x: 0.015703108, y: -0.04074221, z: -0.05921873}
+      rotation: {x: 0.40301418, y: 0.9137014, z: 0.050747864, w: 0.012407152}
+      scale: {x: 1.0000002, y: 0.9999999, z: 0.9999999}
+    - name: ValveBiped.weapon_bone_LHand
+      parentName: ValveBiped.weapon_bone_RHand
+      position: {x: -0.0070849713, y: -0.042539068, z: -0.00025084912}
+      rotation: {x: -0.7340312, y: -0.674814, z: 0.01042006, w: 0.07560233}
+      scale: {x: 1, y: 0.99999964, z: 1.0000004}
+    - name: ValveBiped.weapon_bone_Clip
+      parentName: ValveBiped.weapon_bone_LHand
+      position: {x: -0.03587892, y: -0.010957047, z: 0.012041006}
+      rotation: {x: -0.00000962615, y: 0.0000011213124, z: 0.000038087368, w: 1}
+      scale: {x: 0.99999976, y: 1.0000006, z: 0.99999964}
+    - name: ValveBiped.weapon_bone_Clip_end
+      parentName: ValveBiped.weapon_bone_Clip
+      position: {x: 0.0000000012246891, y: 0.002163654, z: 0.000000007965936}
+      rotation: {x: -0.000000033528522, y: -0.000000033526362, z: -4.4275694e-13, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+    - name: ValveBiped.weapon_bone_Clip_end_end
+      parentName: ValveBiped.weapon_bone_Clip_end
+      position: {x: -0, y: 0.0021635948, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: t_arctic_reference
+      parentName: wtfterrorist20240923(Clone)
+      position: {x: -5.587935e-10, y: -0.0000000047683715, z: 4.097827e-10}
+      rotation: {x: -0.00000008378865, y: -0.0000000030267997, z: -0.0000000013969848, w: 1}
+      scale: {x: 0.01, y: 0.010000001, z: 0.01}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

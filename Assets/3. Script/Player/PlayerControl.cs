@@ -8,23 +8,23 @@ using UnityEngine.Experimental.Rendering;
 using UnityEngine.InputSystem;
 
 
-public enum PlayerState
-{
-    S_Idle = 0,
-    S_Walk,
-    S_Run,
-    S_Shoot,
-    C_Idle,
-    C_Move,
-    C_Shoot
-}
+//public enum PlayerState
+//{
+//    S_Idle = 0,
+//    S_Walk,
+//    S_Run,
+//    S_Shoot,
+//    C_Idle,
+//    C_Move,
+//    C_Shoot
+//}
 
 public class PlayerControl : MonoBehaviour
 {
 
     [SerializeField] private Animator player_movement_ani;
 
-    private PlayerState state;
+    //private PlayerState state;
 
 
     [Header("Components")]
@@ -61,6 +61,10 @@ public class PlayerControl : MonoBehaviour
     [Header("Animator")]
     [SerializeField] private Animator v_model_ani;
     [SerializeField] private Animator w_model_ani;
+    [SerializeField] private bool isMoving = false;
+    [SerializeField] private bool isCrouch = false;
+    [SerializeField] private bool isRunning = false;
+    [SerializeField] private bool isWalking = false;
 
 
     [Header("Weapon")]
@@ -281,13 +285,18 @@ public class PlayerControl : MonoBehaviour
         float dirX = Input.GetAxis("Horizontal");
         float dirZ = Input.GetAxis("Vertical");
 
+        // Walk, Crouch
+        isWalking = Input.GetButton("Walk") ;
+        isCrouch = Input.GetButton("Crouch");
+
+
         // Mouse
 
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
 
-        PlayerMovement(dirX, dirZ, mouseX, mouseY);
+        PlayerMovement(dirX, dirZ, mouseX, mouseY, isWalking, isCrouch);
         
         
 
@@ -311,13 +320,16 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    private void PlayerMovement(float dirX, float dirZ, float mouseX, float mouseY)
+    private void PlayerMovement(float dirX, float dirZ, float mouseX, float mouseY, bool isWalking ,bool isCrouch)
     {
-        // WASD
+        // Movement
 
 
         float _dirX = dirX;
         float _dirZ = dirZ;
+
+        bool _isWalking = isWalking;
+        bool _isCrouch = isCrouch;
 
         // mouse
         float _mouseX = mouseX * Time.deltaTime * mouseSensitivity;
@@ -328,32 +340,63 @@ public class PlayerControl : MonoBehaviour
         float gravity = -9.81f;
 
 
-        isMove = false;
+
+
+
 
 
         // mouse rotation
         xRotation -= _mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         player_tr.Rotate(Vector3.up * _mouseX);
-       
-        //viewModelCam_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        //viewModelTest_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
-
-        //viewModel_tr.localRotation = Quaternion.Euler(, 0, 0);
         viewModel_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-
-        //viewModel_tr.rotation (viewModelCam_tr.position, xRotation);
+        //_isWalking = false;
+        //_isCrouch = false;
 
         if (direction != Vector3.zero)
         {
-            isMove = true;
-            this.transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
-            player_movement_ani.SetBool("Move", isMove);
+            if(!_isWalking && !_isCrouch)
+            {
+
+                isRunning = true;
+                this.transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
+                
+
+            }
+
+            if(_isWalking)
+            {
+                
+                isRunning = false;
+                _isCrouch = false;
+                this.transform.Translate(direction.normalized * moveSpeed * 0.5f * Time.deltaTime);
+
+            }
+
+            if (_isCrouch)
+            {
+
+                _isWalking = false;                
+                isRunning = false;
+                this.transform.Translate(direction.normalized * moveSpeed * 0.3f * Time.deltaTime);
+
+            }
+
+
+
+            player_movement_ani.SetBool("Run", isRunning);
+            player_movement_ani.SetBool("Walk", _isWalking);
+            player_movement_ani.SetBool("Crouch", _isCrouch);
+
+
+
             player_movement_ani.SetFloat("DirX", direction.x);
             player_movement_ani.SetFloat("DirZ", direction.z);
+
+
         }
-        player_movement_ani.SetBool("Move", isMove);
+
 
     }
 

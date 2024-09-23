@@ -7,7 +7,7 @@ public class Dummy : MonoBehaviour
 
     [SerializeField] private Animator player_movement_ani;
 
-    private PlayerState state;
+    //private PlayerState state;
 
 
     [Header("Components")]
