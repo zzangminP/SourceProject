@@ -29,11 +29,19 @@ public class Knife : Weapon
 
     private void Start()
     {
+        Init();
+
+    }
+
+    private void Init()
+    {
         animator = GetComponent<Animator>();
+        animator_w = transform.parent.GetComponentInParent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
         Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         SetState(new DrawState());
         UIInit();
+        SetAnimator();
     }
 
     private void OnEnable()

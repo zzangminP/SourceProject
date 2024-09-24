@@ -34,13 +34,22 @@ public class AK47 : Weapon
 
     private void Start()
     {
-        animator    = GetComponent<Animator>();
-        animator_w  = transform.parent.GetComponentInParent<Animator>();        
-        fpsCam      = GetComponentInParent<Camera>();
-        Ammo_ui     = GameObject.Find("Ammo").GetComponent<TMP_Text>();
-        SetState(new DrawState());
+        Init();
+    }
+
+
+    private void Init()
+    {
+
+        animator = GetComponent<Animator>();
+        animator_w = transform.parent.GetComponentInParent<Animator>();
+        fpsCam = GetComponentInParent<Camera>();
+        Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
+
         UIInit();
         SetAnimator();
+        SetState(new DrawState());
+
     }
 
     private void OnEnable()
@@ -65,10 +74,7 @@ public class AK47 : Weapon
 
     private void Update()
     {
-        StrategyControl();
-
-        
-        
+        StrategyControl();   
     }
 
     void StrategyControl()

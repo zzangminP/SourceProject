@@ -18,7 +18,9 @@ public class Glock18 : Weapon
         impactForce = 50f;
         fireRate    = 6.6f;
         isAuto      = true;
-        isBurst     = false; 
+        isBurst     = false;
+
+        type = Type.Glock18;
         
         leftClick   = new PistolLeft();
         rightClick  = new GlockRight();
@@ -32,13 +34,21 @@ public class Glock18 : Weapon
 
     private void Start()
     {
+        Init();
+    }
+
+    private void Init()
+    {
         animator = GetComponent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
+        animator_w = transform.parent.GetComponentInParent<Animator>();
         Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
-        SetState(new DrawState());
+
         UIInit();
+        SetState(new DrawState());
+        SetAnimator();
     }
-    
+
     private void OnEnable()
     {
         UIInit();
@@ -48,7 +58,16 @@ public class Glock18 : Weapon
     {
         Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
     }
-    
+
+    void SetAnimator()
+    {
+        for (int i = 1; i < animator_w.layerCount; i++)
+        {
+            animator_w.SetLayerWeight(i, 0);
+        }
+        animator_w.SetLayerWeight(animator_w.GetLayerIndex("Glock18"), 1);
+    }
+
     private void Update()
     {
         StrategyControl();

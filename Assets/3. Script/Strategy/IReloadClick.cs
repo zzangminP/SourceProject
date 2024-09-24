@@ -16,15 +16,16 @@ public class SingleReload : IReloadClick
     {
 
         if ((w.currentState is FireOneState ||
-           w.currentState is SingleFiringState))
-            return;
+             w.currentState is SingleFiringState))
+             return;
 
         if(Input.GetKeyDown(KeyCode.R) &&
            w.currentAmmo < w.maxMag &&
            w.maxAmmo > 0 )
         {     
             w.SetState(new SingleStartReloadState());
-            if(Input.GetKeyDown(KeyCode.R))
+            w.animator_w.SetTrigger("SingleReload");            
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 while (w.currentAmmo < w.maxMag && 
                        w.maxAmmo > 0)
@@ -38,6 +39,7 @@ public class SingleReload : IReloadClick
                 if (w.currentAmmo == w.maxMag || w.maxAmmo == 0)
                 {
                     w.SetState(new SingleAfterReloadState());
+                    w.animator_w.SetTrigger("XMReloadEnd");
 
                 }
 
@@ -73,7 +75,7 @@ public class MagReload : IReloadClick
             w.maxAmmo > 0)
         {
             w.SetState(new ReloadingState());
-            w.animator_w.SetTrigger("RifleReload");
+            w.animator_w.SetTrigger("MagReload");
 
             int neededAmmo = w.maxMag - w.currentAmmo;
 

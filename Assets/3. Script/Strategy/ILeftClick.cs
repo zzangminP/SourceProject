@@ -152,6 +152,7 @@ public class ShotgunLeft : ILeftClick
             if (w.currentAmmo > 0)
             {
                 w.SetState(new SingleFiringState());
+                w.animator_w.SetTrigger("XMSetIdle");
                 w.currentAmmo -= 1;
                 w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
 

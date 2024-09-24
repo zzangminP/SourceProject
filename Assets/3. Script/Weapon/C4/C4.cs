@@ -37,6 +37,7 @@ public class C4 : Weapon
     {
         animator = GetComponent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
+        animator_w = transform.parent.GetComponentInParent<Animator>();
         //Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         player = GetComponentInParent<PlayerControl>();
         SetState(new DrawState());

@@ -5412,7 +5412,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5877533504499588382}
-  - {fileID: 3314705083063926730}
   m_Father: {fileID: 8033177122536273879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2189615956852072638
@@ -5711,6 +5710,7 @@ MonoBehaviour:
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
 --- !u!1 &2304013055475863820
 GameObject:
   m_ObjectHideFlags: 0
@@ -6816,6 +6816,7 @@ MonoBehaviour:
   current_weapon: {fileID: 0}
   privious_weapon: {fileID: 0}
   canC4Plant: 0
+  placeWeaponBone: {fileID: 7150909162679564764}
   scopeOverlay: {fileID: 5109176151751331278}
   weaponHolder: {fileID: 7866092200646587426}
 --- !u!65 &2587652814239173809
@@ -7883,6 +7884,7 @@ MonoBehaviour:
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
 --- !u!1 &3403638650733876844
 GameObject:
   m_ObjectHideFlags: 0
@@ -8691,6 +8693,7 @@ MonoBehaviour:
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
 --- !u!1 &3781253647634900455
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,6 +10004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3314705083063926730}
   - {fileID: 2863450389963194552}
   - {fileID: 1530329420620747460}
   - {fileID: 2301691375364832414}
@@ -12526,6 +12530,7 @@ MonoBehaviour:
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
 --- !u!1 &5212829626483048521
 GameObject:
   m_ObjectHideFlags: 0
@@ -16996,13 +17001,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7150909162679564764}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.41558927, y: 0.24314985, z: 0.5600191, w: 0.67419755}
-  m_LocalPosition: {x: 0.008315037, y: -0.00020604943, z: 0.0000000060905574}
-  m_LocalScale: {x: 0.9999999, y: 0.99999976, z: 0.99999994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1582476684355541050}
-  m_Father: {fileID: 6854113263552028951}
+  m_Father: {fileID: 8889717898869417895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7152109044988502776
 GameObject:
@@ -20735,6 +20740,7 @@ MonoBehaviour:
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
   scopeOverlay: {fileID: 0}
   isScoped: 0
   player: {fileID: 0}
@@ -20937,6 +20943,7 @@ MonoBehaviour:
   w_model: {fileID: 6827081278535361658, guid: 58edbfb946089834e9ffc35f06b2b455, type: 3}
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &8546876025848706501
 GameObject:

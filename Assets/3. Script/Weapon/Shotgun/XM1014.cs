@@ -21,6 +21,8 @@ public class XM1014 : Weapon
         isAuto      = false;
         pellet      = 6;
 
+        type = Type.XM1014;
+
         leftClick   = new ShotgunLeft();
         rightClick  = new RightClickNothing();
         reloadClick = new SingleReload();
@@ -30,11 +32,19 @@ public class XM1014 : Weapon
 
     private void Start()
     {
+        Init();
+
+    }
+
+    private void Init()
+    {
         animator = GetComponent<Animator>();
+        animator_w = transform.parent.GetComponentInParent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
         Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         SetState(new DrawState());
         UIInit();
+        SetAnimator();
     }
     //
     private void OnEnable()

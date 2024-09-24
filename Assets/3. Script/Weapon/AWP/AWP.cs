@@ -48,6 +48,7 @@ public class AWP : Weapon
         weaponCamera = weaponHolder.parent.Find("Weapon Camera").gameObject;
 
         animator = GetComponent<Animator>();
+        animator_w = transform.parent.GetComponentInParent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
         player = GetComponentInParent<PlayerControl>();
         SetState(new DrawState());

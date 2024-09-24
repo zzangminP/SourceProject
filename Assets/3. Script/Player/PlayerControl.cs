@@ -81,6 +81,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private GameObject current_weapon = null;
     [SerializeField] private GameObject privious_weapon = null;
     [SerializeField] public bool canC4Plant = false;
+    /// <summary>
+    /// In World, The Position that character holds Weapon
+    /// </summary>
+    [SerializeField] private GameObject placeWeaponBone;
 
     [Header("UI")]
     [SerializeField] public GameObject scopeOverlay;
