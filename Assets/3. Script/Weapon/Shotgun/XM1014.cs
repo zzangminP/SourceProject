@@ -40,8 +40,18 @@ public class XM1014 : Weapon
     private void OnEnable()
     {
         UIInit();
+        SetAnimator();
     }
-    
+
+    void SetAnimator()
+    {
+        for (int i = 1; i < animator_w.layerCount; i++)
+        {
+            animator_w.SetLayerWeight(i, 0);
+        }
+        animator_w.SetLayerWeight(animator_w.GetLayerIndex("XM1014"), 1);
+    }
+
     private void UIInit()
     {
         Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";

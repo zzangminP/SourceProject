@@ -43,6 +43,7 @@ public class Grenade : Weapon
     void Start()
     {
         countdown = delay;
+        SetAnimator();
     }
 
     // Update is called once per frame
@@ -54,6 +55,20 @@ public class Grenade : Weapon
             Explode();
             hasExploded = true;
         }
+    }
+
+    private void OnEnable()
+    {
+        SetAnimator();
+    }
+
+    void SetAnimator()
+    {
+        for (int i = 1; i < animator_w.layerCount; i++)
+        {
+            animator_w.SetLayerWeight(i, 0);
+        }
+        animator_w.SetLayerWeight(animator_w.GetLayerIndex("Knife"), 1);
     }
 
     void Explode()
@@ -90,5 +105,15 @@ public class Grenade : Weapon
 
         // ¼ö·ùÅº ¿ÀºêÁ§Æ® ÆÄ±«
         Destroy(gameObject);
+
+
     }
+
+
+
+
+
+
+
+
 }

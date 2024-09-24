@@ -39,7 +39,8 @@ public class Weapon : WeaponSetting
 
 
     public Transform weaponHolder;
-    public GameObject weaponCamera; 
+    public GameObject weaponCamera;
+    public Animator animator_w;
 
     // strategy
     public ILeftClick            leftClick;

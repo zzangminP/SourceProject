@@ -73,7 +73,7 @@ public class MagReload : IReloadClick
             w.maxAmmo > 0)
         {
             w.SetState(new ReloadingState());
-
+            w.animator_w.SetTrigger("RifleReload");
 
             int neededAmmo = w.maxMag - w.currentAmmo;
 

@@ -59,6 +59,7 @@ public class AWP : Weapon
     private void OnEnable()
     {
         UIInit();
+        SetAnimator();
 
     }
 
@@ -69,7 +70,14 @@ public class AWP : Weapon
         Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
     }
 
-
+    void SetAnimator()
+    {
+        for (int i = 1; i < animator_w.layerCount; i++)
+        {
+            animator_w.SetLayerWeight(i, 0);
+        }
+        animator_w.SetLayerWeight(animator_w.GetLayerIndex("AWP"), 1);
+    }
     private void Update()
     {
         StrategyControl();

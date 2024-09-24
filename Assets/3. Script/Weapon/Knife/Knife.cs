@@ -39,12 +39,22 @@ public class Knife : Weapon
     private void OnEnable()
     {
         UIInit();
+        SetAnimator();
+
     }
 
 
     private void UIInit()
     {
         Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
+    }
+    void SetAnimator()
+    {
+        for (int i = 1; i < animator_w.layerCount; i++)
+        {
+            animator_w.SetLayerWeight(i, 0);
+        }
+        animator_w.SetLayerWeight(animator_w.GetLayerIndex("Knife"), 1);
     }
 
     private void Update()

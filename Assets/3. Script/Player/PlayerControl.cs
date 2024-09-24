@@ -288,7 +288,6 @@ public class PlayerControl : MonoBehaviour
         // Walk, Crouch
         isWalking = Input.GetButton("Walk") ;
         isCrouch = Input.GetButton("Crouch") ? true : false;
-        Debug.Log(isCrouch);
 
 
         // Mouse
@@ -328,16 +327,15 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    private void PlayerMovement(float dirX, float dirZ, float mouseX, float mouseY, bool isWalking ,bool isCrouch)
+    private void PlayerMovement(float _dirX, float _dirZ, float mouseX, float mouseY, bool _isWalking ,bool _isCrouch)
     {
         // Movement
 
 
-        float _dirX = dirX;
-        float _dirZ = dirZ;
+        //float _dirX = dirX;
+        //float _dirZ = dirZ;
 
-        bool _isWalking = isWalking;
-        bool _isCrouch = isCrouch;
+
 
         // mouse
         float _mouseX = mouseX * Time.deltaTime * mouseSensitivity;
@@ -387,7 +385,7 @@ public class PlayerControl : MonoBehaviour
 
                 _isWalking = false;
                 isRunning = false;
-                this.transform.Translate(direction.normalized * moveSpeed * 0.3f * Time.deltaTime);
+                PlayerCrouch(direction, _isCrouch);
 
             }
 
@@ -412,6 +410,22 @@ public class PlayerControl : MonoBehaviour
     {
         player_rg.velocity = Vector3.zero;
         player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+    }
+
+    private void PlayerCrouch(Vector3 direction, bool _isCrouch)
+    {
+        Vector3 newPosition = fpsCam.transform.position;
+        if (isCrouch)
+        {            
+            newPosition.y -= 0.3f;
+            fpsCam.transform.position = newPosition;
+        }
+        else
+        {
+
+        }
+        this.transform.Translate(direction.normalized * moveSpeed * 0.3f * Time.deltaTime);
+
     }
 
 

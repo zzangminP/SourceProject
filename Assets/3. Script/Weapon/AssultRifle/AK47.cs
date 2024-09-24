@@ -28,26 +28,39 @@ public class AK47 : Weapon
         wasdMove    = new WASDMove();
 
     }
+    //public Animator animator_w;
 
 
 
     private void Start()
     {
         animator    = GetComponent<Animator>();
+        animator_w  = transform.parent.GetComponentInParent<Animator>();        
         fpsCam      = GetComponentInParent<Camera>();
         Ammo_ui     = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         SetState(new DrawState());
         UIInit();
+        SetAnimator();
     }
 
     private void OnEnable()
     {
         UIInit();
+        SetAnimator();
     }
 
     private void UIInit()
     {
         Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
+    }
+
+    void SetAnimator()
+    {
+        for (int i = 1; i < animator_w.layerCount; i++)
+        {
+            animator_w.SetLayerWeight(i, 0);
+        }
+        animator_w.SetLayerWeight(animator_w.GetLayerIndex("AK47"), 1);
     }
 
     private void Update()
