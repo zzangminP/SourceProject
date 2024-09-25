@@ -36,6 +36,7 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField] private Rigidbody player_rg;
     [SerializeField] public GameObject fpsCam;
+    [SerializeField] public GameObject playerHead;
 
 
 
@@ -338,8 +339,12 @@ public class PlayerControl : MonoBehaviour
 
         //float _dirX = dirX;
         //float _dirZ = dirZ;
-
-
+        //fpsCam.transform.position.y = playerHead.transform.position.y; 
+        fpsCam.transform.position = new Vector3(
+        fpsCam.transform.position.x,
+        playerHead.transform.position.y,
+        fpsCam.transform.position.z
+        );
 
         // mouse
         float _mouseX = mouseX * Time.deltaTime * mouseSensitivity;
@@ -389,7 +394,7 @@ public class PlayerControl : MonoBehaviour
 
                 _isWalking = false;
                 isRunning = false;
-                PlayerCrouch(direction, _isCrouch);
+                PlayerCrouch(direction);
 
             }
 
@@ -416,20 +421,18 @@ public class PlayerControl : MonoBehaviour
         player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
     }
 
-    private void PlayerCrouch(Vector3 direction, bool _isCrouch)
+    private void PlayerCrouch(Vector3 direction)
     {
-        Vector3 newPosition = fpsCam.transform.position;
-        if (isCrouch)
-        {            
-            newPosition.y -= 0.3f;
-            fpsCam.transform.position = newPosition;
-        }
-        else
-        {
+        //Vector3 newPosition = new Vector3(
+        //fpsCam.transform.position.x,
+        //playerHead.transform.position.y,
+        //fpsCam.transform.position.z
+        //);           
+        //fpsCam.transform.position = newPosition;
 
-        }
+
         this.transform.Translate(direction.normalized * moveSpeed * 0.3f * Time.deltaTime);
-
+    
     }
 
 
