@@ -1,1 +1,2 @@
 *.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/9.[[:space:]]Etc/nanum-gothic/NanumGothic[[:space:]]SDF.asset filter=lfs diff=lfs merge=lfs -text
