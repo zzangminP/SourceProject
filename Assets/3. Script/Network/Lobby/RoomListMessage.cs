@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 
 [System.Serializable]
-public class RoomListMessage : NetworkMessage
+public struct RoomListMessage : NetworkMessage
 {
 
-    public RoomInfo[] rooms;  
+    public List<RoomInfo> rooms;  
     
 }

@@ -45,7 +45,7 @@ public class LobbyManager : MonoBehaviour
     }
 
 
-    private void RefreshRoomList(RoomInfo[] rooms)
+    private void RefreshRoomList(List<RoomInfo> rooms)
     {
         foreach (Transform i in showRoomList.transform)
         {

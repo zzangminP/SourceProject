@@ -142,7 +142,7 @@ public class CSNetworkManager : NetworkManager
     {
         base.OnServerConnect(conn);
 
-        conn.Send(new RoomListMessage { rooms = rooms.ToArray() });
+        conn.Send(new RoomListMessage { rooms = rooms });
 
 
 
@@ -281,7 +281,7 @@ public class CSNetworkManager : NetworkManager
         rooms.Add(room);
 
 
-        RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms.ToArray() };
+        RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms };
         //NetworkServer.SendToAll(roomListMessage);
 
     }
