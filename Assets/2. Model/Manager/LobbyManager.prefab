@@ -44,8 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749c1e3b7d96fe642906f312f97385b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  createRoomButton: {fileID: 0}
-  findRoomButton: {fileID: 0}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  RoomListObject: {fileID: 0}
   showRoomList: {fileID: 0}
   roomListPrefab: {fileID: 0}
+  openRoomListButton: {fileID: 0}
+  closeRoomListButton: {fileID: 0}
+  createRoomUIObject: {fileID: 0}
+  openCreateRoomUIButton: {fileID: 0}
+  closeCreateRoomUIButton: {fileID: 0}
+  createRoomButton: {fileID: 0}
+  inputField: {fileID: 0}

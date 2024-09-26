@@ -12,7 +12,9 @@ public class CSNetworkManager : NetworkManager
     public static new CSNetworkManager singleton => (CSNetworkManager)NetworkManager.singleton;
 
 
-    private List<RoomInfo> servers = new List<RoomInfo>();
+    //private RoomInfo[] rooms = new Room();
+    [SerializeField] private List<RoomInfo> rooms = new List<RoomInfo>();
+    [SerializeField] private bool isServer;
     
 
 
@@ -24,6 +26,8 @@ public class CSNetworkManager : NetworkManager
     public override void Awake()
     {
         base.Awake();
+    
+      
     }
 
     #region Unity Callbacks
@@ -133,7 +137,17 @@ public class CSNetworkManager : NetworkManager
     /// <para>Unity calls this on the Server when a Client connects to the Server. Use an override to tell the NetworkManager what to do when a client connects to the server.</para>
     /// </summary>
     /// <param name="conn">Connection from client.</param>
-    public override void OnServerConnect(NetworkConnectionToClient conn) { }
+    
+    public override void OnServerConnect(NetworkConnectionToClient conn) 
+    {
+        base.OnServerConnect(conn);
+
+        conn.Send(new RoomListMessage { rooms = rooms.ToArray() });
+
+
+
+
+    }
 
     /// <summary>
     /// Called on the server when a client is ready.
@@ -224,7 +238,21 @@ public class CSNetworkManager : NetworkManager
     /// This is invoked when a server is started - including when a host is started.
     /// <para>StartServer has multiple signatures, but they all cause this hook to be called.</para>
     /// </summary>
-    public override void OnStartServer() { }
+    public override void OnStartServer() 
+    {
+
+        base.OnStartServer();
+        NetworkServer.RegisterHandler<RoomListMessage>(OnServerReceiveRoomList);
+    
+    
+    }
+
+    private void OnServerReceiveRoomList(NetworkConnection conn, RoomListMessage msg)
+    {
+        // 클라이언트에게 방 목록 전송 처리
+        NetworkServer.SendToAll(msg);
+    }
+
 
     /// <summary>
     /// This is invoked when the client is started.
@@ -247,4 +275,19 @@ public class CSNetworkManager : NetworkManager
     public override void OnStopClient() { }
 
     #endregion
+
+    public void Addroom(RoomInfo room) 
+    {
+        rooms.Add(room);
+
+
+        RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms.ToArray() };
+        //NetworkServer.SendToAll(roomListMessage);
+
+    }
+
+
+
+
+
 }

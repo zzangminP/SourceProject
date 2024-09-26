@@ -1,8 +1,7 @@
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using TMPro;
-using TMPro.EditorUtilities;
+
 
 public class Weapon : WeaponSetting
 {
