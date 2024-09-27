@@ -5,15 +5,17 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class RoomInfo : MonoBehaviour
+public class RoomInfo
 {
-    public string roomName;
-    public string iPAddress;
-    public int port;
-    public int maxPlayers;
-    public int currentPlayers;
-    public struct RoomInfoMessage : NetworkMessage
-    {
 
-    }
+    //public struct RoomInfoMessage : NetworkMessage
+    //{
+
+        public string roomName;
+        public string iPAddress;
+        public int port;
+        public int maxPlayers;
+        public int currentPlayers;
+
+    //}
 }

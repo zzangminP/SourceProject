@@ -17,7 +17,7 @@ public class RoomHandler : NetworkBehaviour
     [Command]
     public void CmdSendRoomInfoToServer(RoomInfo roomInfo)
     {
-        CSNetworkManager.singleton.Addroom(roomInfo);
+        //CSNetworkManager.singleton.Addroom(roomInfo);
     }
 
 

@@ -16,8 +16,7 @@ public class RoomItem : MonoBehaviour
     public void Setup(RoomInfo room, System.Action<RoomInfo> onJoinButtonClicked)
     {
         roomInfo = room;
-        roomNameText.text = room.roomName;
-        playerCountText.text = $"{room.currentPlayers}/{room.maxPlayers}";
+
         joinButton.onClick.AddListener(() => onJoinButtonClicked(roomInfo));
     }
 

@@ -5,14 +5,17 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Scene/Title.unity
     guid: 3f646cffd67b83249bf1bad7387b8a69
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Scene/de_dust2.unity
     guid: f170f05f9a2d61841807c2db2fddcdd2
   - enabled: 0
     path: Assets/1. Scene/Server.unity
     guid: 550751357b51e7045a14e513d80a1b7e
+  - enabled: 1
+    path: Assets/AssetStore/Mirror/Examples/MultipleMatches/Scenes/MirrorMultipleMatches.unity
+    guid: aa1f875396fa7d348a782cebc2f75d7c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9975b2bce8b94f048851e54802a49597, type: 2}

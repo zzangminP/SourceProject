@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
-using Unity.VisualScripting;
+
+public struct EmptyMessage : NetworkMessage
+{
+    // EMPTY;
+}
+
 public class LobbyManager : MonoBehaviour
 {
 
@@ -38,27 +43,10 @@ public class LobbyManager : MonoBehaviour
         createRoomButton.onClick.AddListener(CreateRoom);
     }
 
-    public void OnReceiveRoomList(RoomListMessage msg)
-    {
-        Debug.Log(msg);
-        RefreshRoomList(msg.rooms);
-    }
 
 
-    private void RefreshRoomList(List<RoomInfo> rooms)
-    {
-        foreach (Transform i in showRoomList.transform)
-        {
-            Destroy(i.gameObject);
-        }
 
-        foreach(RoomInfo i in rooms)
-        {
-            GameObject room = Instantiate(roomListPrefab, showRoomList.transform);
-            RoomItem item = room.GetComponent<RoomItem>();
-            item.Setup(i, JoinRoom);
-        }
-    }
+
 
 
 
@@ -71,12 +59,10 @@ public class LobbyManager : MonoBehaviour
 
         if (RoomListObject.activeSelf)
         {
-            NetworkClient.RegisterHandler<RoomListMessage>(OnReceiveRoomList);
+
             NetworkClient.Connect("localhost");
-            if(NetworkClient.isConnected)
-            {
-                Debug.Log("Conneted");
-            }
+
+            StartCoroutine(RequestRoomListWhenConnected());
         }
         else
         {
@@ -86,6 +72,16 @@ public class LobbyManager : MonoBehaviour
 
     }
 
+
+    IEnumerator RequestRoomListWhenConnected()
+    {
+        while (!NetworkClient.isConnected)
+        {
+            yield return null;
+        }
+        Debug.Log("Connected to Server, requsting room list");
+        NetworkClient.Send(new EmptyMessage());
+    }
     private void CreateRoomUI()
     {
         createRoomUIObject.SetActive(!createRoomUIObject.gameObject.activeSelf);
@@ -96,25 +92,32 @@ public class LobbyManager : MonoBehaviour
 
     private void CreateRoom()
     {
-        RoomInfo roomInfo = new RoomInfo();
-        roomInfo.roomName = inputField.text;
-        roomInfo.iPAddress = "localhost"; 
-        roomInfo.port = 7777; 
-        roomInfo.maxPlayers = 10; 
-        //roomInfo.SendRoomInfoMessage(inputField.text, "localhost", 7777,10,1);
+        //RoomInfo roomInfo = new RoomInfo();
+        //roomInfo.roomName = inputField.text;
+        //roomInfo.iPAddress = "localhost"; 
+        //roomInfo.port = 7777; 
+        //roomInfo.maxPlayers = 10; 
+        ////roomInfo.SendRoomInfoMessage(inputField.text, "localhost", 7777,10,1);
+        RoomInfo newRoom = new RoomInfo
+        {
+            roomName = inputField.text,
+            iPAddress = "localhost",
+            port = 7777,
+            maxPlayers = 10,
+            currentPlayers = 1
+        };
 
 
 
-
-
+        //CSNetworkManager.singleton.Addroom(newRoom);
         CSNetworkManager.singleton.StartHost();
-        RoomHandler.instance.CmdSendRoomInfoToServer(roomInfo);
+        //RoomHandler.instance.CmdSendRoomInfoToServer(roomInfo);
     }
 
 
     private void JoinRoom(RoomInfo room)
     {
-        Debug.Log($"Joining room: {room.roomName}");
+        //Debug.Log($"Joining room: {room.roomName}");
         CSNetworkManager.singleton.networkAddress = room.iPAddress;
         CSNetworkManager.singleton.StartClient();
 

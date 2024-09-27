@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-public class CSNetworkManager : NetworkManager
+public class CSNetworkManager : NetworkRoomManager
 {
 
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
-    public static new CSNetworkManager singleton => (CSNetworkManager)NetworkManager.singleton;
+    public static new CSNetworkManager singleton => (CSNetworkManager)NetworkRoomManager.singleton;
 
 
     //private RoomInfo[] rooms = new Room();
-    [SerializeField] private List<RoomInfo> rooms = new List<RoomInfo>();
-    [SerializeField] private bool isServer;
+    //[SerializeField] private List<RoomInfo> rooms = new List<RoomInfo>();
     
 
 
@@ -44,6 +43,7 @@ public class CSNetworkManager : NetworkManager
     public override void Start()
     {
         base.Start();
+        
     }
 
     /// <summary>
@@ -138,16 +138,16 @@ public class CSNetworkManager : NetworkManager
     /// </summary>
     /// <param name="conn">Connection from client.</param>
     
-    public override void OnServerConnect(NetworkConnectionToClient conn) 
-    {
-        base.OnServerConnect(conn);
-
-        conn.Send(new RoomListMessage { rooms = rooms });
-
-
-
-
-    }
+    //public override void OnServerConnect(NetworkConnectionToClient conn) 
+    //{
+    //    base.OnServerConnect(conn);
+    //
+    //    conn.Send(new RoomListMessage { rooms = rooms });
+    //
+    //
+    //
+    //
+    //}
 
     /// <summary>
     /// Called on the server when a client is ready.
@@ -242,16 +242,22 @@ public class CSNetworkManager : NetworkManager
     {
 
         base.OnStartServer();
-        NetworkServer.RegisterHandler<RoomListMessage>(OnServerReceiveRoomList);
-    
-    
+        //NetworkServer.RegisterHandler<RoomListMessage>(OnServerReceiveRoomList);
+        //NetworkServer.RegisterHandler<EmptyMessage>(OnRoomListRequested);
+
     }
 
-    private void OnServerReceiveRoomList(NetworkConnection conn, RoomListMessage msg)
-    {
-        // 클라이언트에게 방 목록 전송 처리
-        NetworkServer.SendToAll(msg);
-    }
+    //private void OnRoomListRequested(NetworkConnection conn, EmptyMessage msg)
+    //{
+    //    RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms };
+    //    conn.Send(roomListMessage); // 요청한 클라이언트에게 방 리스트 전송
+    //}
+
+    //private void OnServerReceiveRoomList(NetworkConnection conn, RoomListMessage msg)
+    //{
+    //    // 클라이언트에게 방 목록 전송 처리
+    //    NetworkServer.SendToAll(msg);
+    //}
 
 
     /// <summary>
@@ -276,15 +282,15 @@ public class CSNetworkManager : NetworkManager
 
     #endregion
 
-    public void Addroom(RoomInfo room) 
-    {
-        rooms.Add(room);
-
-
-        RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms };
-        //NetworkServer.SendToAll(roomListMessage);
-
-    }
+    //public void Addroom(RoomInfo room) 
+    //{
+    //    rooms.Add(room);
+    //
+    //
+    //    RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms };
+    //    NetworkServer.SendToAll(roomListMessage);
+    //
+    //}
 
 
 
