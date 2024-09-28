@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ using UnityEngine.InputSystem;
 //    C_Shoot
 //}
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : NetworkBehaviour
 {
 
     [SerializeField] private Animator player_movement_ani;
@@ -119,7 +120,6 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-
         InitPlayer();
     }
 
@@ -133,6 +133,14 @@ public class PlayerControl : MonoBehaviour
 
     private void InitPlayer()
     {
+
+        if (!isLocalPlayer)
+        {
+            fpsCam.SetActive(false);
+            return;
+        }
+            
+
         player_movement_ani = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
@@ -145,6 +153,7 @@ public class PlayerControl : MonoBehaviour
         transform.GetComponent<BoxCollider>().enabled = true;
         //hitBoxCollider.enabled = true;
         playerWeapon_List = new Weapon[5];
+        fpsCam.SetActive(true);
 
 
         //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
@@ -152,16 +161,15 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-
-    }
 
     private void FixedUpdate()
     {
         //PlayerInput();
 
-
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         HandleInput();
         //WeaponControl();
     }
@@ -285,6 +293,11 @@ public class PlayerControl : MonoBehaviour
 
     private void HandleInput()
     {
+
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         // WASD
 
         float dirX = Input.GetAxis("Horizontal");
@@ -304,6 +317,8 @@ public class PlayerControl : MonoBehaviour
         PlayerMovement(dirX, dirZ, mouseX, mouseY, isWalking, isCrouch);
         
         
+
+
 
         // Jump
         if (Input.GetKey(KeyCode.Space))

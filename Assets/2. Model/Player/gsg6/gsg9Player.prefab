@@ -6787,12 +6787,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc1b6461c668e04ca61cfc7cc3fe551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   player_movement_ani: {fileID: 0}
   player_tr: {fileID: 2576266204339619416}
   viewModel_tr: {fileID: 5785980134144124847}
   player_rg: {fileID: 0}
   fpsCam: {fileID: 7574880952528748543}
-  playerHead: {fileID: 0}
+  playerHead: {fileID: 5396721912120276573}
   hp: 100
   armor: 100
   moveSpeed: 4

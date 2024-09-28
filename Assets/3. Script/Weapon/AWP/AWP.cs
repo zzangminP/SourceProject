@@ -14,7 +14,7 @@ public class AWP : Weapon
         pellet = 1;
         range = 100f;
         cost = 4750;
-        reward = 50;
+        reward = 150;
         impactForce = 200f;
         fireRate = 10f;
         isAuto = false;

@@ -38,7 +38,7 @@ public class Knife : Weapon
         animator = GetComponent<Animator>();
         animator_w = transform.parent.GetComponentInParent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
-        Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
+        Ammo_ui = GameObject.Find("Ammo").GetComponent<TextMeshProUGUI>();
         SetState(new DrawState());
         UIInit();
         SetAnimator();
@@ -54,7 +54,7 @@ public class Knife : Weapon
 
     private void UIInit()
     {
-        Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
+        Ammo_ui.text = $" ";
     }
     void SetAnimator()
     {

@@ -36,6 +36,8 @@ namespace Mirror
         [SyncVar(hook = nameof(IndexChanged))]
         public int index;
 
+
+
         #region Unity Callbacks
 
         /// <summary>

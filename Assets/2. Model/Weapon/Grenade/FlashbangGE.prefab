@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7818341064054291967}
   - component: {fileID: 642019560880336044}
   - component: {fileID: 8606240532932360445}
-  - component: {fileID: 8569291602922624434}
   m_Layer: 0
   m_Name: FlashbangGE
   m_TagString: Untagged
@@ -136,19 +135,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &8569291602922624434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5551283690374714300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35868c9a14c01914eb1b7c20f59f24d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 2
-  explosionEffect: {fileID: 6846455896171463179, guid: faba46b1807f8da4c92ee151c6d3fcfe, type: 3}
-  radius: 50
-  cam: {fileID: 0}

@@ -50,10 +50,13 @@ public class Weapon : WeaponSetting
 
     void Start()
     {
-
         Init();
 
         
+    }
+    private void Update()
+    {
+
     }
 
     private void Init()
