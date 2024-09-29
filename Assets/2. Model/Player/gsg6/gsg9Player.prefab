@@ -5706,6 +5706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f413b875b4d9649bff63917342f5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
@@ -7924,6 +7927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73ba0544101ddf4ebe58936a576fdd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
@@ -8733,6 +8739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb279b2c82ac6514ebfc646f80d3a062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
@@ -12570,6 +12579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4af3512e2ba8f642b946e828bf2087b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 5163529590622945487}
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
@@ -20777,6 +20789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cc494534b02af48bba02c9ee0da1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 0}
   weaponHolder: {fileID: 0}
@@ -20980,6 +20995,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e24c3e9494018a448a0b3347281bc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 6827081278535361658, guid: 58edbfb946089834e9ffc35f06b2b455, type: 3}
   weaponHolder: {fileID: 0}

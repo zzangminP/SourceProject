@@ -82,17 +82,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2196320d3b25e894f85eaddb8e0d7ce1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3978781000915469213}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2196320d3b25e894f85eaddb8e0d7ce1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -7975536799958309434}
+      addedObject: {fileID: -1306772771978219704}
   m_SourcePrefab: {fileID: 100100000, guid: 2196320d3b25e894f85eaddb8e0d7ce1, type: 3}
 --- !u!1 &8177949093613910249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2196320d3b25e894f85eaddb8e0d7ce1, type: 3}
   m_PrefabInstance: {fileID: 9060257901361792440}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3978781000915469213
+--- !u!114 &-1306772771978219704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8177949093613910249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139de326d34584c4499ddc9ed37ba303, type: 3}
+  m_Script: {fileID: 11500000, guid: f73ba0544101ddf4ebe58936a576fdd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
@@ -112,20 +109,3 @@ MonoBehaviour:
   weaponHolder: {fileID: 0}
   weaponCamera: {fileID: 0}
   animator_w: {fileID: 0}
---- !u!114 &-7975536799958309434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8177949093613910249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  _assetId: 923930632
-  serverOnly: 0
-  visibility: 0
-  hasSpawned: 0

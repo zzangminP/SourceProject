@@ -1,3 +1,4 @@
+using Mirror;
 using TMPro;
 using UnityEngine;
 
@@ -73,6 +74,7 @@ public class Knife : Weapon
 
     }
 
+    [Command(requiresAuthority = false)]
     void StrategyControl()
     {
         if (currentState != null)

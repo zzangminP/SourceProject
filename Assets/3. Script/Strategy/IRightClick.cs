@@ -115,9 +115,9 @@ public class KnifeRight : IRightClick
             if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
             {
 
-                Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
                 int calcDamage = w.damage;
-                Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
+                //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
 
 
 

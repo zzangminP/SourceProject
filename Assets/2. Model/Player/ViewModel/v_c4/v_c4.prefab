@@ -97,6 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e24c3e9494018a448a0b3347281bc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 6827081278535361658, guid: 58edbfb946089834e9ffc35f06b2b455, type: 3}
+  weaponHolder: {fileID: 0}
+  weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
   player: {fileID: 0}

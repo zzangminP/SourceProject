@@ -2,11 +2,8 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using Unity.XR.OpenVR;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
-using UnityEngine.InputSystem;
+
 
 
 //public enum PlayerState
@@ -20,7 +17,7 @@ using UnityEngine.InputSystem;
 //    C_Shoot
 //}
 
-public class PlayerControl : NetworkBehaviour
+public class PlayerControl : NetworkBehaviour, IPlayer
 {
 
     [SerializeField] private Animator player_movement_ani;
@@ -45,7 +42,7 @@ public class PlayerControl : NetworkBehaviour
     //[SerializeField] private Transform[] child;
 
     [Header("Basic Values")]
-    [SerializeField] public int hp = 100;
+    [SerializeField,SyncVar] public int hp = 100;
     [SerializeField] public int armor = 100;
 
 
@@ -97,6 +94,9 @@ public class PlayerControl : NetworkBehaviour
     private int previousWeaponIndex = -1; // 이전 무기의 인덱스
 
     private int scrollValue = 0;
+
+    [Header("Game Manager")]
+    private IGameManager gameManager;
 
 
     //private int holdingWeaponIndex = 0;
@@ -183,6 +183,11 @@ public class PlayerControl : NetworkBehaviour
             ContactWeapon(tempGun);
         }
 
+    }
+
+    public void SetGameManager(IGameManager manager)
+    {
+        this.gameManager = manager;
     }
 
     private void ContactWeapon(WeaponWorldDrop tempGun)
@@ -591,8 +596,8 @@ public class PlayerControl : NetworkBehaviour
     }
 
 
-
-    private void TakeDamage(int amount)
+    [Command(requiresAuthority = false)]
+    public void TakeDamage(int amount)
     {
         hp -= amount;
         if(hp <= 0)
@@ -602,10 +607,19 @@ public class PlayerControl : NetworkBehaviour
 
     }
 
-    private void Die()
+    [Command(requiresAuthority = false)]
+    public void Die()
     {
-        setRagdoll(false);
-        setCollider(false);
+        if (gameManager != null)
+        {
+            gameManager.OnPlayerDie(this);
+            setRagdoll(false);
+            setCollider(false);
+        }
     }
 
+    public void ReceiveGameEvent(string message)
+    {
+        Debug.Log($"플레이어가 게임 이벤트를 받음 : {message}");
+    }
 }

@@ -67,7 +67,7 @@ public class AK47Left : ILeftClick
             {
                 Debug.Log(hit.collider.gameObject.layer);
 
-                Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
                 int calcDamage = 0;
 
                 if (hitPlayer != null)
@@ -168,7 +168,7 @@ public class ShotgunLeft : ILeftClick
                     {
                         //Debug.Log(hit.collider.gameObject.layer);
                         //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-                        Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                        PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
                         int calcDamage = w.damage;
 
                         if (hitPlayer != null)
@@ -263,7 +263,7 @@ public class PistolLeft : ILeftClick
                 {
                     //Debug.Log(hit.collider.gameObject.layer);
                     //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-                    Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                    PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
                     int calcDamage = w.damage;
 
                     if (hitPlayer != null)
@@ -395,12 +395,11 @@ public class C4Left : ILeftClick
 
     IEnumerator ExplodeC4(C4 c4, float delay)
     {
-        // 40초 기다림
+
         yield return new WaitForSeconds(delay);
         Debug.Log(delay);
-        // 폭발 처리
-        Debug.Log("C4 폭발!");
-        // 폭발 효과와 데미지 처리 추가 가능
+        Debug.Log("boom");
+
     }
 }
 
@@ -432,7 +431,7 @@ public class AWPLeft : ILeftClick
                 {
                     //Debug.Log(hit.collider.gameObject.layer);
                     //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-                    Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+                    PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
                     int calcDamage = w.damage;
 
                     if (hitPlayer != null)
@@ -546,7 +545,7 @@ public class KnifeLeft : ILeftClick
         {
             //Debug.Log(hit.collider.gameObject.layer);
             Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-            Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
+            PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
             int calcDamage = w.damage;
 
 

@@ -85,7 +85,7 @@ public class Grenade : Weapon
         {
             Debug.Log(nearbyObject);
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            Dummy hitPlayer = nearbyObject.GetComponentInParent<Dummy>();
+            PlayerControl hitPlayer = nearbyObject.GetComponentInParent<PlayerControl>();
 
             if (rb != null)
             {

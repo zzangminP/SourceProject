@@ -101,8 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cc494534b02af48bba02c9ee0da1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   v_model: {fileID: 0}
   w_model: {fileID: 0}
+  weaponHolder: {fileID: 0}
+  weaponCamera: {fileID: 0}
+  animator_w: {fileID: 0}
   scopeOverlay: {fileID: 0}
   isScoped: 0
   player: {fileID: 0}
