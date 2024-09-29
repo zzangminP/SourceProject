@@ -88,7 +88,9 @@ public class AK47Left : ILeftClick
                             break;
                     } // switch - case
 
-                    hitPlayer.TakeDamage(calcDamage);
+                    //hitPlayer.TakeDamage(calcDamage);
+
+                    hitPlayer.TakeDamageCMD(calcDamage);
                     Debug.Log(calcDamage);
 
                     if (hitPlayer.hp <= 0)
@@ -199,7 +201,8 @@ public class ShotgunLeft : ILeftClick
 
                             calcDamage = (int)(calcDamage * distanceFactor);
 
-                            hitPlayer.TakeDamage(calcDamage);
+                            //hitPlayer.TakeDamage(calcDamage);
+                            hitPlayer.TakeDamageCMD(calcDamage);
                             Debug.Log(calcDamage);
 
                             if (hitPlayer.hp <= 0)
@@ -294,7 +297,8 @@ public class PistolLeft : ILeftClick
 
                         calcDamage = (int)(calcDamage * distanceFactor);
 
-                        hitPlayer.TakeDamage(calcDamage);
+                        //hitPlayer.TakeDamage(calcDamage);
+                        hitPlayer.TakeDamageCMD(calcDamage);
                         Debug.Log(calcDamage);
 
                         if (hitPlayer.hp <= 0)
@@ -462,7 +466,8 @@ public class AWPLeft : ILeftClick
 
                         calcDamage = (int)(calcDamage * distanceFactor);
 
-                        hitPlayer.TakeDamage(calcDamage);
+                        //hitPlayer.TakeDamage(calcDamage);
+                        hitPlayer.TakeDamageCMD(calcDamage);
                         Debug.Log(calcDamage);
 
                         if (hitPlayer.hp <= 0)
@@ -565,7 +570,8 @@ public class KnifeLeft : ILeftClick
                 }
 
 
-                hitPlayer.TakeDamage(calcDamage);
+                //hitPlayer.TakeDamage(calcDamage);
+                hitPlayer.TakeDamageCMD(calcDamage);
                 Debug.Log(calcDamage);
 
                 if (hitPlayer.hp <= 0)

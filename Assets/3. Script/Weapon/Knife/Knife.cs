@@ -30,6 +30,10 @@ public class Knife : Weapon
 
     private void Start()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         Init();
 
     }
@@ -68,6 +72,10 @@ public class Knife : Weapon
 
     private void Update()
     {
+        if(!isLocalPlayer)
+        {
+            return;
+        }
         StrategyControl();
         //Debug.Log(currentState);
 
@@ -77,6 +85,10 @@ public class Knife : Weapon
     [Command(requiresAuthority = false)]
     void StrategyControl()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if (currentState != null)
         {
             currentState.UpdateState(this);

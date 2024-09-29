@@ -93,7 +93,9 @@ public class Grenade : Weapon
                 if (hitPlayer != null)
                 {
                     calcDamage = (int)(damage * Mathf.Pow((float)(1 - ((transform.position - hitPlayer.transform.position).magnitude) / radius), 2));
-                    hitPlayer.TakeDamage(calcDamage);
+                    //hitPlayer.TakeDamage(calcDamage);
+                    
+                    hitPlayer.TakeDamageCMD(calcDamage);
                     Debug.Log("Hit player with damage: " + calcDamage);
                 }
 

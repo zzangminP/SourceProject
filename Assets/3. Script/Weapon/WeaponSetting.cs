@@ -2,8 +2,9 @@ using Mirror;
 using TMPro;
 using UnityEngine;
 
-public class WeaponSetting : MonoBehaviour
+public class WeaponSetting : NetworkBehaviour
 {
+
 
     public IWeaponState currentState;
 

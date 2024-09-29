@@ -6793,12 +6793,13 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  player_movement_ani: {fileID: 0}
+  player_movement_ani: {fileID: 8439904727453146146}
   player_tr: {fileID: 2576266204339619416}
   viewModel_tr: {fileID: 5785980134144124847}
   player_rg: {fileID: 0}
   fpsCam: {fileID: 7574880952528748543}
   playerHead: {fileID: 5396721912120276573}
+  playerAudioListener: {fileID: 0}
   hp: 100
   armor: 100
   moveSpeed: 4

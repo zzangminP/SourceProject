@@ -57,7 +57,6 @@ public class SmokeGrenade : Weapon
             Explode();
             hasExploded = true;
         }
-        Debug.Log("SmokeGE is on the ground? : " + isGround);
     }
 
     void Explode()

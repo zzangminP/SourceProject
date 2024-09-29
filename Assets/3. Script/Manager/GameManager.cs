@@ -20,11 +20,11 @@ public class GameManager : NetworkBehaviour, IGameManager
     #endregion
 
 
-    [SerializeField] private List<IPlayer> players = new List<IPlayer>();
+    [SerializeField] public List<IPlayer> players = new List<IPlayer>();
 
     private void Start()
     {
-        if (instance == null && SceneManager.GetActiveScene().name == "de_dust2")
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);

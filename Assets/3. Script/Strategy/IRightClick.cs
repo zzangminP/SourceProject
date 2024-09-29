@@ -142,7 +142,8 @@ public class KnifeRight : IRightClick
 
 
 
-                    hitPlayer.TakeDamage(calcDamage);
+                    //hitPlayer.TakeDamage(calcDamage);
+                    hitPlayer.TakeDamageCMD(calcDamage);
                     Debug.Log(calcDamage);
 
                 } // if hitPlayer != null

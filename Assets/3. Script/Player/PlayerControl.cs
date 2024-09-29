@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -35,6 +36,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     [SerializeField] private Rigidbody player_rg;
     [SerializeField] public GameObject fpsCam;
     [SerializeField] public GameObject playerHead;
+    [SerializeField] public AudioListener playerAudioListener;
 
 
 
@@ -119,7 +121,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
 
     private void Start()
-    {
+    { 
         InitPlayer();
     }
 
@@ -139,15 +141,22 @@ public class PlayerControl : NetworkBehaviour, IPlayer
             fpsCam.SetActive(false);
             return;
         }
-            
 
-        player_movement_ani = GetComponent<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
+
+
+        if (SceneManager.GetActiveScene().name != "Title")
+        { 
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
         player_rg = GetComponent<Rigidbody>();
         //scopeOverlay = GameObject.Find("Scope");
         //scopeOverlay.SetActive(false);
 
-
+        player_movement_ani = GetComponent<Animator>();
         setRagdoll(true);   
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
@@ -595,27 +604,52 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     }
 
+    //[Server]
+    //public void TakeDamageSERVER(int amount)
+    //{
+    //    TakeDamageCMD(amount);
+    //    
+    //}
 
     [Command(requiresAuthority = false)]
-    public void TakeDamage(int amount)
+    public void TakeDamageCMD(int amount)
     {
+        Debug.Log($"Take Damage Cmd : {amount}");
+        TakeDamageRPC(amount);
+
+    }
+
+    [ClientRpc]
+    public void TakeDamageRPC(int amount)
+    {
+        Debug.Log($"Take Damage RPC : {amount}");
         hp -= amount;
         if(hp <= 0)
         {
-            Die();
+            DieCMD();
         }
 
     }
 
+
     [Command(requiresAuthority = false)]
-    public void Die()
+    public void DieCMD()
     {
-        if (gameManager != null)
-        {
-            gameManager.OnPlayerDie(this);
-            setRagdoll(false);
-            setCollider(false);
-        }
+        Debug.Log($"Die CMD");
+        DieRPC();
+    }
+
+    [ClientRpc]
+    public void DieRPC()
+    {
+        Debug.Log($"Die RPC");
+        //gameManager.OnPlayerDie(this);
+        transform.GetComponent<BoxCollider>().enabled = false;
+        transform.GetComponent<Animator>().enabled = false;
+        player_movement_ani = null;
+        setRagdoll(false);
+        setCollider(false);
+
     }
 
     public void ReceiveGameEvent(string message)
