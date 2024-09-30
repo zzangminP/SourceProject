@@ -11,12 +11,10 @@ public class CSNetworkManager : NetworkRoomManager
     // have to cast to this type everywhere.
     public static new CSNetworkManager singleton => (CSNetworkManager)NetworkRoomManager.singleton;
 
+    public GameObject playerPrefab_CT;
+    public GameObject playerPrefab_T;
 
-    //private RoomInfo[] rooms = new Room();
-    //[SerializeField] private List<RoomInfo> rooms = new List<RoomInfo>();
-    
-
-
+    public List<GameObject> players = new List<GameObject>();
 
     /// <summary>
     /// Runs on both Server and Client
@@ -25,7 +23,7 @@ public class CSNetworkManager : NetworkRoomManager
     public override void Awake()
     {
         base.Awake();
-    
+        
       
     }
 
@@ -102,13 +100,32 @@ public class CSNetworkManager : NetworkRoomManager
     /// <para>This allows server to do work / cleanup / prep before the scene changes.</para>
     /// </summary>
     /// <param name="newSceneName">Name of the scene that's about to be loaded</param>
-    public override void OnServerChangeScene(string newSceneName) { }
+    public override void OnServerChangeScene(string newSceneName) { 
+        base.OnServerChangeScene(newSceneName);
+    }
 
     /// <summary>
     /// Called on the server when a scene is completed loaded, when the scene load was initiated by the server with ServerChangeScene().
     /// </summary>
     /// <param name="sceneName">The name of the new scene.</param>
-    public override void OnServerSceneChanged(string sceneName) { }
+    public override void OnServerSceneChanged(string sceneName) { 
+        base.OnServerSceneChanged(sceneName);
+
+        //foreach (var conn in NetworkServer.connections.Values)
+        //{
+        //    var roomPlayer = conn.identity.GetComponent<NetworkRoomPlayer>();
+        //    if (roomPlayer != null)
+        //    {
+        //        // RoomPlayer 제거
+        //        NetworkServer.Destroy(roomPlayer.gameObject);
+        //    }
+        //}
+    }
+
+
+
+
+
 
     /// <summary>
     /// Called from ClientChangeScene immediately before SceneManager.LoadSceneAsync is executed
@@ -138,16 +155,6 @@ public class CSNetworkManager : NetworkRoomManager
     /// </summary>
     /// <param name="conn">Connection from client.</param>
     
-    //public override void OnServerConnect(NetworkConnectionToClient conn) 
-    //{
-    //    base.OnServerConnect(conn);
-    //
-    //    conn.Send(new RoomListMessage { rooms = rooms });
-    //
-    //
-    //
-    //
-    //}
 
     /// <summary>
     /// Called on the server when a client is ready.
@@ -166,16 +173,10 @@ public class CSNetworkManager : NetworkRoomManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
-        base.OnServerAddPlayer(conn);
-
-        PlayerControl player = conn.identity.GetComponent<PlayerControl>();
-        if(GameManager.instance != null)
-        {
-            GameManager.instance.RegisterPlayer(player);
-            
-
-        }
+        // 기본적으로 RoomPlayer를 스폰
+        base.OnServerAddPlayer(conn);  // RoomPlayer 스폰 및 기본 처리
     }
+
 
     /// <summary>
     /// Called on the server when a client disconnects.
@@ -196,6 +197,8 @@ public class CSNetworkManager : NetworkRoomManager
 
 
     }
+
+
 
     /// <summary>
     /// Called on server when transport raises an error.
@@ -260,22 +263,10 @@ public class CSNetworkManager : NetworkRoomManager
     {
 
         base.OnStartServer();
-        //NetworkServer.RegisterHandler<RoomListMessage>(OnServerReceiveRoomList);
-        //NetworkServer.RegisterHandler<EmptyMessage>(OnRoomListRequested);
+
 
     }
-
-    //private void OnRoomListRequested(NetworkConnection conn, EmptyMessage msg)
-    //{
-    //    RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms };
-    //    conn.Send(roomListMessage); // 요청한 클라이언트에게 방 리스트 전송
-    //}
-
-    //private void OnServerReceiveRoomList(NetworkConnection conn, RoomListMessage msg)
-    //{
-    //    // 클라이언트에게 방 목록 전송 처리
-    //    NetworkServer.SendToAll(msg);
-    //}
+    
 
 
     /// <summary>
@@ -299,17 +290,6 @@ public class CSNetworkManager : NetworkRoomManager
     public override void OnStopClient() { }
 
     #endregion
-
-    //public void Addroom(RoomInfo room) 
-    //{
-    //    rooms.Add(room);
-    //
-    //
-    //    RoomListMessage roomListMessage = new RoomListMessage { rooms = rooms };
-    //    NetworkServer.SendToAll(roomListMessage);
-    //
-    //}
-
 
 
 

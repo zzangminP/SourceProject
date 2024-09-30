@@ -21,7 +21,6 @@ using UnityEngine.SceneManagement;
 public class PlayerControl : NetworkBehaviour, IPlayer
 {
 
-    [SerializeField] private Animator player_movement_ani;
 
     //private PlayerState state;
 
@@ -29,19 +28,11 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     [Header("Components")]
     [SerializeField] private Transform player_tr;
     [SerializeField] private Transform viewModel_tr;
-    //[SerializeField] private Transform viewModelCam_tr;
-    //
-    //[SerializeField] private Transform viewModelTest_tr;
-
     [SerializeField] private Rigidbody player_rg;
     [SerializeField] public GameObject fpsCam;
     [SerializeField] public GameObject playerHead;
     [SerializeField] public AudioListener playerAudioListener;
-
-
-
-    //[SerializeField] private MeshCollider hitBoxCollider;
-    //[SerializeField] private Transform[] child;
+    [SerializeField] private Animator player_movement_ani;
 
     [Header("Basic Values")]
     [SerializeField,SyncVar] public int hp = 100;
@@ -71,17 +62,16 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     [Header("Weapon")]
     [SerializeField] private List<GameObject> weaponHolder_List;
     [SerializeField] private List<GameObject> playerViewModels_List;
-    //[SerializeField] private Weapon pri_weapon;
-    //[SerializeField] private Weapon sec_weapon;
+
     [SerializeField] private Weapon[] playerWeapon_List;
     [SerializeField] private Weapon[] GE_weapon = null;
     [SerializeField] private Weapon C4_weapon;
-    //[SerializeField] private Weapon weapon;
-    //[SerializeField] private Weapon[] gn;
-    //[SerializeField] private Weapon[] miscellaneous;
+
     [SerializeField] private GameObject current_weapon = null;
     [SerializeField] private GameObject privious_weapon = null;
     [SerializeField] public bool canC4Plant = false;
+    public WeaponHolder weaponHolder;
+    
     /// <summary>
     /// In World, The Position that character holds Weapon
     /// </summary>
@@ -90,15 +80,16 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     [Header("UI")]
     [SerializeField] public GameObject scopeOverlay;
 
-    public WeaponHolder weaponHolder;
 
     private int currentWeaponIndex = 0; // 현재 무기의 인덱스
     private int previousWeaponIndex = -1; // 이전 무기의 인덱스
 
     private int scrollValue = 0;
 
-    [Header("Game Manager")]
+    [SerializeField,Header("Game Manager")]
     private IGameManager gameManager;
+    public string team;
+
 
 
     //private int holdingWeaponIndex = 0;
@@ -150,7 +141,8 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         player_rg = GetComponent<Rigidbody>();
         //scopeOverlay = GameObject.Find("Scope");
@@ -164,6 +156,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         playerWeapon_List = new Weapon[5];
         fpsCam.SetActive(true);
 
+        SetGameManager(gameManager);
 
         //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
         WeaponSet();

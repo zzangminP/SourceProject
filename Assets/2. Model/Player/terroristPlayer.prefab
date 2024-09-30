@@ -18201,6 +18201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c14995ee3acc6b84caee0df3aad907ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4692266894052701570}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c14995ee3acc6b84caee0df3aad907ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 766290778792028053}
     - targetCorrespondingSourceObject: {fileID: -1397713017177691821, guid: c14995ee3acc6b84caee0df3aad907ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6762158707221781593}
@@ -18544,13 +18547,13 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  player_movement_ani: {fileID: 8785252272807070497}
   player_tr: {fileID: 3389891869216739675}
   viewModel_tr: {fileID: 5138698624032382686}
   player_rg: {fileID: 0}
   fpsCam: {fileID: 5104042019902913232}
   playerHead: {fileID: 8774079134464592759}
   playerAudioListener: {fileID: 0}
+  player_movement_ani: {fileID: 8785252272807070497}
   hp: 100
   armor: 100
   moveSpeed: 4
@@ -18577,9 +18580,9 @@ MonoBehaviour:
   current_weapon: {fileID: 0}
   privious_weapon: {fileID: 0}
   canC4Plant: 0
+  weaponHolder: {fileID: 6839938220334378550}
   placeWeaponBone: {fileID: 0}
   scopeOverlay: {fileID: 5157778434082643143}
-  weaponHolder: {fileID: 6839938220334378550}
 --- !u!65 &5887452333944435827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18669,6 +18672,23 @@ MonoBehaviour:
   syncInterval: 0
   clientAuthority: 1
   animator: {fileID: 8785252272807070497}
+--- !u!114 &766290778792028053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612228647143492577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2576730625b1632468cbcbfe5e721f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _teamId: T
+  forceShown: 0
 --- !u!1 &3385887786335663965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 467528613680742893, guid: c14995ee3acc6b84caee0df3aad907ea, type: 3}

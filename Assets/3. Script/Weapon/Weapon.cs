@@ -30,7 +30,7 @@ public class Weapon : WeaponSetting
 
 
 
-    public TMP_Text Ammo_ui { get; set; }
+    public TMP_Text Ammo_ui;
 
     public GameObject v_model;
     public GameObject w_model;

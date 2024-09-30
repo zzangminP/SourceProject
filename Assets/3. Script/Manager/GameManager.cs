@@ -20,14 +20,15 @@ public class GameManager : NetworkBehaviour, IGameManager
     #endregion
 
 
-    [SerializeField] public List<IPlayer> players = new List<IPlayer>();
-
-    private void Start()
+    public List<PlayerControl> players = new List<PlayerControl>();
+    public List<Transform> ctSpawnPoint = new List<Transform>();
+    public List<Transform> tSpawnPoint = new List<Transform>();
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
         }
         else
             Destroy(gameObject);
@@ -44,12 +45,12 @@ public class GameManager : NetworkBehaviour, IGameManager
         }
     }
 
-    public void RegisterPlayer(IPlayer player)
+    public void RegisterPlayer(PlayerControl player)
     {
         players.Add(player);
     }
 
-    public void UnregisterPlayer(IPlayer player) 
+    public void UnregisterPlayer(PlayerControl player) 
     { 
         players.Remove(player); 
     }
