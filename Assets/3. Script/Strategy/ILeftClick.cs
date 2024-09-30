@@ -88,8 +88,6 @@ public class AK47Left : ILeftClick
                             break;
                     } // switch - case
 
-                    //hitPlayer.TakeDamage(calcDamage);
-
                     hitPlayer.TakeDamageCMD(calcDamage);
                     Debug.Log(calcDamage);
 

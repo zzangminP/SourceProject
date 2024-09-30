@@ -35,7 +35,7 @@ public class Weapon : WeaponSetting
     public GameObject v_model;
     public GameObject w_model;
 
-
+    public PlayerControl player;
 
     public Transform weaponHolder;
     public GameObject weaponCamera;
@@ -63,6 +63,7 @@ public class Weapon : WeaponSetting
     {
         SetState(new DrawState());
         UIInit();
+        player = GetComponentInParent<PlayerControl>();
 
     }
 

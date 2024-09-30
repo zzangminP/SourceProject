@@ -283,12 +283,12 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
+        transform.GetComponent<Rigidbody>().isKinematic = !state;
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
             //Debug.Log(rb.name);
         }
-        transform.GetComponent<Rigidbody>().isKinematic = !state;
         //transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
     private void setCollider(bool state)
@@ -317,7 +317,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         float dirX = Input.GetAxis("Horizontal");
         float dirZ = Input.GetAxis("Vertical");
 
-        // Walk, Crouch
+        // Walk - Key : left shift , Crouch - Key : left ctrl
         isWalking = Input.GetButton("Walk") ;
         isCrouch = Input.GetButton("Crouch") ? true : false;
 
@@ -334,31 +334,31 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
 
 
-        // Jump
-        if (Input.GetKey(KeyCode.Space))
-        {
-            PlayerJump();
-        }
+        // Jump - Key : Space
+        
+        
+        PlayerJump();
+        
 
 
-        // Drop Weapon
-        if(Input.GetKey(KeyCode.G))
-        {
-            weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, playerWeapon_List[currentWeaponIndex]);
-            if (playerWeapon_List[currentWeaponIndex].type != WeaponSetting.Type.Knife)
-            {
-                playerWeapon_List[currentWeaponIndex].gameObject.SetActive(false);
-                playerWeapon_List[currentWeaponIndex] = null;
-                currentWeaponIndex = 2; // knife index
+        // Drop Weapon - Key : G
+        DropWeapon();
 
-            }
-        }
 
+        // Pick up Weapon - Key : E
+        PickUpWeaponByHand();
+               
+
+        
+        
+        // Swap Weapon - Key : Mouse Wheel, Q
         SwapWeapon();
 
 
 
     }
+
+
 
 
     private void PlayerMovement(float _dirX, float _dirZ, float mouseX, float mouseY, bool _isWalking ,bool _isCrouch)
@@ -446,8 +446,11 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     private void PlayerJump()
     {
-        player_rg.velocity = Vector3.zero;
-        player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+        if (Input.GetKey(KeyCode.Space))
+        { 
+            player_rg.velocity = Vector3.zero;
+            player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+        }
     }
 
     private void PlayerCrouch(Vector3 direction)
@@ -464,6 +467,37 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     
     }
 
+
+
+    private void DropWeapon()
+    {
+        if (Input.GetKey(KeyCode.G))
+        {
+            weaponHolder.WeaponDrop(fpsCam.transform.position + fpsCam.transform.forward, playerWeapon_List[currentWeaponIndex]);
+            if (playerWeapon_List[currentWeaponIndex].type != WeaponSetting.Type.Knife)
+            {
+                playerWeapon_List[currentWeaponIndex].gameObject.SetActive(false);
+                playerWeapon_List[currentWeaponIndex] = null;
+                currentWeaponIndex = 2; // knife index
+
+            }
+        }
+
+    }
+
+
+    private void PickUpWeaponByHand()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 5f))
+        {
+          if(TryGetComponent<WeaponWorldDrop>(out WeaponWorldDrop pickupGun))
+          {
+                PickUpWeapon(pickupGun);
+          }
+        }
+
+    }
 
     private void WeaponSet()
     {
@@ -501,9 +535,6 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
         }
         
-        //pri_weapon = transform.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
-        //sec_weapon = transform.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
-        //weaponHolder = transform.Find("Main Camera/Weapon Camera/WeaponHolder").GetComponent<WeaponHolder>();
     }
 
 
@@ -604,12 +635,6 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     }
 
-    //[Server]
-    //public void TakeDamageSERVER(int amount)
-    //{
-    //    TakeDamageCMD(amount);
-    //    
-    //}
 
     [Command(requiresAuthority = false)]
     public void TakeDamageCMD(int amount)
