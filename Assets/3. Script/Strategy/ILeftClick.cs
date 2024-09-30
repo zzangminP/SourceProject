@@ -65,8 +65,10 @@ public class AK47Left : ILeftClick
 
             if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range, layerMask))
             {
-                Debug.Log(hit.collider.gameObject.layer);
-
+                if (hit.transform.parent == w.transform.parent)
+                {
+                    return;
+                }
                 PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
                 int calcDamage = 0;
 
@@ -548,6 +550,11 @@ public class KnifeLeft : ILeftClick
         {
             //Debug.Log(hit.collider.gameObject.layer);
             Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
+            if (hit.transform.parent == w.transform.parent)
+            {
+                return;
+            }
+
             PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
             int calcDamage = w.damage;
 

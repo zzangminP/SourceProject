@@ -44,7 +44,7 @@ public class Knife : Weapon
         animator_w = transform.parent.GetComponentInParent<Animator>();
         fpsCam = GetComponentInParent<Camera>();
         Ammo_ui = GameObject.Find("Ammo").GetComponent<TextMeshProUGUI>();
-        player = GetComponentInParent<PlayerControl>();
+        playerControl = GetComponentInParent<PlayerControl>();
         SetState(new DrawState());
         UIInit();
         SetAnimator();
@@ -73,7 +73,7 @@ public class Knife : Weapon
 
     private void Update()
     {
-        if(!player.isLocalPlayer)
+        if(!playerControl.isLocalPlayer)
         {
             return;
         }
@@ -86,7 +86,7 @@ public class Knife : Weapon
 
     void StrategyControl()
     {
-        if (!player.isLocalPlayer)
+        if (!playerControl.isLocalPlayer)
         {
             return;
         }

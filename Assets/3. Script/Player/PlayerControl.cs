@@ -280,29 +280,64 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
 
 
+    //private void setRagdoll(bool state)
+    //{
+    //    skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
+    //    transform.GetComponent<Rigidbody>().isKinematic = !state;
+    //    foreach (Rigidbody rb in skeleton_rg)
+    //    {
+    //        rb.isKinematic = state;
+    //        //Debug.Log(rb.name);
+    //    }
+    //    //transform.GetComponent<Rigidbody>().isKinematic = !state;
+    //}
+
+
+
+    //private void setCollider(bool state)
+    //{
+    //    skeleton_cl = transform.GetComponentsInChildren<Collider>();
+    //    foreach (Collider cl in skeleton_cl)
+    //    {
+    //        cl.enabled = !state;
+    //        //Debug.Log(cl.name);
+    //    }
+    //    
+    //    //transform.GetComponent<Rigidbody>().isKinematic = !state;
+    //}
+
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-        transform.GetComponent<Rigidbody>().isKinematic = !state;
+
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
-            //Debug.Log(rb.name);
         }
-        //transform.GetComponent<Rigidbody>().isKinematic = !state;
+        transform.GetComponent<Rigidbody>().isKinematic = !state;
     }
+
     private void setCollider(bool state)
     {
         skeleton_cl = transform.GetComponentsInChildren<Collider>();
+  
         foreach (Collider cl in skeleton_cl)
         {
-            cl.enabled = !state;
-            //Debug.Log(cl.name);
-        }
-        
-        //transform.GetComponent<Rigidbody>().isKinematic = !state;
-    }
+            cl.isTrigger = state;
+            if (hp > 0)
+            {
+                cl.enabled = state;
 
+
+            }
+            else
+                cl.enabled = !state;
+
+        }
+        transform.GetComponent<BoxCollider>().enabled = !state;
+        transform.GetComponent<BoxCollider>().isTrigger = !state;
+  
+    }
 
 
     private void HandleInput()
@@ -363,6 +398,10 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     private void PlayerMovement(float _dirX, float _dirZ, float mouseX, float mouseY, bool _isWalking ,bool _isCrouch)
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         // Movement
 
 
