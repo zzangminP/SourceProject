@@ -10,9 +10,10 @@ public class SelectTeam : NetworkBehaviour
     public Button CTButton;
     public Button TButton;
 
-    public Canvas UI;
+    public GameObject UI;
+    public GameObject playerList;
 
-    [SyncVar] public string teamSelection;
+    public string teamSelection;
 
     public List<Transform> ctSpawnPositions = new List<Transform>();
     public List<Transform> tSpawnPositions = new List<Transform>();
@@ -25,6 +26,11 @@ public class SelectTeam : NetworkBehaviour
         CTButton.onClick.AddListener(SelectCT);
         TButton.onClick.AddListener(SelectT);
     }
+    public override void OnStartClient()
+    {
+        UI.gameObject.SetActive(true);
+
+    }
 
 
 
@@ -35,10 +41,11 @@ public class SelectTeam : NetworkBehaviour
         teamSelection = "CT";
 
         gameObject.SetActive(false);
-        GameObject playerPrefab = Instantiate(CSNetworkManager.singleton.playerPrefab_CT);
+        GameObject playerPrefab = Instantiate(CSNetworkManager.singleton.playerPrefab_CT, GameManager.instance.ctSpawnPoint[0].transform.position, Quaternion.identity, playerList.transform);
         playerPrefab.GetComponent<PlayerControl>().team = teamSelection;
 
-        NetworkServer.Spawn(playerPrefab, sender);
+        NetworkServer.ReplacePlayerForConnection(sender, playerPrefab, true);
+        UI.gameObject.SetActive(false);
 
     }
 
@@ -49,10 +56,10 @@ public class SelectTeam : NetworkBehaviour
         teamSelection = "T";
         
         gameObject.SetActive(false);
-        GameObject playerPrefab = Instantiate(CSNetworkManager.singleton.playerPrefab_T);
+        GameObject playerPrefab = Instantiate(CSNetworkManager.singleton.playerPrefab_T, GameManager.instance.tSpawnPoint[0].transform.position, Quaternion.identity, playerList.transform);
         playerPrefab.GetComponent<PlayerControl>().team = teamSelection;
 
-        NetworkServer.Spawn(playerPrefab, sender);
-
+        NetworkServer.ReplacePlayerForConnection(sender, playerPrefab, true); 
+        UI.gameObject.SetActive(false);
     }
 }

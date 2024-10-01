@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-public class CSNetworkManager : NetworkRoomManager
+public class CSNetworkManager : NetworkManager
 {
 
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
-    public static new CSNetworkManager singleton => (CSNetworkManager)NetworkRoomManager.singleton;
+    public static new CSNetworkManager singleton => (CSNetworkManager)NetworkManager.singleton;
 
     public GameObject playerPrefab_CT;
     public GameObject playerPrefab_T;

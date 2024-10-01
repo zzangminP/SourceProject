@@ -550,16 +550,15 @@ public class KnifeLeft : ILeftClick
         {
             //Debug.Log(hit.collider.gameObject.layer);
             Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-            if (hit.transform.parent == w.transform.parent)
+
+            PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+            if (hitPlayer.isLocalPlayer)
             {
                 return;
             }
 
-            PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+
             int calcDamage = w.damage;
-
-
-
             if (hitPlayer != null)
             {
                 Vector3 rayDirection = (hit.point - w.transform.position).normalized;

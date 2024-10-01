@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/1. Scene/Title.unity
     guid: 3f646cffd67b83249bf1bad7387b8a69
   - enabled: 1
-    path: Assets/1. Scene/Room.unity
-    guid: 5b4a42457897a1f40bb8ee972e8f898f
-  - enabled: 1
     path: Assets/1. Scene/de_dust2.unity
     guid: f170f05f9a2d61841807c2db2fddcdd2
   m_configObjects:

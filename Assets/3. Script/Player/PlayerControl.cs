@@ -30,9 +30,12 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     [SerializeField] private Transform viewModel_tr;
     [SerializeField] private Rigidbody player_rg;
     [SerializeField] public GameObject fpsCam;
+    [SerializeField] public Camera fpsCamera;
     [SerializeField] public GameObject playerHead;
     [SerializeField] public AudioListener playerAudioListener;
     [SerializeField] private Animator player_movement_ani;
+    [SerializeField] public Transform groundCheck;
+
 
     [Header("Basic Values")]
     [SerializeField,SyncVar] public int hp = 100;
@@ -43,7 +46,8 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float mouseSensitivity = 1f;
     [SerializeField] private float JumpForce = 5f;
-
+    [SerializeField] private float groundDistance = 0.1f;
+    [SerializeField] private bool isGround;
 
     [Header("Childern Components")]
     [SerializeField] private Rigidbody[] skeleton_rg;
@@ -90,7 +94,9 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     private IGameManager gameManager;
     public string team;
 
-
+    [Header("Death Control")]
+    [SerializeField] public GameObject worldModel;
+    [SerializeField] public GameObject deathCam;
 
     //private int holdingWeaponIndex = 0;
     /// <summary>
@@ -113,6 +119,11 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     private void Start()
     { 
+        InitPlayer();
+    }
+
+    private void OnEnable()
+    {
         InitPlayer();
     }
 
@@ -152,14 +163,18 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         setRagdoll(true);   
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
-        //hitBoxCollider.enabled = true;
         playerWeapon_List = new Weapon[5];
         fpsCam.SetActive(true);
+        fpsCamera = fpsCam.GetComponent<Camera>();
 
         SetGameManager(gameManager);
 
         //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
         WeaponSet();
+
+
+        //PlayerWorldModelSet(true);
+
 
     }
 
@@ -382,12 +397,24 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         // Swap Weapon - Key : Mouse Wheel, Q
         SwapWeapon();
 
+        DeathCam();
+
+    }                                       
 
 
+    void DeathCam()
+    {
+        
+        if (hp <= 0)
+        {
+            deathCam.SetActive(true);
+            deathCam.transform.LookAt(transform.position);
+        }
+        else
+        {
+            deathCam.SetActive(false);
+        }
     }
-
-
-
 
     private void PlayerMovement(float _dirX, float _dirZ, float mouseX, float mouseY, bool _isWalking ,bool _isCrouch)
     {
@@ -478,9 +505,15 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     private void PlayerJump()
     {
-        if (Input.GetKey(KeyCode.Space))
-        { 
-            player_rg.velocity = Vector3.zero;
+        isGround = Physics.Raycast(groundCheck.position, Vector3.down, groundDistance);
+
+        if (Input.GetKey(KeyCode.Space) && isGround)
+        {
+            Vector3 velocity = player_rg.velocity;
+            velocity.y = 0;  
+            player_rg.velocity = velocity;
+
+            // AddForce로 점프 추가
             player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
         }
     }
@@ -569,7 +602,37 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         
     }
 
+    void PlayerWorldModelSet(bool set)
+    {
+        if (isLocalPlayer)
+        {
+            if (set)
+            {
+                SetLayerRecursively(worldModel, LayerMask.NameToLayer("PlayerWorldModel"));
 
+                // 로컬 플레이어의 카메라에서 PlayerModel 레이어를 비활성화
+                fpsCamera.cullingMask &= ~(1 << LayerMask.NameToLayer("PlayerWorldModel"));
+            }
+            else
+            {
+                fpsCamera.cullingMask |= (1 << LayerMask.NameToLayer("PlayerWorldModel"));
+
+            }
+        }
+    }
+
+    void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        if (obj == null) return;
+
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            if (child == null) continue;
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
 
 
 
@@ -684,6 +747,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         if(hp <= 0)
         {
             DieCMD();
+            PlayerWorldModelSet(false);
         }
 
     }
@@ -706,6 +770,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
         player_movement_ani = null;
         setRagdoll(false);
         setCollider(false);
+
 
     }
 
