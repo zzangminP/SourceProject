@@ -8,8 +8,7 @@ public class SpawnPoint : MonoBehaviour
     public List<Transform> tSpawnPoint = new List<Transform>();
     void Awake()
     {
-        GameManager.instance.ctSpawnPoint = ctSpawnPoint;
-        GameManager.instance.tSpawnPoint = tSpawnPoint;
+
 
     }
 }

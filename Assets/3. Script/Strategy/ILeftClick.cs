@@ -69,7 +69,7 @@ public class AK47Left : ILeftClick
                 {
                     return;
                 }
-                PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+                Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
                 int calcDamage = 0;
 
                 if (hitPlayer != null)
@@ -90,7 +90,7 @@ public class AK47Left : ILeftClick
                             break;
                     } // switch - case
 
-                    hitPlayer.TakeDamageCMD(calcDamage);
+                    hitPlayer.TakeDamage(calcDamage);
                     Debug.Log(calcDamage);
 
                     if (hitPlayer.hp <= 0)
@@ -170,7 +170,7 @@ public class ShotgunLeft : ILeftClick
                     {
                         //Debug.Log(hit.collider.gameObject.layer);
                         //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-                        PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+                        Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
                         int calcDamage = w.damage;
 
                         if (hitPlayer != null)
@@ -202,7 +202,7 @@ public class ShotgunLeft : ILeftClick
                             calcDamage = (int)(calcDamage * distanceFactor);
 
                             //hitPlayer.TakeDamage(calcDamage);
-                            hitPlayer.TakeDamageCMD(calcDamage);
+                            hitPlayer.TakeDamage(calcDamage);
                             Debug.Log(calcDamage);
 
                             if (hitPlayer.hp <= 0)
@@ -266,7 +266,7 @@ public class PistolLeft : ILeftClick
                 {
                     //Debug.Log(hit.collider.gameObject.layer);
                     //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-                    PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+                    Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
                     int calcDamage = w.damage;
 
                     if (hitPlayer != null)
@@ -298,7 +298,7 @@ public class PistolLeft : ILeftClick
                         calcDamage = (int)(calcDamage * distanceFactor);
 
                         //hitPlayer.TakeDamage(calcDamage);
-                        hitPlayer.TakeDamageCMD(calcDamage);
+                        hitPlayer.TakeDamage(calcDamage);
                         Debug.Log(calcDamage);
 
                         if (hitPlayer.hp <= 0)
@@ -435,7 +435,7 @@ public class AWPLeft : ILeftClick
                 {
                     //Debug.Log(hit.collider.gameObject.layer);
                     //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-                    PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+                    Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
                     int calcDamage = w.damage;
 
                     if (hitPlayer != null)
@@ -467,7 +467,7 @@ public class AWPLeft : ILeftClick
                         calcDamage = (int)(calcDamage * distanceFactor);
 
                         //hitPlayer.TakeDamage(calcDamage);
-                        hitPlayer.TakeDamageCMD(calcDamage);
+                        hitPlayer.TakeDamage(calcDamage);
                         Debug.Log(calcDamage);
 
                         if (hitPlayer.hp <= 0)
@@ -555,7 +555,7 @@ public class KnifeLeft : ILeftClick
                 return;
             }
 
-            PlayerControl hitPlayer = hit.transform.GetComponentInParent<PlayerControl>();
+            Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
             int calcDamage = w.damage;
 
 
@@ -576,7 +576,7 @@ public class KnifeLeft : ILeftClick
 
 
                 //hitPlayer.TakeDamage(calcDamage);
-                hitPlayer.TakeDamageCMD(calcDamage);
+                hitPlayer.TakeDamage(calcDamage);
                 Debug.Log(calcDamage);
 
                 if (hitPlayer.hp <= 0)

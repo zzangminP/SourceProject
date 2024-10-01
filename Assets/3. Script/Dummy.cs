@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Dummy : MonoBehaviour 
 {
@@ -56,6 +57,18 @@ public class Dummy : MonoBehaviour
 
 
 
+    /// <summary>
+    /// for AI
+    /// </summary>
+    private StateMachine statemachine;
+    private NavMeshAgent agent;
+    public NavMeshAgent Agent { get => agent; }
+    [Header("AI")]
+    [SerializeField]
+    private string currentState;
+    public Path path;
+
+
     //private int holdingWeaponIndex = 0;
     /// <summary>
     /// 
@@ -91,6 +104,11 @@ public class Dummy : MonoBehaviour
 
     private void InitPlayer()
     {
+        statemachine = GetComponent<StateMachine>();
+        agent = GetComponent<NavMeshAgent>();
+        statemachine.Initialise();
+
+
         player_movement_ani = GetComponent<Animator>();
         //Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
@@ -126,7 +144,7 @@ public class Dummy : MonoBehaviour
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-        transform.GetComponent<Rigidbody>().isKinematic = !state;
+        transform.GetComponent<Rigidbody>().isKinematic = true;
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;

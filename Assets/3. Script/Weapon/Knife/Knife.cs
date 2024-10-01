@@ -73,10 +73,7 @@ public class Knife : Weapon
 
     private void Update()
     {
-        if(!playerControl.isLocalPlayer)
-        {
-            return;
-        }
+
         StrategyControl();
         //Debug.Log(currentState);
 
@@ -86,10 +83,7 @@ public class Knife : Weapon
 
     void StrategyControl()
     {
-        if (!playerControl.isLocalPlayer)
-        {
-            return;
-        }
+
         if (currentState != null)
         {
             currentState.UpdateState(this);

@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Animator player_movement_ani;
 
     [Header("Basic Values")]
-    [SerializeField,SyncVar] public int hp = 100;
+    [SerializeField] public int hp = 100;
     [SerializeField] public int armor = 100;
 
 
