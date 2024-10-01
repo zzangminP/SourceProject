@@ -8,11 +8,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1. Scene/Title.unity
     guid: 3f646cffd67b83249bf1bad7387b8a69
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Scene/Room.unity
     guid: 5b4a42457897a1f40bb8ee972e8f898f
   - enabled: 1
     path: Assets/1. Scene/de_dust2.unity
     guid: f170f05f9a2d61841807c2db2fddcdd2
+  - enabled: 0
+    path: Assets/1. Scene/TestScene/Title2.unity
+    guid: 1513a2ff5dade6842985e62cf260457b
+  - enabled: 0
+    path: Assets/1. Scene/TestScene/Game.unity
+    guid: 0e2de6ecdcbbe3b46830b7856b3cbf5a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9975b2bce8b94f048851e54802a49597, type: 2}

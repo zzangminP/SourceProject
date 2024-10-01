@@ -18,7 +18,7 @@ using UnityEngine.SceneManagement;
 //    C_Shoot
 //}
 
-public class PlayerControl : NetworkBehaviour, IPlayer
+public class PlayerControl : MonoBehaviour
 {
 
 
@@ -127,11 +127,9 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     private void InitPlayer()
     {
 
-        if (!isLocalPlayer)
-        {
-            fpsCam.SetActive(false);
-            return;
-        }
+        //fpsCam.SetActive(false);
+        //return;
+ 
 
 
 
@@ -164,14 +162,19 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     }
 
 
+    private void OnEnable()
+    {
+        fpsCam.SetActive(true);
+    }
+
     private void FixedUpdate()
     {
         //PlayerInput();
 
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        //if (!isLocalPlayer)
+        //{
+        //    return;
+        //}
         HandleInput();
         //WeaponControl();
     }
@@ -336,10 +339,10 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     private void HandleInput()
     {
 
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        //if (!isLocalPlayer)
+        //{
+        //    return;
+        //}
         // WASD
 
         float dirX = Input.GetAxis("Horizontal");
@@ -391,10 +394,10 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     private void PlayerMovement(float _dirX, float _dirZ, float mouseX, float mouseY, bool _isWalking ,bool _isCrouch)
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        //if (!isLocalPlayer)
+        //{
+        //    return;
+        //}
         // Movement
 
 
@@ -668,7 +671,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     }
 
 
-    [Command(requiresAuthority = false)]
+    //[Command(requiresAuthority = false)]
     public void TakeDamageCMD(int amount)
     {
         Debug.Log($"Take Damage Cmd : {amount}");
@@ -676,7 +679,7 @@ public class PlayerControl : NetworkBehaviour, IPlayer
 
     }
 
-    [ClientRpc]
+    //[ClientRpc]
     public void TakeDamageRPC(int amount)
     {
         Debug.Log($"Take Damage RPC : {amount}");
@@ -689,14 +692,14 @@ public class PlayerControl : NetworkBehaviour, IPlayer
     }
 
 
-    [Command(requiresAuthority = false)]
+    //[Command(requiresAuthority = false)]
     public void DieCMD()
     {
         Debug.Log($"Die CMD");
         DieRPC();
     }
 
-    [ClientRpc]
+    //[ClientRpc]
     public void DieRPC()
     {
         Debug.Log($"Die RPC");

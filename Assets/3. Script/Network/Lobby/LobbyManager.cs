@@ -46,12 +46,16 @@ public class LobbyManager : MonoBehaviour
     private void CreateRoom()
     {
 
+        //CSNetworkManager.singleton.StartHost();
         CSNetworkManager.singleton.StartHost();
     }
 
 
     private void JoinRoom()
     {
+        //CSNetworkManager.singleton.networkAddress = inputField.text;
+        //CSNetworkManager.singleton.StartClient();
+
         CSNetworkManager.singleton.networkAddress = inputField.text;
         CSNetworkManager.singleton.StartClient();
 

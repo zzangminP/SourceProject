@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 450089487396541667}
   - component: {fileID: 41011701030566946}
-  - component: {fileID: 4728435257724411276}
+  - component: {fileID: 8481190001440568548}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +49,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   players: []
+  CSplayerPrefab: []
   ctSpawnPoint:
   - {fileID: 0}
   - {fileID: 0}
@@ -61,7 +62,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &4728435257724411276
+--- !u!114 &8481190001440568548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

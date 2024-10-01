@@ -4,18 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectTeam : NetworkBehaviour
+public class SelectTeam : MonoBehaviour
 {
 
     public Button CTButton;
     public Button TButton;
 
-    public Canvas UI;
+    public GameObject UI;
 
-    [SyncVar] public string teamSelection;
+    public int teamSelection;
 
     public List<Transform> ctSpawnPositions = new List<Transform>();
     public List<Transform> tSpawnPositions = new List<Transform>();
+
+    public GameObject playerList;
+
+    public GameObject playerPrefab_CT;
+    public GameObject playerPrefab_T;
+
     private void Start()
     {
         //CTButton = GameObject.Find("CT").GetComponent<Button>();
@@ -26,33 +32,69 @@ public class SelectTeam : NetworkBehaviour
         TButton.onClick.AddListener(SelectT);
     }
 
+    //public override void OnStartClient()
+    //{
+    //    UI.SetActive(true);
+    //}
 
-
-    [Command(requiresAuthority = false)]
-    void SelectCT()
+    public void SelectCT()
     {
-        NetworkConnectionToClient sender = null;
-        teamSelection = "CT";
+        teamSelection = 0;
+        CSNetworkManager.ReplaceCharacterMessage _replaceMessage = new CSNetworkManager.ReplaceCharacterMessage
+        {
+            team = teamSelection
 
-        gameObject.SetActive(false);
-        GameObject playerPrefab = Instantiate(CSNetworkManager.singleton.playerPrefab_CT);
-        playerPrefab.GetComponent<PlayerControl>().team = teamSelection;
+        };
 
-        NetworkServer.Spawn(playerPrefab, sender);
+        CSNetworkManager.singleton.ReplaceCharacter(_replaceMessage);
+        UI.SetActive(false);
+
+
+    }
+    public void SelectT()
+    {
+        teamSelection = 1;
+        CSNetworkManager.ReplaceCharacterMessage _replaceMessage = new CSNetworkManager.ReplaceCharacterMessage
+        {
+            team = teamSelection
+
+        };
+
+
+        Debug.Log("_replaceMessage : "+ _replaceMessage);
+        CSNetworkManager.singleton.ReplaceCharacter(_replaceMessage);
+        UI.SetActive(false);
 
     }
 
-    [Command(requiresAuthority = false)]
-    void SelectT()
-    {
-        NetworkConnectionToClient sender = null;
-        teamSelection = "T";
-        
-        gameObject.SetActive(false);
-        GameObject playerPrefab = Instantiate(CSNetworkManager.singleton.playerPrefab_T);
-        playerPrefab.GetComponent<PlayerControl>().team = teamSelection;
 
-        NetworkServer.Spawn(playerPrefab, sender);
+    //[Command(requiresAuthority = false)]
+    //void SelectCT()
+    //{
+    //    NetworkConnectionToClient sender = null;
+    //    teamSelection = "CT";
+    //
+    //    gameObject.SetActive(false);
+    //    GameObject playerPrefab = Instantiate(playerPrefab_CT, GameManager.instance.ctSpawnPoint[0].position, Quaternion.identity, playerList.transform);
+    //    playerPrefab.GetComponent<PlayerControl>().team = teamSelection;
+    //
+    //    NetworkServer.Spawn(playerPrefab, sender);
+    //    //NetworkServer.ReplacePlayerForConnection(sender, playerPrefab, true);
+    //    UI.SetActive(false);
+    //}
 
-    }
+    //[Command(requiresAuthority = false)]
+    //void SelectT()
+    //{
+    //    NetworkConnectionToClient sender = null;
+    //    teamSelection = "T";
+    //    
+    //    gameObject.SetActive(false);
+    //    GameObject playerPrefab = Instantiate(playerPrefab_T, GameManager.instance.tSpawnPoint[0].position, Quaternion.identity, playerList.transform);
+    //    playerPrefab.GetComponent<PlayerControl>().team = teamSelection;
+    //
+    //    NetworkServer.Spawn(playerPrefab, sender);
+    //    //NetworkServer.ReplacePlayerForConnection(sender, playerPrefab, true);
+    //    UI.SetActive(false);
+    //}
 }

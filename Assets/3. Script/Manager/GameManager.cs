@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using Mirror;
 
-public class GameManager : NetworkBehaviour, IGameManager
+public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
@@ -21,6 +21,7 @@ public class GameManager : NetworkBehaviour, IGameManager
 
 
     public List<PlayerControl> players = new List<PlayerControl>();
+    public List<GameObject> CSplayerPrefab = new List<GameObject>();
     public List<Transform> ctSpawnPoint = new List<Transform>();
     public List<Transform> tSpawnPoint = new List<Transform>();
     private void Awake()

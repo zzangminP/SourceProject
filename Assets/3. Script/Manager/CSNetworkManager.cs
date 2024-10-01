@@ -4,17 +4,28 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-public class CSNetworkManager : NetworkRoomManager
+
+public class CSNetworkManager : NetworkManager
 {
 
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
-    public static new CSNetworkManager singleton => (CSNetworkManager)NetworkRoomManager.singleton;
+    public static new CSNetworkManager singleton => (CSNetworkManager)NetworkManager.singleton;
 
-    public GameObject playerPrefab_CT;
-    public GameObject playerPrefab_T;
+    //public List<GameObject> playerPrefab = new List<GameObject>();
+    //public GameObject playerPrefab_T;
 
     public List<GameObject> players = new List<GameObject>();
+    public struct ReplaceCharacterMessage : NetworkMessage
+    {
+        public int team; 
+    }
+
+
+
+
+
+
 
     /// <summary>
     /// Runs on both Server and Client
@@ -262,9 +273,37 @@ public class CSNetworkManager : NetworkRoomManager
     public override void OnStartServer() 
     {
 
+        //CS
+
         base.OnStartServer();
+        NetworkServer.RegisterHandler<ReplaceCharacterMessage>(OnReplaceCharacter);
 
 
+    }
+
+    void OnReplaceCharacter(NetworkConnectionToClient conn, ReplaceCharacterMessage message)
+    {
+        Debug.Log("Received ReplaceCharacterMessage on server for team: " + message.team);
+        GameObject oldPlayer = conn.identity.gameObject;
+
+        Transform startPos = GetStartPosition();
+        GameObject playerPrefabTemp;
+        if (startPos != null)
+        {
+            playerPrefabTemp = Instantiate(GameManager.instance.CSplayerPrefab[message.team], startPos.position, startPos.rotation);
+        }
+        else
+        {
+            playerPrefabTemp = Instantiate(GameManager.instance.CSplayerPrefab[message.team]);
+        }
+
+        NetworkServer.ReplacePlayerForConnection(conn, playerPrefabTemp,true);
+        Destroy(oldPlayer, 0.1f);
+    }
+    public void ReplaceCharacter(ReplaceCharacterMessage message)
+    {
+        Debug.Log("ReplaceCharacter in networkManager : " + message);
+        NetworkClient.Send(message);
     }
     
 
