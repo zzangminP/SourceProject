@@ -13,7 +13,7 @@ public interface ILeftClick
 public class AK47Left : ILeftClick
 {
     bool isFiring = false;
-
+    
     public void OnLeftClick(Weapon w)
     {
         if (w.currentState is DrawState ||
@@ -96,6 +96,8 @@ public class AK47Left : ILeftClick
                     if (hitPlayer.hp <= 0)
                     {
                         hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                        hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
+                        _player.money += w.reward;
                         Debug.Log("Added force to dead player.");
                     }
                 } // if hitPlayer != null
@@ -208,6 +210,9 @@ public class ShotgunLeft : ILeftClick
                             if (hitPlayer.hp <= 0)
                             {
                                 hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                                hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
+                                _player.money += w.reward;
+
                                 //Debug.Log("Added force to dead player.");
                             }
                         } // if hitPlayer != null
@@ -304,6 +309,9 @@ public class PistolLeft : ILeftClick
                         if (hitPlayer.hp <= 0)
                         {
                             hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                            hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
+                            _player.money += w.reward;
+
                             //Debug.Log("Added force to dead player.");
                         }
                     } // if hitPlayer != null
@@ -473,6 +481,9 @@ public class AWPLeft : ILeftClick
                         if (hitPlayer.hp <= 0)
                         {
                             hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                            hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
+                            _player.money += w.reward;
+
                             //Debug.Log("Added force to dead player.");
                         }
                     } // if hitPlayer != null
@@ -582,6 +593,9 @@ public class KnifeLeft : ILeftClick
                 if (hitPlayer.hp <= 0)
                 {
                     hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                    hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
+                    _player.money += w.reward;
+
                     //Debug.Log("Added force to dead player.");
                 }
             } // if hitPlayer != null

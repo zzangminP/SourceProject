@@ -20,7 +20,7 @@ public class StayState : BaseState
             losePlayerTimer = 0;
             
             shotTimer += Time.deltaTime;
-            dummy.transform.LookAt(dummy.Player.transform);
+            dummy.transform.LookAt(dummy.player.transform);
 
             if (shotTimer > dummy.fireRate)
             {

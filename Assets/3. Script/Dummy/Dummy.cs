@@ -54,10 +54,9 @@ public class Dummy : MonoBehaviour
     private NavMeshAgent agent;
     public NavMeshAgent Agent { get => agent; }
     public Path path;
-    
-    [SerializeField]
-    private GameObject player;
-    public GameObject Player { get => player; }
+
+
+    public GameObject player;
     
     private Vector3 lastKnowPos;
     public  Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value; }
@@ -254,6 +253,7 @@ public class Dummy : MonoBehaviour
         player_movement_ani = null;
         statemachine = null;
         isDead = true;
+        AfterDie();
 
     }
 
@@ -263,6 +263,7 @@ public class Dummy : MonoBehaviour
         if (deathTimer >= 3f)
         {
             deathTimer = 0;
+            isDead = false;
             gameObject.SetActive(false);
         }
     }

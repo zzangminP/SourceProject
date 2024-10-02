@@ -32,6 +32,16 @@ public class StoreUI : MonoBehaviour
         buySmokeButton.onClick.AddListener(() => BuySomething(WeaponSetting.Type.SMOKE));
         closeButton.onClick.AddListener(Close);
     }
+    private void OnEnable()
+    {
+         Cursor.visible = true;
+         Cursor.lockState=CursorLockMode.None;
+    }
+    private void OnDisable()
+    {   
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -80,20 +90,52 @@ public class StoreUI : MonoBehaviour
         switch (type)
         {
             case WeaponSetting.Type.AK47:
+                { 
+                    AK47 newGun = new AK47();
+                    BuyGun(newGun);
+                }
                 break;
             case WeaponSetting.Type.XM1014:
+                {
+                    XM1014 newGun = new XM1014();
+                    BuyGun(newGun);
+                }
                 break;
             case WeaponSetting.Type.AWP:
+                {
+                    AWP newGun = new AWP();
+                    BuyGun(newGun);
+                }
                 break;
             case WeaponSetting.Type.Armor:
+                {
+                    player.armor = 100;
+                    player.money -= 650;
+                }
                 break;
             case WeaponSetting.Type.Glock18:
+                {
+                    Glock18 newGun = new Glock18();
+                    BuyGun(newGun);
+                }
                 break;
             case WeaponSetting.Type.FL:
+                {
+                    Flashbang newGun = new Flashbang();
+                    BuyGun(newGun);
+                }
                 break;
             case WeaponSetting.Type.HE:
+                {
+                    Grenade newGun = new Grenade();
+                    BuyGun(newGun);
+
+                }
                 break;
             case WeaponSetting.Type.SMOKE:
+                {
+                    // smoke
+                }
                 break;
             default:
                 break;
@@ -101,31 +143,45 @@ public class StoreUI : MonoBehaviour
         }
 
     }
-    void BuyGun(Weapon w)
+    void BuyGun(Weapon tempGun)
     {
-        int type = (int)w.type;
-        
-        if ((type >= 100 && type <= 199))
+        int _type = (int)tempGun.type;
+
+        if ((_type >= 100 && _type <= 199))
         {
             //pri_weapon
-            player.playerWeapon_List[0] = w;
+            if (player.playerWeapon_List[0] != null && player.money < tempGun.cost)
+            {
+                return;
+            }
+            else
+            {
+                player.playerWeapon_List[0] = player.BuyWeapon(tempGun);
+                player.money -= tempGun.cost;
+
+            }
 
         }
-        else if ((type >= 200 && type <= 299))
+        else if ((_type >= 200 && _type <= 299))
         {
             //sec_weapon
-            player.playerWeapon_List[1] = w;
 
+            if (player.playerWeapon_List[1] != null && player.money < tempGun.cost)
+            {
+                return;
+            }
+            else
+            {
+                player.playerWeapon_List[1] = player.BuyWeapon(tempGun);
+                player.money -= tempGun.cost;
+            }
         }
-        else if (type >= 400 && type <= 499)
+        else if (_type >= 400 && _type <= 499)
         {
             // GE
         }
-        else if (type == 600)
-        {
-            // c4
-            player.armor = 100;
-        }
+        else
+            return;
     }
 
     

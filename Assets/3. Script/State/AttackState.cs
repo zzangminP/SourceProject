@@ -22,7 +22,7 @@ public class AttackState : BaseState
             losePlayerTimer = 0;
             moveTimer += Time.deltaTime;
             shotTimer += Time.deltaTime;
-            dummy.transform.LookAt(dummy.Player.transform);
+            dummy.transform.LookAt(dummy.player.transform);
 
             if (shotTimer > dummy.fireRate)
             {
@@ -36,7 +36,7 @@ public class AttackState : BaseState
                 moveTimer = 0;
             }
 
-            dummy.LastKnowPos = dummy.Player.transform.position;
+            dummy.LastKnowPos = dummy.player.transform.position;
 
 
         }
@@ -99,7 +99,16 @@ public class AttackState : BaseState
                         break;
 
                 }
-                calcDamage = (int)(calcDamage * distanceFactor);
+                if(hitPlayer.armor >= 0)
+                {
+                    calcDamage = (int)(calcDamage * distanceFactor * 0.5f);
+                    hitPlayer.armor -= Random.Range(0, 4);
+                }
+                else
+                {
+                    calcDamage = (int)(calcDamage * distanceFactor);
+                }
+
                 hitPlayer.TakeDamage(calcDamage);
 
             }

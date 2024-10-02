@@ -144,6 +144,12 @@ public class KnifeRight : IRightClick
 
                     //hitPlayer.TakeDamage(calcDamage);
                     hitPlayer.TakeDamage(calcDamage);
+                    if (hitPlayer.hp <= 0)
+                    {
+                        hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
+                        _player.money += w.reward;
+                    }
+
                     Debug.Log(calcDamage);
 
                 } // if hitPlayer != null

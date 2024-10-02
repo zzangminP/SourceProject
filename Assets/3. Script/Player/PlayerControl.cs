@@ -84,6 +84,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HP_TMP;
     [SerializeField] private TextMeshProUGUI armor_TMP;
     [SerializeField] private GameObject storeUI;
+    [SerializeField] private TextMeshProUGUI money_TMP;
+    [SerializeField] public int money = 0;
+    [SerializeField] public int killCount = 0;
     private bool canIOpenStore = false;
 
 
@@ -209,8 +212,11 @@ public class PlayerControl : MonoBehaviour
     {
         HP_TMP.text = ($"HP : {hp}");
         armor_TMP.text = ($"Armor : {armor}");
-
-
+        money_TMP.text = ($"$ {money}");
+        if (money >= 16000)
+        {
+            money = 16000;
+        }
     }
 
     private void ContactWeapon(WeaponWorldDrop tempGun)
@@ -256,6 +262,28 @@ public class PlayerControl : MonoBehaviour
 
                 tempGun.gameObject.SetActive(false);
                 return playerGun;           
+            }
+        }
+        return null;
+    }
+
+    public Weapon BuyWeapon(Weapon tempGun)
+    {
+
+        for (int i = 0; i < playerViewModels_List.Count; i++)
+        {
+            playerViewModels_List[i].TryGetComponent<Weapon>(out Weapon playerGun);
+            if (tempGun.type == playerGun.type)
+            {
+                //playerGun.type = tempGun;
+                //playerGun.maxAmmo = tempGun.maxAmmo;
+                //playerGun.currentAmmo = tempGun.currentAmmo;
+                playerGun.type = tempGun.type;
+                playerGun.maxAmmo = tempGun.maxAmmo;
+                playerGun.currentAmmo = tempGun.currentAmmo;
+
+
+                return playerGun;
             }
         }
         return null;
@@ -529,7 +557,7 @@ public class PlayerControl : MonoBehaviour
                 playerWeapon_List[currentWeaponIndex].gameObject.SetActive(false);
                 playerWeapon_List[currentWeaponIndex] = null;
                 currentWeaponIndex = 2; // knife index
-
+                ActivateWeaponModel(currentWeaponIndex);
             }
         }
 
@@ -538,15 +566,17 @@ public class PlayerControl : MonoBehaviour
 
     private void PickUpWeaponByHand()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 5f))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-          if(TryGetComponent<WeaponWorldDrop>(out WeaponWorldDrop pickupGun))
-          {
-                PickUpWeapon(pickupGun);
-          }
+            RaycastHit hit;
+            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 5f))
+            {
+                if (TryGetComponent<WeaponWorldDrop>(out WeaponWorldDrop pickupGun))
+                {
+                    PickUpWeapon(pickupGun);
+                }
+            }
         }
-
     }
 
     private void WeaponSet()
