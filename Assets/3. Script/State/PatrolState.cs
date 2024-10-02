@@ -16,6 +16,10 @@ public class PatrolState : BaseState
     public override void Execute()
     {
         PatrolCycle();
+        if(dummy.CanSeePlayer())
+        {
+            stateMachine.ChangeState(new AttackState());
+        }
 
     }
 

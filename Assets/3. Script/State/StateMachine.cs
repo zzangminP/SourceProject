@@ -11,8 +11,7 @@ public class StateMachine : MonoBehaviour
 
     public void Initialise()
     {
-        patrolState = new PatrolState();
-        ChangeState(patrolState);
+        ChangeState(new PatrolState());
     }
 
     private void Update()

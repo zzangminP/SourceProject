@@ -47,13 +47,10 @@ public class Dummy : MonoBehaviour
 
 
     [Header("Weapon")]
-    [SerializeField] private Weapon pri_weapon;
-    [SerializeField] private Weapon sec_weapon;
+    [SerializeField] private GameObject weapon;
+
     //[SerializeField] private Weapon weapon;
-    [SerializeField] private Weapon[] gn;
-    [SerializeField] private Weapon[] miscellaneous;
-    [SerializeField] private Weapon current_weapon;
-    [SerializeField] private Weapon privious_weapon = null;
+
 
 
 
@@ -67,6 +64,11 @@ public class Dummy : MonoBehaviour
     [SerializeField]
     private string currentState;
     public Path path;
+    [SerializeField]
+    private GameObject player;
+    public GameObject viewPoint;
+    public float sightDistance = 20f;
+    public float fieldOfView = 85f;
 
 
     //private int holdingWeaponIndex = 0;
@@ -107,9 +109,13 @@ public class Dummy : MonoBehaviour
         statemachine = GetComponent<StateMachine>();
         agent = GetComponent<NavMeshAgent>();
         statemachine.Initialise();
+        player = GameObject.FindGameObjectWithTag("Player");
 
+        weapon = GetComponentInChildren<WeaponWorldDrop>().gameObject;
 
-        player_movement_ani = GetComponent<Animator>();
+        SetAnimator();
+        //player_movement_ani = GetComponent<Animator>();
+        //player_movement_ani.SetLayerWeight(player_movement_ani.GetLayerIndex("AK47"), 1);
         //Cursor.lockState = CursorLockMode.Locked;
         player_rg = GetComponent<Rigidbody>();
 
@@ -117,13 +123,23 @@ public class Dummy : MonoBehaviour
         //transform.GetComponent<BoxCollider>().enabled = true;
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
-
+        SetWeapon(true);
         //hitBoxCollider.enabled = true;
 
 
         //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
         //WeaponSet();
         //current_weapon = pri_weapon;
+
+    }
+    private void SetAnimator()
+    {
+        player_movement_ani = GetComponent<Animator>();
+        for (int i = 1; i < player_movement_ani.layerCount; i++)
+        {
+            player_movement_ani.SetLayerWeight(i, 0);
+        }
+        player_movement_ani.SetLayerWeight(player_movement_ani.GetLayerIndex("AK47"), 1);
 
     }
 
@@ -134,32 +150,51 @@ public class Dummy : MonoBehaviour
 
         //HandleInput();
         //WeaponControl();
+        CanSeePlayer();
+        currentState = statemachine.activeState.ToString();
     }
 
 
+    public bool CanSeePlayer()
+    {
+        if (player != null)
+        {
+            if (Vector3.Distance(viewPoint.transform.position, player.transform.position) < sightDistance)
+            {
+                Vector3 targetDirection = player.transform.position - viewPoint.transform.position;
+                float angleToPlayer = Vector3.Angle(targetDirection, viewPoint.transform.forward);
+                if (angleToPlayer >= -fieldOfView && angleToPlayer <= fieldOfView)
+                {
+                    Ray ray = new Ray(viewPoint.transform.position, targetDirection);
+                    RaycastHit hitInfo = new RaycastHit();
+                    if(Physics.Raycast(ray, out hitInfo, sightDistance))
+                    {
+                        if(hitInfo.transform.gameObject == player)
+                        {
+                            Debug.DrawRay(ray.origin, ray.direction  * sightDistance);
+                            return true;
+                        }
 
+                    }
 
+                }
+            }
+        }
+        return false;
 
+    }
 
     private void setRagdoll(bool state)
     {
         skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-        transform.GetComponent<Rigidbody>().isKinematic = true;
         foreach (Rigidbody rb in skeleton_rg)
         {
             rb.isKinematic = state;
             //Debug.Log(rb.name);
         }
 
-        //skeleton_cl = transform.GetComponentsInChildren<Collider>();
-        //transform.GetComponent<BoxCollider>().enabled = state;
-        //foreach (Collider cl in skeleton_cl)
-        //{
-        //    cl.enabled = !state;
-        //    //Debug.Log(cl.name);
-        //}
-        //transform.GetComponent<Rigidbody>().isKinematic = !state;
-        //transform.GetComponent<Rigidbody>().isKinematic = !state;
+        transform.GetComponent<Rigidbody>().isKinematic = !state;
+
     }
 
     private void setCollider(bool state)
@@ -299,10 +334,6 @@ public class Dummy : MonoBehaviour
 
     private void WeaponSet()
     {
-        pri_weapon = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Weapon>();
-
-        sec_weapon = GameObject.Find("PlayerKeyTwo").GetComponentInChildren<Weapon>();
-
         //if (Input.GetKey(KeyCode.R))
         //{   
         //    //if (!v_model_ani.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
@@ -335,10 +366,18 @@ public class Dummy : MonoBehaviour
     {
         transform.GetComponent<BoxCollider>().enabled = false;
         transform.GetComponent<Animator>().enabled = false;
+
         setRagdoll(false);
         //setCollider(false);
+        SetWeapon(false);
 
         player_movement_ani = null;
+    }
+    void SetWeapon(bool state)
+    {
+        weapon.GetComponent<BoxCollider>().enabled = !state;
+        weapon.GetComponent<Rigidbody>().isKinematic = state;
+
     }
 
 
