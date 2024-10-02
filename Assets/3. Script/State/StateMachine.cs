@@ -2,22 +2,28 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    //private T ownerEntity;
-    //private BaseState currentState;
-    //private BaseState previousState;
-    //private BaseState globalState;
+
     public BaseState activeState;
-    public PatrolState patrolState;        
+    public PatrolState patrolState;
+    public bool isStay = false;
 
     public void Initialise()
-    {
-        ChangeState(new PatrolState());
+    {   if(isStay)
+        {
+            ChangeState(new StayState());
+        }
+        else
+        {
+            ChangeState(new PatrolState());
+
+        }
     }
 
     private void Update()
     {
         if(activeState != null)
         {
+            CheckAnyStateTransition();
             activeState.Execute();
 
         }
@@ -26,7 +32,7 @@ public class StateMachine : MonoBehaviour
     public void ChangeState(BaseState newState)
     {
 
-        if(activeState != null)
+        if (activeState != null)
         {
             activeState.Exit();
         }
@@ -39,6 +45,16 @@ public class StateMachine : MonoBehaviour
             activeState.dummy = GetComponent<Dummy>();
             activeState.Enter();
         }
+
+    }
+
+
+    public void CheckAnyStateTransition()
+    {
+        //if(activeState.dummy.hp <= 0)
+        //{
+        //    activeState.dummy.Die();
+        //}
 
     }
 

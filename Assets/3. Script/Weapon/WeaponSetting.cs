@@ -26,6 +26,7 @@ public class WeaponSetting : MonoBehaviour
 
 
         C4      = 500,
+        Armor   = 600,
     } 
     public Type type { get; set; }
 

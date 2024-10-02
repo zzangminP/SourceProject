@@ -2,6 +2,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,6 +35,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public AudioListener playerAudioListener;
     [SerializeField] private Animator player_movement_ani;
 
+
     [Header("Basic Values")]
     [SerializeField] public int hp = 100;
     [SerializeField] public int armor = 100;
@@ -63,8 +65,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private List<GameObject> weaponHolder_List;
     [SerializeField] private List<GameObject> playerViewModels_List;
 
-    [SerializeField] private Weapon[] playerWeapon_List;
-    [SerializeField] private Weapon[] GE_weapon = null;
+    [SerializeField] public Weapon[] playerWeapon_List;
+    [SerializeField] public Weapon[] GE_weapon = null;
     [SerializeField] private Weapon C4_weapon;
 
     [SerializeField] private GameObject current_weapon = null;
@@ -79,6 +81,10 @@ public class PlayerControl : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] public GameObject scopeOverlay;
+    [SerializeField] private TextMeshProUGUI HP_TMP;
+    [SerializeField] private TextMeshProUGUI armor_TMP;
+    [SerializeField] private GameObject storeUI;
+    private bool canIOpenStore = false;
 
 
     private int currentWeaponIndex = 0; // 현재 무기의 인덱스
@@ -156,12 +162,16 @@ public class PlayerControl : MonoBehaviour
 
         SetGameManager(gameManager);
 
-        //v_model_ani = GameObject.Find("PlayerKeyOne").GetComponentInChildren<Animator>();
         WeaponSet();
 
     }
 
+    private void Update()
+    {
 
+        UI();
+        
+    }
     private void OnEnable()
     {
         fpsCam.SetActive(true);
@@ -188,11 +198,19 @@ public class PlayerControl : MonoBehaviour
             ContactWeapon(tempGun);
         }
 
+
     }
 
     public void SetGameManager(IGameManager manager)
     {
         this.gameManager = manager;
+    }
+    private void UI()
+    {
+        HP_TMP.text = ($"HP : {hp}");
+        armor_TMP.text = ($"Armor : {armor}");
+
+
     }
 
     private void ContactWeapon(WeaponWorldDrop tempGun)
@@ -236,8 +254,6 @@ public class PlayerControl : MonoBehaviour
                 playerGun.maxAmmo = tempGun.maxAmmo;
                 playerGun.currentAmmo = tempGun.currentAmmo;
 
-                Debug.Log(playerGun.maxAmmo);
-                Debug.Log(playerGun.currentAmmo);
                 tempGun.gameObject.SetActive(false);
                 return playerGun;           
             }
@@ -257,6 +273,12 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("BombSite Entered");
         }
 
+        if(other.gameObject.CompareTag("Store"))
+        {
+            canIOpenStore = true;
+       
+        }
+
 
 
     }
@@ -271,36 +293,16 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("BombSite Out");
         }
 
+        if (other.gameObject.CompareTag("Store"))
+        {
+            canIOpenStore = false;
+
+        }
+
     }
 
 
 
-
-    //private void setRagdoll(bool state)
-    //{
-    //    skeleton_rg = transform.GetComponentsInChildren<Rigidbody>();
-    //    transform.GetComponent<Rigidbody>().isKinematic = !state;
-    //    foreach (Rigidbody rb in skeleton_rg)
-    //    {
-    //        rb.isKinematic = state;
-    //        //Debug.Log(rb.name);
-    //    }
-    //    //transform.GetComponent<Rigidbody>().isKinematic = !state;
-    //}
-
-
-
-    //private void setCollider(bool state)
-    //{
-    //    skeleton_cl = transform.GetComponentsInChildren<Collider>();
-    //    foreach (Collider cl in skeleton_cl)
-    //    {
-    //        cl.enabled = !state;
-    //        //Debug.Log(cl.name);
-    //    }
-    //    
-    //    //transform.GetComponent<Rigidbody>().isKinematic = !state;
-    //}
 
     private void setRagdoll(bool state)
     {
@@ -386,9 +388,22 @@ public class PlayerControl : MonoBehaviour
         SwapWeapon();
 
 
+        // OpenStoreUI - Key : B;
+        OpenStoreUI();
 
     }
 
+    private void OpenStoreUI()
+    {
+        if(canIOpenStore)
+        {
+            if(Input.GetKeyDown(KeyCode.B))
+            {
+                storeUI.SetActive(true);
+            }
+
+        }
+    }
 
 
 
@@ -671,39 +686,26 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    //[Command(requiresAuthority = false)]
-    public void TakeDamageCMD(int amount)
-    {
-        Debug.Log($"Take Damage Cmd : {amount}");
-        TakeDamageRPC(amount);
 
-    }
 
-    //[ClientRpc]
-    public void TakeDamageRPC(int amount)
+
+    public void TakeDamage(int amount)
     {
         Debug.Log($"Take Damage RPC : {amount}");
         hp -= amount;
         if(hp <= 0)
         {
-            DieCMD();
+            Die();
         }
 
     }
 
 
-    //[Command(requiresAuthority = false)]
-    public void DieCMD()
-    {
-        Debug.Log($"Die CMD");
-        DieRPC();
-    }
-
     //[ClientRpc]
-    public void DieRPC()
+    public void Die()
     {
         Debug.Log($"Die RPC");
-        //gameManager.OnPlayerDie(this);
+
         transform.GetComponent<BoxCollider>().enabled = false;
         transform.GetComponent<Animator>().enabled = false;
         player_movement_ani = null;

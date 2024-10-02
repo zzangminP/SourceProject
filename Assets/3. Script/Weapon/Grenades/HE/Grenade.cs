@@ -83,7 +83,7 @@ public class Grenade : Weapon
 
         foreach (Collider nearbyObject in colliders)
         {
-            Debug.Log(nearbyObject);
+
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             PlayerControl hitPlayer = nearbyObject.GetComponentInParent<PlayerControl>();
 
@@ -95,7 +95,7 @@ public class Grenade : Weapon
                     calcDamage = (int)(damage * Mathf.Pow((float)(1 - ((transform.position - hitPlayer.transform.position).magnitude) / radius), 2));
                     //hitPlayer.TakeDamage(calcDamage);
                     
-                    hitPlayer.TakeDamageCMD(calcDamage);
+                    hitPlayer.TakeDamage(calcDamage);
                     Debug.Log("Hit player with damage: " + calcDamage);
                 }
 

@@ -3056,24 +3056,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361818981a260934cb34b9ccb477b4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_movement_ani: {fileID: 0}
   player_tr: {fileID: 0}
   viewModel_tr: {fileID: 0}
   player_rg: {fileID: 0}
   hp: 100
   armor: 100
-  moveSpeed: 5
-  mouseSensitivity: 1
-  JumpForce: 5
+  deathTimer: 3
   skeleton_rg: []
   skeleton_cl: []
-  w_model_ani: {fileID: 0}
+  player_movement_ani: {fileID: 0}
   weapon: {fileID: 0}
   currentState: 
   path: {fileID: 0}
   player: {fileID: 0}
+  debugSphear: {fileID: 0}
+  viewPoint: {fileID: 0}
   sightDistance: 20
   fieldOfView: 85
+  gunBarrel: {fileID: 0}
+  fireRate: 0.1
+  damage: 0
 --- !u!195 &8356550049757278354
 NavMeshAgent:
   m_ObjectHideFlags: 0
