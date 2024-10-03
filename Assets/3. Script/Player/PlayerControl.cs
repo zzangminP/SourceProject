@@ -817,6 +817,7 @@ public class PlayerControl : MonoBehaviour
         setCollider(false);
         weaponHolder.transform.gameObject.SetActive(false);
         death_audio.Play();
+        StartCoroutine(AfterDie());
 
         
     }

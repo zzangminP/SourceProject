@@ -299,7 +299,7 @@ public class Dummy : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         isDead = false;
-        SceneManager.LoadScene("de_dust2");
+
         //gameObject.SetActive(false);
         Destroy(gameObject);
     }
