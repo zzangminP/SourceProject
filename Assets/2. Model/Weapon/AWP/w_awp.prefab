@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6021430703dd6b348b4e324eebba84d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fire_audio: {fileID: 0}
   type: 100
-  maxAmmo: 5
-  currentAmmo: 30
+  maxAmmo: 30
+  currentAmmo: 5

@@ -57,6 +57,7 @@ public class AK47Left : ILeftClick
         if (w.currentAmmo > 0 &&
             (w.currentState is not ReloadingState))
         {
+            w.fire_audio.Play();
             w.currentAmmo -= 1;
             w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
 
@@ -430,6 +431,7 @@ public class AWPLeft : ILeftClick
 
             if (w.currentAmmo > 0)
             {
+                w.fire_audio.Play();
                 w.SetState(new SingleFiringState());
                 w.currentAmmo -= 1;
                 w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
@@ -553,31 +555,41 @@ public class KnifeLeft : ILeftClick
         w.Ammo_ui.text = $" ";
 
         RaycastHit hit;
+        Knife _w = w as Knife;
+        int tmp = (int)Random.Range(0, 2);
+        if(tmp == 0)
+        {
+            _w.fire_audio.Play();
+        }
+        else
+        {
+            _w.fire2_audio.Play();
+        }
 
-        if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
+        if (Physics.Raycast(_w.fpsCam.transform.position, _w.fpsCam.transform.forward, out hit, _w.range))
         {
             //Debug.Log(hit.collider.gameObject.layer);
-            Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
-            if (hit.transform.parent == w.transform.parent)
+            Debug.DrawLine(_w.fpsCam.transform.position, hit.point, Color.green, 5f);
+            if (hit.transform.parent == _w.transform.parent)
             {
                 return;
             }
 
             Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
-            int calcDamage = w.damage;
+            int calcDamage = _w.damage;
 
 
 
             if (hitPlayer != null)
             {
-                Vector3 rayDirection = (hit.point - w.transform.position).normalized;
+                Vector3 rayDirection = (hit.point - _w.transform.position).normalized;
                 Vector3 targetForward = hitPlayer.transform.forward;
 
                 // 내적 계산
                 float dotProduct = Vector3.Dot(rayDirection, targetForward);
                 if (dotProduct > 0)
                 {
-                    calcDamage = w.damage + 20;
+                    calcDamage = _w.damage + 20;
 
 
                 }
@@ -589,9 +601,9 @@ public class KnifeLeft : ILeftClick
 
                 if (hitPlayer.hp <= 0)
                 {
-                    hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * w.impactForce, ForceMode.Impulse);
+                    hitPlayer.GetComponent<Rigidbody>().AddForce(-hit.normal * _w.impactForce, ForceMode.Impulse);
                     hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
-                    _player.money += w.reward;
+                    _player.money += _w.reward;
 
                     //Debug.Log("Added force to dead player.");
                 }
@@ -599,7 +611,7 @@ public class KnifeLeft : ILeftClick
 
             if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(-hit.normal * w.impactForce);
+                hit.rigidbody.AddForce(-hit.normal * _w.impactForce);
             }
 
         } // if Physics.Raycast

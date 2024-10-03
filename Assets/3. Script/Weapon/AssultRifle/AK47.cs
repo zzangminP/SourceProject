@@ -20,6 +20,7 @@ public class AK47 : Weapon
         fireRate    = 10f;
         isAuto      = true;
 
+        reloadTime = 3f;
         type = Type.AK47;
        
         leftClick   = new AK47Left();
@@ -30,6 +31,7 @@ public class AK47 : Weapon
     }
     //public Animator animator_w;
 
+    public AudioSource[] relaod_audio = new AudioSource[3];
 
 
     private void Start()
@@ -90,5 +92,17 @@ public class AK47 : Weapon
         wasdMove.DefaultWASDMove(this);
     }
 
+    public void AKReloadOne()
+    {
+        relaod_audio[0].Play();
+    }
+    public void AKReloadTwo()
+    {
+        relaod_audio[1].Play();
+    }
+    public void AKReloadThree()
+    {
+        relaod_audio[2].Play();
+    }
 
 }

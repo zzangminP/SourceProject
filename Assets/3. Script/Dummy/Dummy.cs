@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Dummy : MonoBehaviour 
 {
@@ -39,6 +40,12 @@ public class Dummy : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] private GameObject weapon;
 
+    [Header("SFX")]
+    [SerializeField] public AudioSource hit_audio;
+    [SerializeField] public AudioSource death_audio;
+    [SerializeField] public AudioSource attack_audio;
+    [SerializeField] public AudioSource awp_audio;
+
     [Header("VFX")]
     public GameObject bloodImpact;
 
@@ -59,7 +66,7 @@ public class Dummy : MonoBehaviour
     public NavMeshAgent Agent { get => agent; }
     public Path path;
 
-
+    public bool isAWP = false;
     public GameObject player;
     public PlayerControl player_playerControl;
     
@@ -112,6 +119,11 @@ public class Dummy : MonoBehaviour
         statemachine.Initialise();
         player = GameObject.FindGameObjectWithTag("Player");
         player_playerControl = player.GetComponentInChildren<PlayerControl>();
+        hit_audio = player_playerControl.hit_audio;
+        death_audio = player_playerControl.death_audio;
+
+        awp_audio = GameObject.Find("AWP Audio").GetComponent<AudioSource>();
+        attack_audio = GameObject.Find("AK Audio").GetComponent<AudioSource>();
 
         weapon = GetComponentInChildren<WeaponWorldDrop>().gameObject;
 
@@ -249,6 +261,9 @@ public class Dummy : MonoBehaviour
     {
         hp -= amount;
         Instantiate(bloodImpact,transform.position + new Vector3(0,1f,0), Quaternion.identity);
+        
+        hit_audio.Play();
+        
         if (hp <= 0)
         {
 
@@ -262,6 +277,8 @@ public class Dummy : MonoBehaviour
     {
         transform.GetComponent<BoxCollider>().enabled = false;
         transform.GetComponent<Animator>().enabled = false;
+        
+        death_audio.Play();
 
         setRagdoll(false);
         //setCollider(false);
@@ -282,8 +299,9 @@ public class Dummy : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         isDead = false;
-        gameObject.SetActive(false);
-
+        SceneManager.LoadScene("de_dust2");
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
     private void OnDisable()
     {

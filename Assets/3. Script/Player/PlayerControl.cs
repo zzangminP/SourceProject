@@ -42,6 +42,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public int hp = 100;
     [SerializeField] public int armor = 100;
     [SerializeField] private bool isAlive = true;
+    [SerializeField] private bool isTimeUp = false;
 
 
     [Header("Physics Values")]
@@ -96,6 +97,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public TextMeshProUGUI killCountUI;
     [SerializeField] public TextMeshProUGUI timer;
     [SerializeField] public GameObject escMenu;
+    [SerializeField] public GameObject timeUpUI;
+
+    [Header("Sound")]
+    public AudioSource hit_audio;
+    public AudioSource death_audio;
+    
     private bool canIOpenStore = false;
 
 
@@ -145,7 +152,7 @@ public class PlayerControl : MonoBehaviour
     private void InitPlayer()
     {
         killCount = 0;
-        GameManager.instance.StartTimer(300f);
+        StartTimer(300f);
         if (SceneManager.GetActiveScene().name != "Title")
         { 
             Cursor.lockState = CursorLockMode.Locked;
@@ -169,6 +176,42 @@ public class PlayerControl : MonoBehaviour
         SetGameManager(gameManager);
 
         WeaponSet();
+
+    }
+
+
+    public void StartTimer(float duration)
+    {
+        StartCoroutine(TimerCoroutine(duration));
+    }
+
+    // 타이머 코루틴
+    private IEnumerator TimerCoroutine(float duration)
+    {
+        float remainingTime = duration;
+
+        while (remainingTime > 0)
+        {
+
+            int minutes = Mathf.FloorToInt(remainingTime / 60);
+            int seconds = Mathf.FloorToInt(remainingTime % 60);
+
+
+            timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            yield return new WaitForSeconds(1f);
+            remainingTime -= 1f;
+        }
+
+
+        timer.text = "00:00";
+        OnTimerComplete();
+    }
+
+    // 타이머가 끝났을 때 실행할 함수
+    private void OnTimerComplete()
+    {
+        isTimeUp = false;
 
     }
 
@@ -221,7 +264,16 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            escMenu.SetActive(!escMenu.activeSelf);
+            if(!storeUI.activeSelf)
+            {
+                escMenu.SetActive(!escMenu.activeSelf);
+            }
+            
+        }
+
+        if (isTimeUp)
+        {
+            timeUpUI.SetActive(true);
         }
     }
 
@@ -376,7 +428,7 @@ public class PlayerControl : MonoBehaviour
     {
 
         // WASD
-        if (isAlive)
+        if (isAlive && !isTimeUp)
         {
             float dirX = Input.GetAxis("Horizontal");
             float dirZ = Input.GetAxis("Vertical");
@@ -521,10 +573,19 @@ public class PlayerControl : MonoBehaviour
 
     private void PlayerJump()
     {
-        if (Input.GetKey(KeyCode.Space))
-        { 
-            player_rg.velocity = Vector3.zero;
-            player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hitInfo;
+        float rayDistance = 1.1f; 
+
+
+        bool isGrounded = Physics.Raycast(ray, out hitInfo, rayDistance);
+
+
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            player_rg.velocity = Vector3.zero; 
+            player_rg.AddForce(Vector3.up * JumpForce, ForceMode.Impulse); 
         }
     }
 
@@ -627,7 +688,7 @@ public class PlayerControl : MonoBehaviour
 
         previousWeaponIndex = currentWeaponIndex;
 
-        scrollValue = (int)Mathf.Clamp(Input.mouseScrollDelta.y, 0, 5f);
+        scrollValue = (int)Mathf.Clamp(Input.mouseScrollDelta.y, -5, 5f);
 
 
         if (scrollValue > 0)
@@ -645,7 +706,6 @@ public class PlayerControl : MonoBehaviour
                 
 
             }
-            Debug.Log(currentWeaponIndex);
         }
 
         
@@ -663,7 +723,6 @@ public class PlayerControl : MonoBehaviour
                 
 
             }
-            Debug.Log(currentWeaponIndex);
         }
 
         
@@ -709,6 +768,7 @@ public class PlayerControl : MonoBehaviour
     {
         Debug.Log($"Take Damage RPC : {amount}");
         hp -= amount;
+        hit_audio.Play();
 
         SetHitUIAlpha(1.0f);
 
@@ -756,11 +816,16 @@ public class PlayerControl : MonoBehaviour
         setRagdoll(false);
         setCollider(false);
         weaponHolder.transform.gameObject.SetActive(false);
+        death_audio.Play();
+
         
     }
 
-    public void ReceiveGameEvent(string message)
+    IEnumerator AfterDie()
     {
-        Debug.Log($"플레이어가 게임 이벤트를 받음 : {message}");
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("de_dust2");
+
     }
 }

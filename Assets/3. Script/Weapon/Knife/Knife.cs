@@ -26,6 +26,8 @@ public class Knife : Weapon
         reloadClick = new RClickNothing(); // Only return; -> Do Nothing
         wasdMove = new WASDMove();
     }
+    public AudioSource fire2_audio;
+    public AudioSource stab_audio;
 
 
     private void Start()

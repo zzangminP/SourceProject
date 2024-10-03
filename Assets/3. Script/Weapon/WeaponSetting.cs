@@ -51,9 +51,12 @@ public class WeaponSetting : MonoBehaviour
     public int damage               { get; set; }
     public float range              { get; set; }
     public float impactForce        { get; set; }
+    public float reloadTime         { get; set; }    
     public int pellet               { get; set; }
     public bool isAuto              { get; set; }
     public bool isBurst             { get; set; }
+
+    
 
     /// 
     /// RPM / 60
@@ -78,6 +81,7 @@ public class WeaponSetting : MonoBehaviour
 
 
     public Camera fpsCam            { get; set; }
+    public AudioSource fire_audio;
 
 
     //public TMP_Text Ammo_ui { get; set; }

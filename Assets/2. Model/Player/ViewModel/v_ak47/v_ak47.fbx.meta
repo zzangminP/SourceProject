@@ -67,8 +67,22 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: ReloadEvent
+      - time: 0.27363184
+        functionName: AKReloadOne
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7258963
+        functionName: AKReloadTwo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9775641
+        functionName: AKReloadThree
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -18,6 +18,7 @@ public class AWP : Weapon
         impactForce = 200f;
         fireRate = 10f;
         isAuto = false;
+        reloadTime = 4f;
 
         type = Type.AWP;
 
@@ -29,9 +30,13 @@ public class AWP : Weapon
 
     }
 
+    public AudioSource[] reload_audio = new AudioSource[3];
+    public AudioSource zoom_audio = new AudioSource();
+
     public GameObject scopeOverlay;
     public byte isScoped = 0;
     public PlayerControl player;
+
 
 
     private void Start()
@@ -104,6 +109,21 @@ public class AWP : Weapon
         rightClick.OnRightClick(this);
         reloadClick.OnReloadClick(this);
         wasdMove.DefaultWASDMove(this);
+    }
+
+
+    public void AWPReloadOne()
+    {
+        reload_audio[0].Play();
+
+    }
+    public void AWPReloadTwo()
+    {
+        reload_audio[1].Play();
+    }
+    public void AWPReloadThree()
+    {
+        reload_audio[2].Play();
     }
 
 }

@@ -47,6 +47,7 @@ public class ZoomIn : IRightClick
 
         if(Input.GetKeyDown(KeyCode.Mouse1))
         {
+            awp.zoom_audio.Play();
             if (awp.isScoped < 2)
             {
                 awp.StartCoroutine(OnScoped(awp));
@@ -108,23 +109,25 @@ public class KnifeRight : IRightClick
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            Knife _w = w as Knife;
+            
 
 
             RaycastHit hit;
 
-            if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range))
+            if (Physics.Raycast(_w.fpsCam.transform.position, _w.fpsCam.transform.forward, out hit, _w.range))
             {
 
                 Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
-                int calcDamage = w.damage;
+                int calcDamage = _w.damage;
                 //Debug.DrawLine(w.fpsCam.transform.position, hit.point, Color.green, 5f);
 
 
 
                 if (hitPlayer != null)
                 {
-                    w.SetState(new KnifeStabHitState());
-                    Vector3 rayDirection = (hit.point - w.transform.position).normalized;
+                    _w.SetState(new KnifeStabHitState());
+                    Vector3 rayDirection = (hit.point - _w.transform.position).normalized;
                     Vector3 targetForward = hitPlayer.transform.forward;
 
 
@@ -147,9 +150,9 @@ public class KnifeRight : IRightClick
                     if (hitPlayer.hp <= 0)
                     {
                         hitPlayer.player.gameObject.TryGetComponent<PlayerControl>(out PlayerControl _player);
-                        _player.money += w.reward;
+                        _player.money += _w.reward;
                     }
-
+                    _w.stab_audio.Play();
                     Debug.Log(calcDamage);
 
                 } // if hitPlayer != null
@@ -161,6 +164,7 @@ public class KnifeRight : IRightClick
             } // if Physics.Raycast
             else
             {
+                _w.fire_audio.Play();
                 Debug.Log("Stab Miss");
                 w.SetState(new KnifeStabMissState());
             }

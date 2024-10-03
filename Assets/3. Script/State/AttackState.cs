@@ -69,10 +69,14 @@ public class AttackState : BaseState
         RaycastHit hit;
         if(Physics.Raycast(dummy.viewPoint.transform.position, dummy.viewPoint.transform.forward, out hit, (int)dummy.sightDistance ))
         {
-            //if(hit.transform.parent.TryGetComponent<Dummy>(out Dummy temp))
-            //{
-            //    return;
-            //}
+            if(dummy.isAWP)
+            {
+                dummy.awp_audio.Play();
+            }
+            else
+            {
+                dummy.attack_audio.Play();
+            }
 
             PlayerControl hitPlayer  = hit.transform.GetComponentInParent<PlayerControl>();
             int calcDamage = dummy.damage;

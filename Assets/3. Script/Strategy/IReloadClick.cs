@@ -32,8 +32,7 @@ public class SingleReload : IReloadClick
                 {
                     w.StartCoroutine(ReloadShell_co(w));
                     //w.SetState(new SingleInsertReloadState());
-                    w.currentAmmo += 1;
-                    w.maxAmmo -= 1;
+
 
                 }
                 if (w.currentAmmo == w.maxMag || w.maxAmmo == 0)
@@ -55,8 +54,12 @@ public class SingleReload : IReloadClick
 
     IEnumerator ReloadShell_co(Weapon w)
     {
-        w.SetState(new SingleInsertReloadState());
-        yield return new WaitForSeconds(1f);
+        XM1014 _w = w as XM1014;
+        _w.SetState(new SingleInsertReloadState());
+        yield return new WaitForSeconds(_w.reloadTime); 
+        _w.reload_audio.Play();
+        _w.currentAmmo += 1;
+        _w.maxAmmo -= 1;
 
     }
 }
@@ -76,26 +79,35 @@ public class MagReload : IReloadClick
         {
             w.SetState(new ReloadingState());
             w.animator_w.SetTrigger("MagReload");
-
-            int neededAmmo = w.maxMag - w.currentAmmo;
-
-
-            if (w.maxAmmo >= neededAmmo)
-            {
-                w.currentAmmo += neededAmmo;
-                w.maxAmmo -= neededAmmo;
-            }
-            else
-            {
-
-                w.currentAmmo += w.maxAmmo;
-                w.maxAmmo = 0;
-            }
-
-            w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
+            w.StartCoroutine(MagReloadCo(w));            
         }
+     
 
     }
+
+    IEnumerator MagReloadCo(Weapon w)
+    {
+
+        yield return new WaitForSeconds(w.reloadTime);
+
+        int neededAmmo = w.maxMag - w.currentAmmo;
+
+
+        if (w.maxAmmo >= neededAmmo)
+        {
+            w.currentAmmo += neededAmmo;
+            w.maxAmmo -= neededAmmo;
+        }
+        else
+        {
+
+            w.currentAmmo += w.maxAmmo;
+            w.maxAmmo = 0;
+        }
+
+        w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
+    }
+
 }
 
 public class RClickNothing : IReloadClick

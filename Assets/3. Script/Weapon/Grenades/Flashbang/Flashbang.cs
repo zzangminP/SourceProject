@@ -11,7 +11,7 @@ public class Flashbang : MonoBehaviour
     private float countdown;
     private bool hasExploded = false;
     public Camera cam;
-
+    public AudioSource explosionSound;
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class Flashbang : MonoBehaviour
         Destroy(gameObject);
         FlashPlayers();
         FlashDummys();
-
+        explosionSound.Play();
 
 
 

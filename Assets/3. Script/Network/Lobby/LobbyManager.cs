@@ -9,7 +9,6 @@ public class LobbyManager : MonoBehaviour
 {
 
 
-    public GameObject joinRoomUIObject;
     public Button gameStartUIButton;
     public Button gameExitUIButton;
 

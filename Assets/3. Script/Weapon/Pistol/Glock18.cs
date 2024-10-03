@@ -19,6 +19,7 @@ public class Glock18 : Weapon
         fireRate    = 6.6f;
         isAuto      = true;
         isBurst     = false;
+        reloadTime = 2f;
 
         type = Type.Glock18;
         
@@ -30,6 +31,7 @@ public class Glock18 : Weapon
      }
 
 
+    public AudioSource[] reload_audio = new AudioSource[4];
 
 
     private void Start()
@@ -90,10 +92,25 @@ public class Glock18 : Weapon
     }    
     
     
+    public void GlockReloadOne()
+    {
 
-    
-    
-    
-    
-    
+    }
+
+    public void GlockReloadTwo()
+    {
+
+    }
+    public void GlockReloadThree()
+    {
+
+    }
+
+
+
+
+    public void GlockReloadFour()
+    {
+
+    }
 }

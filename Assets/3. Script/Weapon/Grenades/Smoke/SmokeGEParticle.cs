@@ -4,11 +4,13 @@ public class SmokeGEParticle : MonoBehaviour
 {
     public float delay = 50f;
     private float countdown;
+
     // Start is called before the first frame update
     void Start()
     {
         countdown = delay;
-        
+
+
     }
 
     // Update is called once per frame

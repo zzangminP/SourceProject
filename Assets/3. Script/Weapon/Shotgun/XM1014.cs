@@ -20,6 +20,7 @@ public class XM1014 : Weapon
         fireRate    = 2f;
         isAuto      = false;
         pellet      = 6;
+        reloadTime = 1.1f;
 
         type = Type.XM1014;
 
@@ -29,6 +30,8 @@ public class XM1014 : Weapon
         wasdMove    = new WASDMove();
     
     }
+
+    public AudioSource reload_audio;
 
     private void Start()
     {
@@ -85,6 +88,12 @@ public class XM1014 : Weapon
         rightClick.OnRightClick(this);
         reloadClick.OnReloadClick(this);
         wasdMove.DefaultWASDMove(this);
+    }
+
+    public void XMReload()
+    {
+        reload_audio.Play();
+
     }
 
 }

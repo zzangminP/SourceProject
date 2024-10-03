@@ -17,6 +17,7 @@ public class Grenade : MonoBehaviour
     public GameObject explosionEffect;
     private float countdown;
     private bool hasExploded = false;
+    public AudioSource explosionSound;
 
     // Start is called before the first frame update
     void Start()
@@ -35,25 +36,12 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    //private void OnEnable()
-    //{
-    //    SetAnimator();
-    //}
-    //
-    //void SetAnimator()
-    //{
-    //    {
-    //    for (int i = 1; i < animator_w.layerCount; i++)
-    //        animator_w.SetLayerWeight(i, 0);
-    //    }
-    //    animator_w.SetLayerWeight(animator_w.GetLayerIndex("Knife"), 1);
-    //}
 
     void Explode()
     {
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
-
+        explosionSound.Play();
         
         int layerMask = LayerMask.GetMask("Head", "Prop");
 
