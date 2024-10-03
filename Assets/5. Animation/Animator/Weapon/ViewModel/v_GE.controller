@@ -17,9 +17,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.24999999
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.75000006
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -120,7 +120,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fire2
-  m_Speed: 1
+  m_Speed: 1.6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4242250196664191911}
@@ -133,7 +133,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3897114985317646954, guid: 4b146d140f47df74084bf7d5bbd373e9, type: 3}
+  m_Motion: {fileID: -6129438217237444795, guid: 38a81a1b8c9629644b428a15dc20117b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -160,7 +160,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 2590110669327070279, guid: 4b146d140f47df74084bf7d5bbd373e9, type: 3}
+  m_Motion: {fileID: -5252816984213320552, guid: 38a81a1b8c9629644b428a15dc20117b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -187,7 +187,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 344520292234309831, guid: 4b146d140f47df74084bf7d5bbd373e9, type: 3}
+  m_Motion: {fileID: 344520292234309831, guid: 38a81a1b8c9629644b428a15dc20117b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -261,7 +261,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3323728051481502483, guid: 4b146d140f47df74084bf7d5bbd373e9, type: 3}
+  m_Motion: {fileID: 719102980624734491, guid: 38a81a1b8c9629644b428a15dc20117b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

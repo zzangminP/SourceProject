@@ -8,31 +8,34 @@ using UnityEngine.SceneManagement;
 public class LobbyManager : MonoBehaviour
 {
 
-    //[Header("Join Room")]
+
     public GameObject joinRoomUIObject;
     public Button gameStartUIButton;
-    public TMP_InputField inputField;
+    public Button gameExitUIButton;
 
-    //[Header("Create Rooms")]
-    //public Button createRoomButton;
+
+
 
 
     private void Start()
     {
 
-        //openJoinRoomUIButton.onClick.AddListener(JoinRoomUI);
-        //closeJoinRoomUIButton.onClick.AddListener(JoinRoomUI);
-        //joinRoomButton.onClick.AddListener(JoinRoom);
-        //createRoomButton.onClick.AddListener(CreateRoom);
-        gameStartUIButton.onClick.AddListener(SceneChange);
+
+        gameStartUIButton.onClick.AddListener(GameStart);
 
 
     }
 
-    void SceneChange()
+    void GameStart()
     {
         SceneManager.LoadScene("de_dust2");
     
+    }
+   
+
+    void GameExit()
+    {
+        Application.Quit();
     }
     
 

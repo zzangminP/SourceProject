@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -38,6 +39,9 @@ public class Dummy : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] private GameObject weapon;
 
+    [Header("VFX")]
+    public GameObject bloodImpact;
+
     //[SerializeField] private Weapon weapon;
 
 
@@ -57,6 +61,7 @@ public class Dummy : MonoBehaviour
 
 
     public GameObject player;
+    public PlayerControl player_playerControl;
     
     private Vector3 lastKnowPos;
     public  Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value; }
@@ -95,6 +100,10 @@ public class Dummy : MonoBehaviour
     /// </summary>
     /// 
 
+    private void OnEnable()
+    {
+        InitPlayer();
+    }
 
     private void InitPlayer()
     {
@@ -102,6 +111,7 @@ public class Dummy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         statemachine.Initialise();
         player = GameObject.FindGameObjectWithTag("Player");
+        player_playerControl = player.GetComponentInChildren<PlayerControl>();
 
         weapon = GetComponentInChildren<WeaponWorldDrop>().gameObject;
 
@@ -111,6 +121,7 @@ public class Dummy : MonoBehaviour
         setRagdoll(true);
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
+        transform.GetComponent<Rigidbody>().isKinematic = true;
         SetWeapon(true);
 
         isDead = false;
@@ -125,6 +136,7 @@ public class Dummy : MonoBehaviour
             player_movement_ani.SetLayerWeight(i, 0);
         }
         player_movement_ani.SetLayerWeight(player_movement_ani.GetLayerIndex("AK47"), 1);
+        player_movement_ani.SetBool("Walk", true);
 
     }
 
@@ -154,7 +166,16 @@ public class Dummy : MonoBehaviour
                     RaycastHit hitInfo = new RaycastHit();
                     if(Physics.Raycast(ray, out hitInfo, sightDistance))
                     {
-                        if(hitInfo.transform.gameObject == player)
+                        if (hitInfo.transform.gameObject.CompareTag("Smoke"))
+                        {
+                            Debug.DrawRay(ray.origin, ray.direction * sightDistance, Color.gray);
+                            return false;  
+                        }
+
+
+
+
+                        if (hitInfo.transform.gameObject == player)
                         {
                             Debug.DrawRay(ray.origin, ray.direction  * sightDistance);
                             return true;
@@ -224,14 +245,10 @@ public class Dummy : MonoBehaviour
     }
 
 
-    private void WeaponSet()
-    {
-
-    }
-
     public void TakeDamage(int amount)
     {
         hp -= amount;
+        Instantiate(bloodImpact,transform.position + new Vector3(0,1f,0), Quaternion.identity);
         if (hp <= 0)
         {
 
@@ -251,21 +268,26 @@ public class Dummy : MonoBehaviour
         SetWeapon(false);
 
         player_movement_ani = null;
-        statemachine = null;
+        agent.enabled = false;
+        statemachine.enabled = false;
         isDead = true;
-        AfterDie();
+        weapon.transform.SetParent(GameObject.Find("de_dust2").transform);
+
+        player_playerControl.killCount += 1;
+        StartCoroutine(AfterDie());
 
     }
 
-    public void AfterDie()
+    IEnumerator AfterDie()
     {
-        deathTimer += Time.deltaTime;
-        if (deathTimer >= 3f)
-        {
-            deathTimer = 0;
-            isDead = false;
-            gameObject.SetActive(false);
-        }
+        yield return new WaitForSeconds(3);
+        isDead = false;
+        gameObject.SetActive(false);
+
+    }
+    private void OnDisable()
+    {
+        StopCoroutine(AfterDie());
     }
     void SetWeapon(bool state)
     {

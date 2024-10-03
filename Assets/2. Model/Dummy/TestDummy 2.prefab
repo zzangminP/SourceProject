@@ -4835,7 +4835,7 @@ GameObject:
   - component: {fileID: 7595595739139437288}
   - component: {fileID: 4328821185742388774}
   - component: {fileID: 6830485516347939936}
-  m_Layer: 3
+  m_Layer: 21
   m_Name: TestDummy 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,10 +4964,10 @@ MonoBehaviour:
   skeleton_cl: []
   player_movement_ani: {fileID: 0}
   weapon: {fileID: 0}
+  bloodImpact: {fileID: 3548588485384254792, guid: 2f9e7dc163581394da1e00b561eed65d, type: 3}
   currentState: 
   path: {fileID: 0}
   player: {fileID: 0}
-  debugSphear: {fileID: 0}
   viewPoint: {fileID: 1807782220709636176}
   sightDistance: 20
   fieldOfView: 85
@@ -5008,6 +5008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155f65746219eb545907c8cfb64a134e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStay: 0
 --- !u!1 &9101668347419056191
 GameObject:
   m_ObjectHideFlags: 0

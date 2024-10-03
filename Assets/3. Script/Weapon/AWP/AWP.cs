@@ -69,6 +69,12 @@ public class AWP : Weapon
         scopeOverlay = player.scopeOverlay;
         Ammo_ui = GameObject.Find("Ammo").GetComponent<TMP_Text>();
         Ammo_ui.text = $"{currentAmmo} || {maxAmmo}";
+        player.crosshairUI.SetActive(false);
+
+    }
+    private void OnDisable()
+    {
+        player.crosshairUI.SetActive(true);
     }
 
     void SetAnimator()

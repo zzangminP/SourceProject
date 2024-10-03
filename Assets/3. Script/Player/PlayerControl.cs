@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Mirror;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
@@ -39,6 +41,7 @@ public class PlayerControl : MonoBehaviour
     [Header("Basic Values")]
     [SerializeField] public int hp = 100;
     [SerializeField] public int armor = 100;
+    [SerializeField] private bool isAlive = true;
 
 
     [Header("Physics Values")]
@@ -87,6 +90,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private TextMeshProUGUI money_TMP;
     [SerializeField] public int money = 0;
     [SerializeField] public int killCount = 0;
+    [SerializeField] public GameObject InStoreImg;
+    [SerializeField] public GameObject crosshairUI;
+    [SerializeField] public Image hitUI;
+    [SerializeField] public TextMeshProUGUI killCountUI;
+    [SerializeField] public TextMeshProUGUI timer;
+    [SerializeField] public GameObject escMenu;
     private bool canIOpenStore = false;
 
 
@@ -113,7 +122,6 @@ public class PlayerControl : MonoBehaviour
 
 
 
-    //private GameObject[,] weaponSlot = new GameObject[5,5];
 
 
     private bool isMove;
@@ -123,6 +131,7 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     { 
         InitPlayer();
+
     }
 
     /// <summary>
@@ -135,13 +144,8 @@ public class PlayerControl : MonoBehaviour
 
     private void InitPlayer()
     {
-
-        //fpsCam.SetActive(false);
-        //return;
- 
-
-
-
+        killCount = 0;
+        GameManager.instance.StartTimer(300f);
         if (SceneManager.GetActiveScene().name != "Title")
         { 
             Cursor.lockState = CursorLockMode.Locked;
@@ -152,14 +156,13 @@ public class PlayerControl : MonoBehaviour
             Cursor.visible = true;
         }
         player_rg = GetComponent<Rigidbody>();
-        //scopeOverlay = GameObject.Find("Scope");
-        //scopeOverlay.SetActive(false);
+
 
         player_movement_ani = GetComponent<Animator>();
         setRagdoll(true);   
         setCollider(true);
         transform.GetComponent<BoxCollider>().enabled = true;
-        //hitBoxCollider.enabled = true;
+
         playerWeapon_List = new Weapon[5];
         fpsCam.SetActive(true);
 
@@ -175,21 +178,18 @@ public class PlayerControl : MonoBehaviour
         UI();
         
     }
+
     private void OnEnable()
     {
         fpsCam.SetActive(true);
+
     }
 
     private void FixedUpdate()
     {
-        //PlayerInput();
 
-        //if (!isLocalPlayer)
-        //{
-        //    return;
-        //}
         HandleInput();
-        //WeaponControl();
+
     }
 
     private void OnCollisionEnter(Collision col)
@@ -213,9 +213,15 @@ public class PlayerControl : MonoBehaviour
         HP_TMP.text = ($"HP : {hp}");
         armor_TMP.text = ($"Armor : {armor}");
         money_TMP.text = ($"$ {money}");
+        killCountUI.text = ($"X {killCount}");
         if (money >= 16000)
         {
             money = 16000;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            escMenu.SetActive(!escMenu.activeSelf);
         }
     }
 
@@ -275,9 +281,7 @@ public class PlayerControl : MonoBehaviour
             playerViewModels_List[i].TryGetComponent<Weapon>(out Weapon playerGun);
             if (tempGun.type == playerGun.type)
             {
-                //playerGun.type = tempGun;
-                //playerGun.maxAmmo = tempGun.maxAmmo;
-                //playerGun.currentAmmo = tempGun.currentAmmo;
+
                 playerGun.type = tempGun.type;
                 playerGun.maxAmmo = tempGun.maxAmmo;
                 playerGun.currentAmmo = tempGun.currentAmmo;
@@ -304,7 +308,8 @@ public class PlayerControl : MonoBehaviour
         if(other.gameObject.CompareTag("Store"))
         {
             canIOpenStore = true;
-       
+            InStoreImg.SetActive(true);
+
         }
 
 
@@ -324,6 +329,7 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("Store"))
         {
             canIOpenStore = false;
+            InStoreImg.SetActive(false);
 
         }
 
@@ -369,55 +375,53 @@ public class PlayerControl : MonoBehaviour
     private void HandleInput()
     {
 
-        //if (!isLocalPlayer)
-        //{
-        //    return;
-        //}
         // WASD
+        if (isAlive)
+        {
+            float dirX = Input.GetAxis("Horizontal");
+            float dirZ = Input.GetAxis("Vertical");
 
-        float dirX = Input.GetAxis("Horizontal");
-        float dirZ = Input.GetAxis("Vertical");
-
-        // Walk - Key : left shift , Crouch - Key : left ctrl
-        isWalking = Input.GetButton("Walk") ;
-        isCrouch = Input.GetButton("Crouch") ? true : false;
-
-
-        // Mouse
-
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+            // Walk - Key : left shift , Crouch - Key : left ctrl
+            isWalking = Input.GetButton("Walk");
+            isCrouch = Input.GetButton("Crouch") ? true : false;
 
 
-        PlayerMovement(dirX, dirZ, mouseX, mouseY, isWalking, isCrouch);
-        
-        
+            // Mouse
+
+            float mouseX = Input.GetAxis("Mouse X");
+            float mouseY = Input.GetAxis("Mouse Y");
+
+
+            PlayerMovement(dirX, dirZ, mouseX, mouseY, isWalking, isCrouch);
 
 
 
-        // Jump - Key : Space
-        
-        
-        PlayerJump();
-        
 
 
-        // Drop Weapon - Key : G
-        DropWeapon();
+            // Jump - Key : Space
 
 
-        // Pick up Weapon - Key : E
-        PickUpWeaponByHand();
-               
-
-        
-        
-        // Swap Weapon - Key : Mouse Wheel, Q
-        SwapWeapon();
+            PlayerJump();
 
 
-        // OpenStoreUI - Key : B;
-        OpenStoreUI();
+
+            // Drop Weapon - Key : G
+            DropWeapon();
+
+
+            // Pick up Weapon - Key : E
+            PickUpWeaponByHand();
+
+
+
+
+            // Swap Weapon - Key : Mouse Wheel, Q
+            SwapWeapon();
+
+
+            // OpenStoreUI - Key : B;
+            OpenStoreUI();
+        }
 
     }
 
@@ -437,16 +441,10 @@ public class PlayerControl : MonoBehaviour
 
     private void PlayerMovement(float _dirX, float _dirZ, float mouseX, float mouseY, bool _isWalking ,bool _isCrouch)
     {
-        //if (!isLocalPlayer)
-        //{
-        //    return;
-        //}
-        // Movement
 
 
-        //float _dirX = dirX;
-        //float _dirZ = dirZ;
-        //fpsCam.transform.position.y = playerHead.transform.position.y; 
+
+
         fpsCam.transform.position = new Vector3(
         fpsCam.transform.position.x,
         playerHead.transform.position.y,
@@ -473,8 +471,7 @@ public class PlayerControl : MonoBehaviour
         player_tr.Rotate(Vector3.up * _mouseX);
         viewModel_tr.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-        //_isWalking = false;
-        //_isCrouch = false;
+
 
         if (direction != Vector3.zero)
         {
@@ -533,12 +530,7 @@ public class PlayerControl : MonoBehaviour
 
     private void PlayerCrouch(Vector3 direction)
     {
-        //Vector3 newPosition = new Vector3(
-        //fpsCam.transform.position.x,
-        //playerHead.transform.position.y,
-        //fpsCam.transform.position.z
-        //);           
-        //fpsCam.transform.position = newPosition;
+
 
 
         this.transform.Translate(direction.normalized * moveSpeed * 0.3f * Time.deltaTime);
@@ -703,15 +695,9 @@ public class PlayerControl : MonoBehaviour
     private void ActivateWeaponModel(int weaponIndex)
     {
 
-        //if (playerWeapon_List[weaponIndex] != null)
-        //{
-            DeactivateAllWeapons();
-            playerWeapon_List[weaponIndex].gameObject.SetActive(true);
-        //}
-        //else
-        //{
-        //
-        //}
+        DeactivateAllWeapons();
+        playerWeapon_List[weaponIndex].gameObject.SetActive(true);
+
 
     }
 
@@ -723,25 +709,54 @@ public class PlayerControl : MonoBehaviour
     {
         Debug.Log($"Take Damage RPC : {amount}");
         hp -= amount;
-        if(hp <= 0)
+
+        SetHitUIAlpha(1.0f);
+
+        StartCoroutine(FadeHitUI());
+
+        if (hp <= 0)
         {
             Die();
         }
+    }
 
+    private void SetHitUIAlpha(float alpha)
+    {
+        Color color = hitUI.color;
+        color.a = alpha;
+        hitUI.color = color;
     }
 
 
-    //[ClientRpc]
+    private IEnumerator FadeHitUI()
+    {
+        float duration = 0.5f; 
+        float currentTime = 0f;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1.0f, 0.0f, currentTime / duration); 
+            SetHitUIAlpha(alpha);
+            yield return null;
+        }
+
+
+        SetHitUIAlpha(0.0f);
+    }
+
+
     public void Die()
     {
-        Debug.Log($"Die RPC");
 
+        isAlive = false;
         transform.GetComponent<BoxCollider>().enabled = false;
         transform.GetComponent<Animator>().enabled = false;
         player_movement_ani = null;
         setRagdoll(false);
         setCollider(false);
-
+        weaponHolder.transform.gameObject.SetActive(false);
+        
     }
 
     public void ReceiveGameEvent(string message)

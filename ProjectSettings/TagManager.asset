@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BombSite
   - Store
+  - Smoke
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Weapon
   - WorldDropWeapon
   - PlayerWorldModel
-  - 
+  - Dummy
   - 
   - 
   - 

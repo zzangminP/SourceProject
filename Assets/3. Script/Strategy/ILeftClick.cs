@@ -65,10 +65,7 @@ public class AK47Left : ILeftClick
 
             if (Physics.Raycast(w.fpsCam.transform.position, w.fpsCam.transform.forward, out hit, w.range, layerMask))
             {
-                if (hit.transform.parent == w.transform.parent)
-                {
-                    return;
-                }
+                Debug.Log($"Hit : {hit.transform}");
                 Dummy hitPlayer = hit.transform.GetComponentInParent<Dummy>();
                 int calcDamage = 0;
 

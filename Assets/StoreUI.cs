@@ -121,20 +121,23 @@ public class StoreUI : MonoBehaviour
                 break;
             case WeaponSetting.Type.FL:
                 {
-                    Flashbang newGun = new Flashbang();
+                    GrenadeThrowerFL newGun = new GrenadeThrowerFL();
+                    
                     BuyGun(newGun);
                 }
                 break;
             case WeaponSetting.Type.HE:
                 {
-                    Grenade newGun = new Grenade();
+                    GrenadeThrowerHE newGun = new GrenadeThrowerHE();
                     BuyGun(newGun);
 
                 }
                 break;
             case WeaponSetting.Type.SMOKE:
                 {
-                    // smoke
+                    GrenadeThrowerSMOKE newGun = new GrenadeThrowerSMOKE();
+                    
+                    BuyGun(newGun);
                 }
                 break;
             default:
@@ -150,7 +153,7 @@ public class StoreUI : MonoBehaviour
         if ((_type >= 100 && _type <= 199))
         {
             //pri_weapon
-            if (player.playerWeapon_List[0] != null && player.money < tempGun.cost)
+            if (player.playerWeapon_List[0] != null || player.money < tempGun.cost)
             {
                 return;
             }
@@ -166,7 +169,7 @@ public class StoreUI : MonoBehaviour
         {
             //sec_weapon
 
-            if (player.playerWeapon_List[1] != null && player.money < tempGun.cost)
+            if (player.playerWeapon_List[1] != null || player.money < tempGun.cost)
             {
                 return;
             }
@@ -179,6 +182,16 @@ public class StoreUI : MonoBehaviour
         else if (_type >= 400 && _type <= 499)
         {
             // GE
+            if(player.playerWeapon_List[3] != null || player.money < 300)
+            {
+                return;
+            }
+            else
+            {
+                player.playerWeapon_List[3] = player.BuyWeapon(tempGun);
+                player.money -= tempGun.cost;
+
+            }
         }
         else
             return;

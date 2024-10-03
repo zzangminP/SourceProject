@@ -2,28 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using Mirror;
+using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public PlayerControl player;
 
+    // 타이머 UI 텍스트
+    public TextMeshProUGUI timer_text;
 
-    #region Events
-
-    public delegate void GameEvent();
-    public static event GameEvent OnGameStart;
-    public static event GameEvent OnRoundStart;
-    public static event GameEvent OnRoundEnd;
-    public static event GameEvent OnGameEnd;
-
-    #endregion
-
-
-    public List<PlayerControl> players = new List<PlayerControl>();
-    public List<GameObject> CSplayerPrefab = new List<GameObject>();
-    public List<Transform> ctSpawnPoint = new List<Transform>();
-    public List<Transform> tSpawnPoint = new List<Transform>();
     private void Awake()
     {
         if (instance == null)
@@ -33,26 +22,56 @@ public class GameManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+        player = GameObject.Find("gsg9Player").GetComponent<PlayerControl>();
     }
 
-    public void OnPlayerDie(PlayerControl player)
-    {
-        Debug.Log($"GameManager: {player.gameObject.name}이(가) 죽었습니다.");
+    
 
-        // 다른 플레이어에게 알림을 보낼 수 있음
-        foreach (var p in players)
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name =="de_dust2")
         {
-            p.ReceiveGameEvent($"{player.gameObject.name} died.");
+
+
+            
+
         }
     }
 
-    public void RegisterPlayer(PlayerControl player)
+    // 타이머 시작 함수 (duration: 초)
+    public void StartTimer(float duration)
     {
-        players.Add(player);
+        StartCoroutine(TimerCoroutine(duration));
     }
 
-    public void UnregisterPlayer(PlayerControl player) 
-    { 
-        players.Remove(player); 
+    // 타이머 코루틴
+    private IEnumerator TimerCoroutine(float duration)
+    {
+        float remainingTime = duration;
+
+        while (remainingTime > 0)
+        {
+            // 남은 시간을 분:초 형식으로 변환
+            int minutes = Mathf.FloorToInt(remainingTime / 60);
+            int seconds = Mathf.FloorToInt(remainingTime % 60);
+
+            // UI 텍스트 업데이트
+            player.timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            // 1초마다 감소
+            yield return new WaitForSeconds(1f);
+            remainingTime -= 1f;
+        }
+
+        // 타이머가 끝났을 때 처리 (예: "00:00" 표시)
+        player.timer.text = "00:00";
+        OnTimerComplete();
+    }
+
+    // 타이머가 끝났을 때 실행할 함수
+    private void OnTimerComplete()
+    {
+        Debug.Log("Time's up!");
+
     }
 }

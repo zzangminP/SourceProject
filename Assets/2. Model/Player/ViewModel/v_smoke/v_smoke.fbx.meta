@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: v_hands
-    second: {fileID: 2100000, guid: 71877073d0914af43a5defd18384b0cb, type: 2}
+    second: {fileID: 2100000, guid: ffb1909e4b7ed4e418cc4f7b6939034f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -109,7 +109,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

@@ -1,33 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class Flashbang : Weapon
+public class Flashbang : MonoBehaviour
 {
-    public Flashbang() 
-    {
-        damage      = 0;
-        currentAmmo = 1;
-        maxAmmo     = 1;
-        range       = 100f;
-        cost        = 200;
-        reward      = 300;
-        impactForce = 0;
-        fireRate    = 0;
-        isAuto      = false;
-
-        type = Type.FL;
-
-        leftClick   = new GELeft();
-        rightClick  = new RightClickNothing();
-        reloadClick = new RClickNothing();
-        wasdMove    = new WASDMove();
-
-
-
-    }
-
     public float delay = 3f;
     public GameObject explosionEffect;
     public float radius = 50f;
@@ -48,7 +25,7 @@ public class Flashbang : Weapon
         if (countdown <= 0f && !hasExploded)
         {
             Explode();
-            
+
             Debug.Log("WTF is happening?");
         }
     }
@@ -57,59 +34,123 @@ public class Flashbang : Weapon
     {
 
         Destroy(gameObject);
-        //Instantiate(explosionEffect, transform.position, transform.rotation);
         FlashPlayers();
+        FlashDummys();
 
-        
-        //FlashPlayers();
 
-        
+
+
+
         Destroy(Instantiate(explosionEffect, transform.position, transform.rotation), 0.1f);
     }
+
+
+
 
     void FlashPlayers()
     {
         int layerMask = LayerMask.GetMask("Player");
-        //Debug.Log("���̾� üũ");
-        //
-        //
         Collider[] players = Physics.OverlapSphere(transform.position, radius, layerMask);
-        //
+
         foreach (Collider player in players)
         {
-        //
-        //    Debug.Log(player);
-        //    Vector3 directionToPlayer = player.transform.position - transform.position;
-        //    float angle = Vector3.Angle(transform.forward, directionToPlayer);
-        //
-        //    //PlayerControl hitPlayer;
-        //    player.TryGetComponent<PlayerControl>(out PlayerControl hitPlayer);
-              cam = player.GetComponentInChildren<Camera>();
-            //
-            //    if (angle < 90f) 
-            //    {
-            //        Debug.Log(hitPlayer);
-            //        
-            //        hitPlayer.GetComponentInChildren<FlashEffect>().FlashScreen();
-            //        Debug.Log(hitPlayer.GetComponentInChildren<FlashEffect>());
-            //    }
 
-            if (CheckVisibility() && cam != null)
+            cam = player.GetComponentInChildren<Camera>(true);
+
+            Camera[] cameras = player.GetComponentsInChildren<Camera>();
+            foreach (Camera c in cameras)
             {
-                player.GetComponentInChildren<FlashEffect>().FlashScreen();
+                if (c.CompareTag("MainCamera")) 
+                {
+                    cam = c;
+                    break;
+                }
+            }
+
+            // 카메라가 없으면 continue로 넘어감
+            if (cam == null)
+            {
+                Debug.LogWarning("플레이어에 카메라가 없습니다.");
+                continue;
+            }
+
+            if (CheckVisibility())
+            {
+                FlashEffect flashEffect = player.GetComponentInChildren<FlashEffect>();
+                if (flashEffect != null)
+                {
+                    flashEffect.FlashScreen();
+                }
+                else
+                {
+                    Debug.LogWarning("플래시 효과가 있는 스크립트를 찾을 수 없습니다.");
+                }
             }
         }
 
+        hasExploded = true;
+    }
 
+    void FlashDummys()
+    {
+        int layerMask = LayerMask.GetMask("Dummy");
+        Collider[] dummies = Physics.OverlapSphere(transform.position, radius, layerMask);
+
+        foreach (Collider dummyCollider in dummies)
+        {
+            Dummy dummy = dummyCollider.GetComponent<Dummy>();
+
+            if (dummy != null && IsInDummySight(dummy))
+            {
+
+                dummy.GetComponent<StateMachine>().ChangeState(new StunState());
+            }
+        }
 
         hasExploded = true;
     }
+
+
+    bool IsInDummySight(Dummy dummy)
+    {
+        Vector3 directionToFlashbang = transform.position - dummy.viewPoint.transform.position;
+        float distanceToFlashbang = directionToFlashbang.magnitude;
+
+
+        if (distanceToFlashbang <= dummy.sightDistance)
+        {
+
+            float angleToFlashbang = Vector3.Angle(dummy.viewPoint.transform.forward, directionToFlashbang);
+
+            if (angleToFlashbang <= dummy.fieldOfView / 2)
+            {
+
+                Ray ray = new Ray(dummy.viewPoint.transform.position, directionToFlashbang.normalized);
+                RaycastHit hitInfo;
+
+                if (Physics.Raycast(ray, out hitInfo, dummy.sightDistance))
+                {
+                    if (hitInfo.transform.gameObject == this.gameObject)
+                    {
+                        return true; 
+                    }
+                }
+            }
+        }
+
+        return false; 
+    }
+
+
+
+
+
+
 
     bool CheckVisibility()
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(cam);
         var point = transform.position;
-
 
         foreach (var plane in planes)
         {

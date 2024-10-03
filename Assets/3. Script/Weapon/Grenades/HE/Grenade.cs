@@ -2,31 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grenade : Weapon
+public class Grenade : MonoBehaviour
 {
 
-    public Grenade()
-    {
-        damage      = 1;
-        currentAmmo = 1;
-        maxAmmo     = 1;
-        range       = 100f;
-        cost        = 300;
-        reward      = 300;
-        impactForce = 0;
-        fireRate    = 0;
-        isAuto      = false;
 
-        type        = Type.HE;
-
-        leftClick   = new GELeft();
-        rightClick  = new RightClickNothing();
-        reloadClick = new RClickNothing();
-        wasdMove    = new WASDMove();
-
-
-
-    }
 
 
     public float delay = 3f;
@@ -43,7 +22,6 @@ public class Grenade : Weapon
     void Start()
     {
         countdown = delay;
-        SetAnimator();
     }
 
     // Update is called once per frame
@@ -57,19 +35,19 @@ public class Grenade : Weapon
         }
     }
 
-    private void OnEnable()
-    {
-        SetAnimator();
-    }
-
-    void SetAnimator()
-    {
-        for (int i = 1; i < animator_w.layerCount; i++)
-        {
-            animator_w.SetLayerWeight(i, 0);
-        }
-        animator_w.SetLayerWeight(animator_w.GetLayerIndex("Knife"), 1);
-    }
+    //private void OnEnable()
+    //{
+    //    SetAnimator();
+    //}
+    //
+    //void SetAnimator()
+    //{
+    //    {
+    //    for (int i = 1; i < animator_w.layerCount; i++)
+    //        animator_w.SetLayerWeight(i, 0);
+    //    }
+    //    animator_w.SetLayerWeight(animator_w.GetLayerIndex("Knife"), 1);
+    //}
 
     void Explode()
     {
@@ -85,7 +63,7 @@ public class Grenade : Weapon
         {
 
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            PlayerControl hitPlayer = nearbyObject.GetComponentInParent<PlayerControl>();
+            Dummy hitPlayer = nearbyObject.GetComponentInParent<Dummy>();
 
             if (rb != null)
             {
