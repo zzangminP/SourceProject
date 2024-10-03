@@ -67,6 +67,7 @@ public class Dummy : MonoBehaviour
     public Path path;
 
     public bool isAWP = false;
+
     public GameObject player;
     public PlayerControl player_playerControl;
     
@@ -154,12 +155,17 @@ public class Dummy : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+        else
+        {
+            CanSeePlayer();
+            currentState = statemachine.activeState.ToString();
 
-        CanSeePlayer();
-        currentState = statemachine.activeState.ToString();
-        
-        DummyMovement();
-
+            DummyMovement();
+        }
 
     }
 
@@ -275,6 +281,7 @@ public class Dummy : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         transform.GetComponent<BoxCollider>().enabled = false;
         transform.GetComponent<Animator>().enabled = false;
         

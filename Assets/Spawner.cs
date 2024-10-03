@@ -77,7 +77,7 @@ public class Spawner : MonoBehaviour
 
     public Transform dummysParent;
 
-    private Coroutine[] respawnCoroutines = new Coroutine[8]; // 각 더미의 코루틴 참조 변수
+    private Coroutine[] respawnCoroutines = new Coroutine[9]; // 각 더미의 코루틴 참조 변수
 
     private void Start()
     {
@@ -103,9 +103,9 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < dummysPrefab.Length; i++)
         {
-            if (dummysInGame[i] == null && respawnCoroutines[i] == null) // 더미가 없고, 코루틴이 실행 중이지 않으면
+            if (dummysInGame[i] == null && respawnCoroutines[i] == null) 
             {
-                // 코루틴 실행 후 참조 저장
+
                 respawnCoroutines[i] = StartCoroutine(RespawnDummyCO(i));
             }
         }
