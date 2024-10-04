@@ -8,61 +8,109 @@ public interface IReloadClick
 }
 
 
+//public class SingleReload : IReloadClick
+//{
+//
+//
+//    public void OnReloadClick(Weapon w)
+//    {
+//
+//        if ((w.currentState is FireOneState ||
+//             w.currentState is SingleFiringState))
+//             return;
+//
+//        if(Input.GetKeyDown(KeyCode.R) &&
+//           w.currentAmmo < w.maxMag &&
+//           w.maxAmmo > 0 )
+//        {     
+//            w.SetState(new SingleStartReloadState());
+//            w.animator_w.SetTrigger("SingleReload");            
+//            if (Input.GetKeyDown(KeyCode.R))
+//            {
+//                while (w.currentAmmo < w.maxMag && 
+//                       w.maxAmmo > 0)
+//                {
+//                    w.StartCoroutine(ReloadShell_co(w));
+//
+//
+//                }
+//                if (w.currentAmmo == w.maxMag || w.maxAmmo == 0)
+//                {
+//                    w.SetState(new SingleAfterReloadState());
+//                    w.animator_w.SetTrigger("XMReloadEnd");
+//
+//                }
+//
+//
+//                // Update ui
+//                w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
+//
+//            }
+//
+//            
+//        }
+//    }
+//
+//    IEnumerator ReloadShell_co(Weapon w)
+//    {
+//        XM1014 _w = w as XM1014;
+//        _w.SetState(new SingleInsertReloadState());
+//        yield return new WaitForSeconds(_w.reloadTime); 
+//        _w.reload_audio.Play();
+//        _w.currentAmmo += 1;
+//        _w.maxAmmo -= 1;
+//
+//    }
+//}
+
+
 public class SingleReload : IReloadClick
 {
-
-
     public void OnReloadClick(Weapon w)
     {
+        if ((w.currentState is FireOneState || w.currentState is SingleFiringState))
+            return;
 
-        if ((w.currentState is FireOneState ||
-             w.currentState is SingleFiringState))
-             return;
-
-        if(Input.GetKeyDown(KeyCode.R) &&
-           w.currentAmmo < w.maxMag &&
-           w.maxAmmo > 0 )
-        {     
+        if (Input.GetKeyDown(KeyCode.R) &&
+            w.currentAmmo < w.maxMag &&
+            w.maxAmmo > 0)
+        {
             w.SetState(new SingleStartReloadState());
-            w.animator_w.SetTrigger("SingleReload");            
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                while (w.currentAmmo < w.maxMag && 
-                       w.maxAmmo > 0)
-                {
-                    w.StartCoroutine(ReloadShell_co(w));
-                    //w.SetState(new SingleInsertReloadState());
+            w.animator_w.SetTrigger("SingleReload");
 
-
-                }
-                if (w.currentAmmo == w.maxMag || w.maxAmmo == 0)
-                {
-                    w.SetState(new SingleAfterReloadState());
-                    w.animator_w.SetTrigger("XMReloadEnd");
-
-                }
-
-
-                // Update ui
-                w.Ammo_ui.text = $"{w.currentAmmo} || {w.maxAmmo}";
-
-            }
-
-            
+            w.StartCoroutine(ReloadShell_co(w)); 
         }
     }
 
     IEnumerator ReloadShell_co(Weapon w)
     {
         XM1014 _w = w as XM1014;
-        _w.SetState(new SingleInsertReloadState());
-        yield return new WaitForSeconds(_w.reloadTime); 
-        _w.reload_audio.Play();
-        _w.currentAmmo += 1;
-        _w.maxAmmo -= 1;
 
+        while (_w.currentAmmo < _w.maxMag && _w.maxAmmo > 0)
+        {
+            _w.SetState(new SingleInsertReloadState());
+            yield return new WaitForSeconds(_w.reloadTime); 
+
+            _w.reload_audio.Play();
+            _w.currentAmmo += 1;
+            _w.maxAmmo -= 1;
+
+
+            _w.Ammo_ui.text = $"{_w.currentAmmo} || {_w.maxAmmo}";
+
+    
+            if (_w.currentAmmo == _w.maxMag || _w.maxAmmo == 0)
+            {
+                _w.SetState(new SingleAfterReloadState());
+                _w.animator_w.SetTrigger("XMReloadEnd");
+                yield break; 
+            }
+        }
     }
 }
+
+
+
 
 public class MagReload : IReloadClick
 {

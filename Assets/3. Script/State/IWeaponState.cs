@@ -220,7 +220,7 @@ public class SingleInsertReloadState : IWeaponState
     public void UpdateState(Weapon weapon)
     {
         AnimatorStateInfo stateInfo = weapon.animator.GetCurrentAnimatorStateInfo(0);
-        if (!stateInfo.IsName("InsertReload") || stateInfo.normalizedTime >= 1.0f)
+        if (!stateInfo.IsName("Insert") || stateInfo.normalizedTime >= 1.0f)
         {
             weapon.SetState(new SingleAfterReloadState());
         }
