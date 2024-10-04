@@ -576,7 +576,7 @@ public class PlayerControl : MonoBehaviour
 
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hitInfo;
-        float rayDistance = 1.1f; 
+        float rayDistance = 0.2f; 
 
 
         bool isGrounded = Physics.Raycast(ray, out hitInfo, rayDistance);
